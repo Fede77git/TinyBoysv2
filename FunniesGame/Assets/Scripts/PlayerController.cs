@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody pelvis;
     public bool isGrounded;
 
+    public Animator animator;
+
     
     void Start()
     {
@@ -23,21 +25,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             pelvis.AddForce(pelvis.transform.forward * speed);
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             pelvis.AddForce(-pelvis.transform.right * strafeSpeed);
+            animator.SetBool("isWalking", true);
         }
+       
 
         if (Input.GetKey(KeyCode.D))
         {
             pelvis.AddForce(pelvis.transform.right * strafeSpeed);
+            animator.SetBool("isWalking", true);
         }
+        
         if (Input.GetKey(KeyCode.S))
         {
             pelvis.AddForce(-pelvis.transform.forward * speed);
+            animator.SetBool("isWalking", true);
         }
+      
 
         if (Input.GetAxis("Jump") > 0)
         {

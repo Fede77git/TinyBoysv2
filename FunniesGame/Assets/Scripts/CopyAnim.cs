@@ -1,18 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class CopyAnim : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public Transform targetAnim;
+    public bool mirror;
+    ConfigurableJoint joint;
+    
     void Start()
     {
-        
+        joint = GetComponent<ConfigurableJoint>();
+
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        if (!mirror)
+        {
+            joint.targetRotation = targetAnim.rotation;
+        }
+        else
+        {
+
+            joint.targetRotation = Quaternion.Inverse(targetAnim.rotation);
+        }
         
     }
 }
