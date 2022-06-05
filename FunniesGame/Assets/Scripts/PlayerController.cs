@@ -38,6 +38,16 @@ public class PlayerController : MonoBehaviour
         {
             pelvis.AddForce(-pelvis.transform.forward * speed);
         }
+
+        if (Input.GetAxis("Jump") > 0)
+        {
+            if (isGrounded)
+            {
+                pelvis.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false;
+            }
+        }
+
     }
 
 
