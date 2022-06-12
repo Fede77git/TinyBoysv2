@@ -117,7 +117,7 @@ public class Pick : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (hold && col.transform.tag == "Object")
+        if (hold/* && col.transform.tag == "Object"*/)
         {
             Rigidbody rb = col.transform.GetComponent<Rigidbody>();
             if (rb != null)

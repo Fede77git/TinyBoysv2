@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && floored)
         {
-            if (Input.GetAxis("Jump") > 0)
+            if (Input.GetKey(KeyCode.Space))
             {
 
                 pelvis.AddForce(new Vector3(0, jumpForce, 0));
