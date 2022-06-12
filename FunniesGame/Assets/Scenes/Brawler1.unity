@@ -2392,7 +2392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 150
   strafeSpeed: 100
-  jumpForce: 3000
+  jumpForce: 5000
   pelvis: {fileID: 1591793223}
   isGrounded: 0
   floored: 0
