@@ -6,9 +6,9 @@
             "id": "f0ab6f78-be26-4941-9f74-1805c57128d2",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Move",
                     "type": "Value",
-                    "id": "0c174efb-ace4-4163-984c-a425142bce20",
+                    "id": "72db7106-c59d-41a0-8228-542de9466169",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -20,11 +20,41 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d4988b03-f71e-4cee-b956-53d77e84fa1f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
+                {
+                    "name": "",
+                    "id": "08bf5a54-87a8-48a0-9910-61c0938aac4b",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Hands",
+            "id": "43f35142-91d4-4c19-b484-1b3408e8cd7f",
+            "actions": [
                 {
                     "name": "LeftHand",
                     "type": "Button",
-                    "id": "27d49c38-4b66-423f-8998-41e0f3c31f26",
+                    "id": "c0715625-d965-44c4-bd8f-3c4a979f40f2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -32,7 +62,7 @@
                 {
                     "name": "RightHand",
                     "type": "Button",
-                    "id": "b06d3ada-9748-4414-b188-d5f9e7b7a6dd",
+                    "id": "ab768bc6-39b1-4b1d-bf51-825decfa3458",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -41,69 +71,25 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "7ce66b2a-1a94-4b02-8624-93217a44e03d",
-                    "path": "<Keyboard>/space",
+                    "id": "42061839-88bc-4823-9441-66904b652816",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
+                    "groups": "",
+                    "action": "LeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "asdw",
-                    "id": "eaaa1c01-b642-4b4b-9471-b18da17173d1",
-                    "path": "2DVector",
-                    "interactions": "",
+                    "name": "",
+                    "id": "8bac9be6-57d0-4092-8006-15985b12beef",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "action": "RightHand",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "7c9b3d0d-0587-4a5a-858c-2fb18b517a30",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "93032937-51bd-4c29-9811-8ebaed92d91e",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "00a4cc6d-366a-4d88-9782-ff585f1a32bc",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e0bc82d0-85d8-4a96-893e-44f150d51f88",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }

@@ -17,24 +17,39 @@ public class PlayerController : MonoBehaviour
     
     
     Vector3 moveDirection = Vector3.zero;
-    public InputAction playerControls;
-    public InputAction playerJump;
+    public PlayerControll playerControls;
+    private InputAction move;
+    private InputAction jump;
     
+   
     
+    void Awake()
+    {
+        playerControls = new PlayerControll();
+    }
+
     void Start()
     {
         pelvis = GetComponent<Rigidbody>();
+
 
     }
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        move = playerControls.PlayerKM.Move;
+        move.Enable();
+        animator.SetBool("isWalking", true);
+        jump = playerControls.PlayerKM.Jump;
+        jump.Enable();
+        jump.performed += Jump;
+
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        move.Disable();
+        jump.Disable();
     }
 
    
@@ -43,7 +58,7 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        moveDirection = playerControls.ReadValue<Vector2>();
+        moveDirection = move.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
@@ -86,16 +101,13 @@ public class PlayerController : MonoBehaviour
 
     //}
 
-    void Jump()
+    void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded && floored)
         {
-            
-            
-
+                       
                 pelvis.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
-
             
         }
     }

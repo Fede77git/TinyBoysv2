@@ -19,9 +19,9 @@ public class @PlayerControll : IInputActionCollection, IDisposable
             ""id"": ""f0ab6f78-be26-4941-9f74-1805c57128d2"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""0c174efb-ace4-4163-984c-a425142bce20"",
+                    ""id"": ""72db7106-c59d-41a0-8228-542de9466169"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -33,11 +33,41 @@ public class @PlayerControll : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d4988b03-f71e-4cee-b956-53d77e84fa1f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
+                {
+                    ""name"": """",
+                    ""id"": ""08bf5a54-87a8-48a0-9910-61c0938aac4b"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Hands"",
+            ""id"": ""43f35142-91d4-4c19-b484-1b3408e8cd7f"",
+            ""actions"": [
                 {
                     ""name"": ""LeftHand"",
                     ""type"": ""Button"",
-                    ""id"": ""27d49c38-4b66-423f-8998-41e0f3c31f26"",
+                    ""id"": ""c0715625-d965-44c4-bd8f-3c4a979f40f2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -45,7 +75,7 @@ public class @PlayerControll : IInputActionCollection, IDisposable
                 {
                     ""name"": ""RightHand"",
                     ""type"": ""Button"",
-                    ""id"": ""b06d3ada-9748-4414-b188-d5f9e7b7a6dd"",
+                    ""id"": ""ab768bc6-39b1-4b1d-bf51-825decfa3458"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -54,69 +84,25 @@ public class @PlayerControll : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""7ce66b2a-1a94-4b02-8624-93217a44e03d"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""42061839-88bc-4823-9441-66904b652816"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Jump"",
+                    ""groups"": """",
+                    ""action"": ""LeftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""asdw"",
-                    ""id"": ""eaaa1c01-b642-4b4b-9471-b18da17173d1"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""name"": """",
+                    ""id"": ""8bac9be6-57d0-4092-8006-15985b12beef"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""action"": ""RightHand"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""7c9b3d0d-0587-4a5a-858c-2fb18b517a30"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""93032937-51bd-4c29-9811-8ebaed92d91e"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""00a4cc6d-366a-4d88-9782-ff585f1a32bc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""e0bc82d0-85d8-4a96-893e-44f150d51f88"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -186,10 +172,12 @@ public class @PlayerControll : IInputActionCollection, IDisposable
 }");
         // PlayerKM
         m_PlayerKM = asset.FindActionMap("PlayerKM", throwIfNotFound: true);
-        m_PlayerKM_Movement = m_PlayerKM.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerKM_Move = m_PlayerKM.FindAction("Move", throwIfNotFound: true);
         m_PlayerKM_Jump = m_PlayerKM.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerKM_LeftHand = m_PlayerKM.FindAction("LeftHand", throwIfNotFound: true);
-        m_PlayerKM_RightHand = m_PlayerKM.FindAction("RightHand", throwIfNotFound: true);
+        // Hands
+        m_Hands = asset.FindActionMap("Hands", throwIfNotFound: true);
+        m_Hands_LeftHand = m_Hands.FindAction("LeftHand", throwIfNotFound: true);
+        m_Hands_RightHand = m_Hands.FindAction("RightHand", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -239,18 +227,14 @@ public class @PlayerControll : IInputActionCollection, IDisposable
     // PlayerKM
     private readonly InputActionMap m_PlayerKM;
     private IPlayerKMActions m_PlayerKMActionsCallbackInterface;
-    private readonly InputAction m_PlayerKM_Movement;
+    private readonly InputAction m_PlayerKM_Move;
     private readonly InputAction m_PlayerKM_Jump;
-    private readonly InputAction m_PlayerKM_LeftHand;
-    private readonly InputAction m_PlayerKM_RightHand;
     public struct PlayerKMActions
     {
         private @PlayerControll m_Wrapper;
         public PlayerKMActions(@PlayerControll wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerKM_Movement;
+        public InputAction @Move => m_Wrapper.m_PlayerKM_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerKM_Jump;
-        public InputAction @LeftHand => m_Wrapper.m_PlayerKM_LeftHand;
-        public InputAction @RightHand => m_Wrapper.m_PlayerKM_RightHand;
         public InputActionMap Get() { return m_Wrapper.m_PlayerKM; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -260,28 +244,57 @@ public class @PlayerControll : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerKMActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMovement;
+                @Move.started -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnMove;
                 @Jump.started -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnJump;
-                @LeftHand.started -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnLeftHand;
-                @LeftHand.performed -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnLeftHand;
-                @LeftHand.canceled -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnLeftHand;
-                @RightHand.started -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnRightHand;
-                @RightHand.performed -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnRightHand;
-                @RightHand.canceled -= m_Wrapper.m_PlayerKMActionsCallbackInterface.OnRightHand;
             }
             m_Wrapper.m_PlayerKMActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+            }
+        }
+    }
+    public PlayerKMActions @PlayerKM => new PlayerKMActions(this);
+
+    // Hands
+    private readonly InputActionMap m_Hands;
+    private IHandsActions m_HandsActionsCallbackInterface;
+    private readonly InputAction m_Hands_LeftHand;
+    private readonly InputAction m_Hands_RightHand;
+    public struct HandsActions
+    {
+        private @PlayerControll m_Wrapper;
+        public HandsActions(@PlayerControll wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LeftHand => m_Wrapper.m_Hands_LeftHand;
+        public InputAction @RightHand => m_Wrapper.m_Hands_RightHand;
+        public InputActionMap Get() { return m_Wrapper.m_Hands; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HandsActions set) { return set.Get(); }
+        public void SetCallbacks(IHandsActions instance)
+        {
+            if (m_Wrapper.m_HandsActionsCallbackInterface != null)
+            {
+                @LeftHand.started -= m_Wrapper.m_HandsActionsCallbackInterface.OnLeftHand;
+                @LeftHand.performed -= m_Wrapper.m_HandsActionsCallbackInterface.OnLeftHand;
+                @LeftHand.canceled -= m_Wrapper.m_HandsActionsCallbackInterface.OnLeftHand;
+                @RightHand.started -= m_Wrapper.m_HandsActionsCallbackInterface.OnRightHand;
+                @RightHand.performed -= m_Wrapper.m_HandsActionsCallbackInterface.OnRightHand;
+                @RightHand.canceled -= m_Wrapper.m_HandsActionsCallbackInterface.OnRightHand;
+            }
+            m_Wrapper.m_HandsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
                 @LeftHand.started += instance.OnLeftHand;
                 @LeftHand.performed += instance.OnLeftHand;
                 @LeftHand.canceled += instance.OnLeftHand;
@@ -291,7 +304,7 @@ public class @PlayerControll : IInputActionCollection, IDisposable
             }
         }
     }
-    public PlayerKMActions @PlayerKM => new PlayerKMActions(this);
+    public HandsActions @Hands => new HandsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -339,8 +352,11 @@ public class @PlayerControll : IInputActionCollection, IDisposable
     }
     public interface IPlayerKMActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IHandsActions
+    {
         void OnLeftHand(InputAction.CallbackContext context);
         void OnRightHand(InputAction.CallbackContext context);
     }
