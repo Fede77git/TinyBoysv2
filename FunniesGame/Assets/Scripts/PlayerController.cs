@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    
+    int isWalking;
     
     Vector3 moveDirection = Vector3.zero;
     public PlayerControll playerControls;
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         pelvis = GetComponent<Rigidbody>();
-
-
+        animator = GetComponent<Animator>();
+        isWalking = Animator.StringToHash("isWalking");
     }
 
     private void OnEnable()
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         move.Disable();
+        animator.SetBool("isWalking", false);
         jump.Disable();
     }
 
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         pelvis.velocity = new Vector3(moveDirection.x * strafeSpeed,0, moveDirection.y * speed);
     }
 
