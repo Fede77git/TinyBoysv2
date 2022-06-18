@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     public PlayerControll playerControls;
     private InputAction move;
     private InputAction jump;
-    
+
+   
    
     
     void Awake()
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         move.Disable();
-        animator.SetBool("isWalking", false);
+        //animator.SetBool("isWalking", false);
         jump.Disable();
     }
 
