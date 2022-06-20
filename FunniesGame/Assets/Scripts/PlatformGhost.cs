@@ -20,7 +20,7 @@ public class PlatformGhost : MonoBehaviour
     {
         if (isFalling)
         {
-            speedD += Time.deltaTime / 50;
+            speedD += Time.deltaTime / 75;
            
             transform.position = new Vector3(transform.position.x, transform.position.y - speedD, transform.position.z);
         }
