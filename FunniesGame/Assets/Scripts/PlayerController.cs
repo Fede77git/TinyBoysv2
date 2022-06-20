@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     int isWalking;
     
-    Vector3 moveDirection = Vector3.zero;
+    Vector3 moveDirection ;
     public PlayerControll playerControls;
     private InputAction move;
     private InputAction jump;
