@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public float gravity = 9.8f;
+    public float fallVel;
     int isWalking;
     
     Vector3 moveDirection ;
@@ -111,7 +113,9 @@ public class PlayerController : MonoBehaviour
                        
                 pelvis.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
-            
+            fallVel -= gravity * Time.deltaTime;
+
+
         }
     }
 }
