@@ -21,7 +21,13 @@ public class Controller2Pj : MonoBehaviour
 
     }
 
-
+    private void Update()
+    {
+        if (transform.position.y < 2)
+        {
+            Dead();
+        }
+    }
     void FixedUpdate()
 {
     if (Input.GetKey(KeyCode.W))
@@ -65,6 +71,13 @@ public class Controller2Pj : MonoBehaviour
     }
 
 }
+    public void Dead()
+    {
+        
+        GameManager.gameOver = true;
 
+
+
+    }
 
 }

@@ -63,6 +63,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveDirection = move.ReadValue<Vector2>();
+
+        if (transform.position.y < 2)
+        {
+            Dead();
+        }
     }
 
     void FixedUpdate()
@@ -117,5 +122,13 @@ public class PlayerController : MonoBehaviour
 
 
         }
+    }
+    public void Dead()
+    {
+
+        GameManager.gameOver = true;
+
+
+
     }
 }
