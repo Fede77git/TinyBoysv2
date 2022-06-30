@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 67adac43bcf286444be612074ab04f75
-  - enabled: 0
-    path: Assets/Scenes/Brawler1.unity
-    guid: ad3091692044fbb47adcc6b7faabfb3c
   m_configObjects: {}

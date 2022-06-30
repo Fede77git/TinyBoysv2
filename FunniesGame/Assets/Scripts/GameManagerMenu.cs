@@ -15,6 +15,12 @@ public class GameManagerMenu : MonoBehaviour
         SceneManager.LoadScene("Level2");
     }
 
+
+    public void RandomScene()
+    {
+        int index = Random.Range(1, 3);
+        SceneManager.LoadScene(index);
+    }
     public void Quit()
     {
         Application.Quit();
