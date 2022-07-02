@@ -14,16 +14,12 @@ public class Controller2Pj : MonoBehaviour
     public bool floored;
 
     public Animator animator;
-    private int cont;
-    public Text textCollected;
     public Text textWin;
 
     void Start()
     {
         pelvis = GetComponent<Rigidbody>();
-        cont = 0;
-        textWin.text = "";
-        SetText();
+        
     }
 
     private void Update()
@@ -78,31 +74,12 @@ public class Controller2Pj : MonoBehaviour
 }
     public void Dead()
     {
-        
-        GameManager.gameOver = true;
+        textWin.text = "Orange Player Wins";
+        Time.timeScale = 0;
 
 
 
     }
 
-    private void SetText()
-    {
-        textCollected.text = " " + cont.ToString();
-        if (cont >= 5)
-        {
-
-            textWin.text = "Purple Player Wins";
-            Time.timeScale = 0f;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("coleccionable"))
-        {
-            cont = cont + 1;
-            SetText();
-            other.gameObject.SetActive(false);
-        }
-    }
+   
 }

@@ -23,8 +23,7 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction jump;
 
-    private int cont;
-    public Text textCollected;
+   
     public Text textWin;
 
 
@@ -38,9 +37,7 @@ public class PlayerController : MonoBehaviour
         pelvis = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         isWalking = Animator.StringToHash("isWalking");
-        cont = 0;
-        textWin.text = "";
-        SetText();
+        
     }
 
     private void OnEnable()
@@ -131,29 +128,11 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
 
-        GameManager.gameOver = true;
+        textWin.text = "Purple Player Wins";
+        Time.timeScale = 0;
 
 
 
     }
-    private void SetText()
-    {
-        textCollected.text = " " + cont.ToString();
-        if (cont >= 5)
-        {
-
-            textWin.text = "Orange Player Wins";
-            Time.timeScale = 0f;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("coleccionable"))
-        {
-            cont = cont + 1;
-            SetText();
-            other.gameObject.SetActive(false);
-        }
-    }
+   
 }
