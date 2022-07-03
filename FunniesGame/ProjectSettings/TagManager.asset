@@ -7,6 +7,7 @@ TagManager:
   - Object
   - Floor
   - coleccionable
+  - Laser
   layers:
   - Default
   - TransparentFX
