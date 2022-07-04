@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Laser : MonoBehaviour
 {
     private LineRenderer line;
     public Transform startPoint;
     public int timer;
-
+    public Text textWin;
     private void Start()
     {
         line = GetComponent<LineRenderer>();
         Invoke("InvokeObject", timer);
-      
+        textWin.text = "";
+
     }
     void Update()
     {
@@ -28,6 +30,19 @@ public class Laser : MonoBehaviour
             if (hit.transform.tag == "Player")
             {
                 Destroy(hit.transform.gameObject);
+            }
+            else if (hit.transform.tag == "Head1")
+            {
+                Destroy(hit.transform.gameObject);
+                textWin.text = "Orange Player Wins";
+                Time.timeScale = 0;
+            }
+            else if (hit.transform.tag == "Head2")
+            {
+                Destroy(hit.transform.gameObject);
+                textWin.text = "Purple Player Wins";
+                Time.timeScale = 0;
+
             }
         }
         else

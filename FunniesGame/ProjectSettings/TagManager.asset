@@ -8,6 +8,8 @@ TagManager:
   - Floor
   - coleccionable
   - Laser
+  - Head1
+  - Head2
   layers:
   - Default
   - TransparentFX
