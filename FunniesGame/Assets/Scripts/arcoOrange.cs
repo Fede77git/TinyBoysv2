@@ -1,16 +1,14 @@
 ﻿
 using UnityEngine;
 using UnityEngine.UI;
-public class WinLvl1Player1 : MonoBehaviour
+
+public class arcoOrange : MonoBehaviour
 {
     private int cont;
     public Text textCollected;
     public Text textWin;
-
-
     void Start()
     {
-       
         cont = 0;
         textWin.text = "";
         SetText();
@@ -26,10 +24,9 @@ public class WinLvl1Player1 : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("coleccionable"))
+        if (other.gameObject.CompareTag("egg"))
         {
             cont = cont + 1;
             SetText();

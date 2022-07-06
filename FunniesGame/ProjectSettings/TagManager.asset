@@ -10,6 +10,7 @@ TagManager:
   - Laser
   - Head1
   - Head2
+  - egg
   layers:
   - Default
   - TransparentFX

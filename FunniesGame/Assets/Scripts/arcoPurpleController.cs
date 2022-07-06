@@ -1,16 +1,14 @@
 ﻿
 using UnityEngine;
 using UnityEngine.UI;
-public class WinLvl1Player1 : MonoBehaviour
+
+public class arcoPurpleController : MonoBehaviour
 {
     private int cont;
     public Text textCollected;
     public Text textWin;
-
-
     void Start()
     {
-       
         cont = 0;
         textWin.text = "";
         SetText();
@@ -22,18 +20,19 @@ public class WinLvl1Player1 : MonoBehaviour
         if (cont >= 5)
         {
 
-            textWin.text = "Purple Player Wins";
+            textWin.text = "Orange Player Wins";
             Time.timeScale = 0f;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter (Collision other)
     {
-        if (other.gameObject.CompareTag("coleccionable"))
+        if (other.gameObject.CompareTag("egg"))
         {
             cont = cont + 1;
             SetText();
             other.gameObject.SetActive(false);
         }
     }
+
+    
 }
