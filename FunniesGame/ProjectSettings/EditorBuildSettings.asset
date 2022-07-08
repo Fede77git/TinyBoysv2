@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/LavaCoinsMenu.unity
     guid: 8ff9fe8b74ae8dd4c9c41c66e8e4e51b
   - enabled: 1
+    path: Assets/Scenes/BombThreatMenu.unity
+    guid: 5504d92ea565636479cbb5aa49bb990b
+  - enabled: 1
+    path: Assets/Scenes/LaserRingMenu.unity
+    guid: 8ccb26e5e93a11843820e92b6df1ebd3
+  - enabled: 1
+    path: Assets/Scenes/CapsuleCollectorMenu.unity
+    guid: 9e0de6bc581e5e04ab29193522f8491d
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 45a86af463bb66b4682591a9355e3346
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 304a5748b784bc241be3c08d67013b21
   - enabled: 1
