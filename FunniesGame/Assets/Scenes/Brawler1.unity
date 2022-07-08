@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b9b16e5e45625fa48894cc651ea0ea8e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &7495681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -274,6 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &12867390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -394,6 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &28142535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -514,6 +523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &41188009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -648,6 +660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &48499980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -754,6 +769,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &49651061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -874,6 +892,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &51073357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1019,7 +1040,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60647984}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1069,7 +1090,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: 0, z: -0.00000074505806}
+  m_ConnectedAnchor: {x: -0.0000013411045, y: 0, z: -0.0000013411045}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1165,7 +1186,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1215,6 +1236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &79179003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1335,6 +1359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &99055930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1455,6 +1482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &99505176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1696,7 +1726,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113244769}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1746,7 +1776,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000007450581, y: 0.806, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: -0.000000603497, y: 0.806, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1842,7 +1872,7 @@ Rigidbody:
   m_Drag: 0.3
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1906,6 +1936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &118436569
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2051,7 +2084,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119683741}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2101,7 +2134,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5000002, y: 0.32000005, z: -0.00000029802322}
+  m_ConnectedAnchor: {x: -0.50000066, y: 0.32000005, z: -0.0000006556511}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2197,7 +2230,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2275,6 +2308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &122151762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2381,6 +2417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &140090457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2501,6 +2540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &144308614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2621,6 +2663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &152286050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2741,6 +2786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &155801213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2956,6 +3004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &166308451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3076,6 +3127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &182550791
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3196,6 +3250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &187268200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3598,6 +3655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &219988055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3718,6 +3778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &260697530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3805,6 +3868,72 @@ Transform:
   m_Father: {fileID: 554672586}
   m_RootOrder: 200
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &267905445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267905448}
+  - component: {fileID: 267905447}
+  - component: {fileID: 267905446}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &267905446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267905445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &267905447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267905445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &267905448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267905445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273080429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +3967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &273080431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3958,6 +4090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &275428376
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4092,6 +4227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &276009630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4198,6 +4336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &277536308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4310,12 +4451,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286503591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.38, y: 1.96, z: 0.92455244}
+  m_LocalPosition: {x: -31.38, y: 1.96, z: -29.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 111810908}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &286503593
 Animator:
@@ -4369,6 +4510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &297811678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4489,6 +4633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &307426949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4609,6 +4756,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &312805664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4729,6 +4879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &313403720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4849,6 +5002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &318010796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4969,6 +5125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &325810128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5103,6 +5262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &329771900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5209,6 +5371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &341077943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5329,6 +5494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &346610788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5570,7 +5738,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379466912}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -5620,7 +5788,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.50000006, y: 0.32000005, z: -0.00000029802322}
+  m_ConnectedAnchor: {x: 0.49999946, y: 0.32000005, z: -0.0000005364418}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -5716,7 +5884,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5780,6 +5948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &406078250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5900,6 +6071,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &407886137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6020,6 +6194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &414029208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6140,6 +6317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &414426995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6260,6 +6440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &418329998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6380,6 +6563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &420277324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6500,6 +6686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &421355121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6620,6 +6809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &431232508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6740,6 +6932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &432072345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6860,6 +7055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &433591464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6980,6 +7178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &435072286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7100,6 +7301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &443431572
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7220,6 +7424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &443765617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7340,6 +7547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &445621511
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7460,6 +7670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &447626025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7594,6 +7807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &457406106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7700,6 +7916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &462326135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7820,6 +8039,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &469851554
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8034,6 +8256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &480337134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8154,6 +8379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &483811817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8274,6 +8502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &483936393
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8394,6 +8625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &488308380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8514,6 +8748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &495804156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8730,6 +8967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &499408053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8864,6 +9104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &500315379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8970,6 +9213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &506383873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9090,6 +9336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &508395101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9210,6 +9459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &511529895
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9330,6 +9582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &515460261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9450,6 +9705,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &526337385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9570,6 +9828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &534154068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9690,6 +9951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &534360329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9810,6 +10074,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &535741292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9930,6 +10197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &544955835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10050,6 +10320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &553183261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10161,7 +10434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554672585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.4, y: 0, z: 4.8}
+  m_LocalPosition: {x: 40.4, y: 0, z: -68.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1122237183}
@@ -10456,6 +10729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &560736882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10576,6 +10852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &562927404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10696,6 +10975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &566865391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10816,6 +11098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &567977427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10950,6 +11235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &573664383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11056,6 +11344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &589779220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11271,6 +11562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &603048498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11578,6 +11872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &611416755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11712,6 +12009,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &613439010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11818,6 +12118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &613535622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12050,7 +12353,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000052154064, y: 0.725, z: -0.00000029802322}
+  m_ConnectedAnchor: {x: 0.00000017136335, y: 0.725, z: 0.0000006556511}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -12146,7 +12449,7 @@ Rigidbody:
   m_Drag: 0.2
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12185,7 +12488,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623784656}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -12389,7 +12692,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635404387}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -12439,7 +12742,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: 0, z: -0.00000074505806}
+  m_ConnectedAnchor: {x: -0.0000016391277, y: 0, z: -0.0000016391277}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -12535,7 +12838,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -12585,6 +12888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &638810760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12705,6 +13011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &675920484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12945,7 +13254,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704750560}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -12995,7 +13304,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.0072788, y: 1.503, z: 0.8418263}
+  m_ConnectedAnchor: {x: -25.924553, y: 1.503, z: 17.707275}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -13114,6 +13423,9 @@ MonoBehaviour:
   isGrounded: 0
   floored: 0
   animator: {fileID: 286503593}
+  gravity: 9.8
+  fallVel: 0
+  textWin: {fileID: 1025536827}
 --- !u!114 &704750568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13205,6 +13517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &710387575
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13325,6 +13640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &714644764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13445,6 +13763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &725456555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13659,6 +13980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &727186617
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13793,6 +14117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &735988161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13992,6 +14319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &746604987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14112,6 +14442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &747307740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14232,6 +14565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &749337501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14366,6 +14702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &749385536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14486,6 +14825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &754265276
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14592,6 +14934,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &760339176
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14712,6 +15057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &760899662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14857,7 +15205,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762869212}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -14907,7 +15255,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000011175871, y: 0.02249986, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.0000010058284, y: 0.02249986, z: -0.0000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -15003,7 +15351,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -15053,6 +15401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &766774849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15173,6 +15524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &773327354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15293,6 +15647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &776581952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15427,6 +15784,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &799620213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15533,6 +15893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &805086862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15655,7 +16018,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -15670,7 +16033,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.23999994, y: -0.16000003, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: -0.24000005, y: -0.16000003, z: -0.00000023841858}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -15789,7 +16152,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807571036}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -15888,6 +16251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &812748709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15999,7 +16365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823301154}
   m_LocalRotation: {x: -0, y: 0.73547965, z: -0, w: 0.67754686}
-  m_LocalPosition: {x: 12.09, y: 1.6338698, z: -0.56}
+  m_LocalPosition: {x: -25, y: 1.6338698, z: 12.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 623784657}
@@ -16019,7 +16385,7 @@ Transform:
   - {fileID: 1112488458}
   - {fileID: 2146168700}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 94.69601, z: 0}
 --- !u!1 &826515275
 GameObject:
@@ -16055,7 +16421,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -16070,7 +16436,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000044703484, y: 0, z: 0.00000074505806}
+  m_ConnectedAnchor: {x: 0, y: 0, z: -0.0000017881393}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -16176,7 +16542,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826515275}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -16275,6 +16641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &839892003
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16395,6 +16764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &845250940
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16515,6 +16887,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &850054452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16635,6 +17010,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &852610683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16755,6 +17133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &856299845
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16875,6 +17256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &859999300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16995,6 +17379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &865296164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17208,6 +17595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &874158456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17328,6 +17718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &874963102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17448,6 +17841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &875515365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17620,13 +18016,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878918596}
-  m_LocalRotation: {x: 0.83696455, y: -0.12920126, z: 0.22426397, w: 0.4821858}
+  m_LocalRotation: {x: 0.81308484, y: 0.17254253, z: -0.29949436, w: 0.4684285}
   m_LocalPosition: {x: 146, y: -1174, z: -1532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 120.106, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 120.106, y: 40.441986, z: 0}
 --- !u!1 &896173301
 GameObject:
   m_ObjectHideFlags: 0
@@ -17660,6 +18056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &896173303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18062,6 +18461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &916841273
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18196,6 +18598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &921393972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18302,6 +18707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &924892115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18515,6 +18923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &929015464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18635,6 +19046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &937718263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18769,6 +19183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &956376177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18875,6 +19292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &957814037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18996,7 +19416,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -19011,7 +19431,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000029802322, y: 0, z: 0.00000044703484}
+  m_ConnectedAnchor: {x: -0.0000008940697, y: 0, z: 0.00000029802322}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -19117,7 +19537,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960199270}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -19216,6 +19636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &961064206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19336,6 +19759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &961836875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19470,6 +19896,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &964639105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19576,6 +20005,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &967589347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19721,7 +20153,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981901515}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -19771,7 +20203,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000074505806, y: 0.02249986, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.0000020116568, y: 0.02249986, z: -0.0000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -19867,7 +20299,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -20106,6 +20538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &992830473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20241,7 +20676,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999988, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: -0.10500014, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.00000014901161, y: -0.10500014, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -20337,7 +20772,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -20375,7 +20810,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002233858}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -20460,6 +20895,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1014655257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20580,6 +21018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1024547844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20700,6 +21141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1025201362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20787,6 +21231,84 @@ Transform:
   m_Father: {fileID: 554672586}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1025536825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025536826}
+  - component: {fileID: 1025536828}
+  - component: {fileID: 1025536827}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1025536826
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025536825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1929592526}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -409.5, y: -194}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1025536827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025536825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1025536828
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025536825}
+  m_CullTransparentMesh: 0
 --- !u!1 &1032340779
 GameObject:
   m_ObjectHideFlags: 0
@@ -20845,7 +21367,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032340779}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -20895,7 +21417,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999988, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000011175871, y: -0.10500014, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.0000010058284, y: -0.10500014, z: -0.0000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -20991,7 +21513,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -21054,6 +21576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1036046525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21174,6 +21699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1043597311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21294,6 +21822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1056783925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21414,6 +21945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1057373863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21534,6 +22068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1060444813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21654,6 +22191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1065320420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21774,6 +22314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1066190606
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21989,6 +22532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1072374915
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22111,7 +22657,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -22126,7 +22672,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.50000006, y: 0.32000005, z: 0.00000029802322}
+  m_ConnectedAnchor: {x: 0.5, y: 0.32000005, z: -0.00000071525574}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -22245,7 +22791,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076401836}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -22344,6 +22890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1086609671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22464,6 +23013,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1094226345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22595,7 +23147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102246795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.32, y: 1.96, z: 0.92455244}
+  m_LocalPosition: {x: -27.32, y: 1.96, z: -29.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 362957079}
@@ -22636,7 +23188,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -22651,7 +23203,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: 0.02249986, z: -0.0000008940697}
+  m_ConnectedAnchor: {x: -0.00000074505806, y: 0.02249986, z: -0.0000008940697}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -22757,7 +23309,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111636186}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -22871,7 +23423,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5000005, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.48750052, y: 0.8375002, z: -0.00000044703484}
+  m_ConnectedAnchor: {x: 0.48750052, y: 0.837499, z: -0.00000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -22967,7 +23519,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -23007,7 +23559,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112488457}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -23092,6 +23644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1122237180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23213,7 +23768,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -23228,7 +23783,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: 0.02249986, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.00000014901161, y: 0.02249986, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -23334,7 +23889,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136825243}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -23433,6 +23988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1137826147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23553,6 +24111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1140039362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23673,6 +24234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1140309868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23793,6 +24357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1145893074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24007,6 +24574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1153627493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24141,6 +24711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1155932410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24247,6 +24820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1172165528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24367,6 +24943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1197327061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24487,6 +25066,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1210165140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24607,6 +25189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1212032691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24727,6 +25312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1215645479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24861,6 +25449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1218211028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24967,6 +25558,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1218642034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25180,6 +25774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1220216007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25300,6 +25897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1225964489
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25513,6 +26113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1241333731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25633,6 +26236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1241436463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25767,6 +26373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1257536843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25966,6 +26575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1264432298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26086,6 +26698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1269495300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26206,6 +26821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1269538880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26326,6 +26944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1271454235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26636,6 +27257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1274723816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26756,6 +27380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1275499112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26890,6 +27517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1277250810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26996,6 +27626,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1280257766
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27210,6 +27843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1288221724
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27330,6 +27966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1295080230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27450,6 +28089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1301868851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27570,6 +28212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1304045863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27715,7 +28360,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317470734}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -27765,7 +28410,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999988, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000074505806, y: -0.10500014, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: -0.0000020116568, y: -0.10500014, z: -0.0000014901161}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -27861,7 +28506,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -27924,6 +28569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1317801876
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28044,6 +28692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1345373081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28189,7 +28840,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371166779}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -28239,7 +28890,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000007450581, y: 0.8010001, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: -0.000000603497, y: 0.8010001, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -28335,7 +28986,7 @@ Rigidbody:
   m_Drag: 0.3
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -28425,7 +29076,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372656288}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -28475,7 +29126,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5000005, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.48750037, y: -0.83750075, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: 0.48750037, y: -0.83750045, z: -0.0000008940697}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -28571,7 +29222,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -28681,6 +29332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1380670818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28787,6 +29441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1380971911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28907,6 +29564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1390070815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29027,6 +29687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1397598901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29147,6 +29810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1403132609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29269,7 +29935,7 @@ Rigidbody:
   m_Drag: 0.3
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -29284,7 +29950,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000052154064, y: 0.8010001, z: -0.00000029802322}
+  m_ConnectedAnchor: {x: 0.00000017136335, y: 0.8010001, z: 0.0000006556511}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -29403,7 +30069,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409543154}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -29527,7 +30193,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418170638}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -29577,7 +30243,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.24000002, y: -0.16000003, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: 0.23999919, y: -0.16000003, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -29673,7 +30339,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -29830,6 +30496,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1436624042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29950,6 +30619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1439666616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30164,6 +30836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1490496784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30284,6 +30959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1491280452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30404,6 +31082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1491382224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30515,7 +31196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493428533}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.082726255, y: 1.6338698, z: 0.92455244}
+  m_LocalPosition: {x: -25, y: 1.6338698, z: 17.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1650063908}
@@ -30570,6 +31251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1504337492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30690,6 +31374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1518438889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30810,6 +31497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1530655950
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30932,7 +31622,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -30947,7 +31637,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5, y: 0.32000005, z: 0.00000017881393}
+  m_ConnectedAnchor: {x: -0.50000036, y: 0.32000005, z: 0.00000011920929}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -31066,7 +31756,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533842346}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -31165,6 +31855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1534262425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31285,6 +31978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1543657256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31464,7 +32160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.2237, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1553896371
 Rigidbody:
@@ -31701,6 +32397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1584009893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31821,6 +32520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1591475077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32060,7 +32762,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591793217}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -32110,7 +32812,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.24000004, y: -0.16000003, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: -0.2400004, y: -0.16000003, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -32206,7 +32908,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -32285,7 +32987,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999988, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000014901161, y: -0.10500014, z: -0.0000008940697}
+  m_ConnectedAnchor: {x: -0.00000074505806, y: -0.10500014, z: -0.0000008940697}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -32381,7 +33083,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -32419,7 +33121,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592877606}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -32504,6 +33206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1596020867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32624,6 +33329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1600862931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32744,6 +33452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1608005592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32864,6 +33575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1610581033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32984,6 +33698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1631469778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33104,6 +33821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1633828470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33224,6 +33944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1641690447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33344,6 +34067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1642638233
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33464,6 +34190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1649002695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33611,7 +34340,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650063907}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -33661,7 +34390,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000007450581, y: 0.725, z: -0.00000023841858}
+  m_ConnectedAnchor: {x: -0.000000603497, y: 0.725, z: -0.00000059604645}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -33757,7 +34486,7 @@ Rigidbody:
   m_Drag: 0.2
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -33835,6 +34564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1650168185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33955,6 +34687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1656861908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34061,6 +34796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1658707892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34181,6 +34919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1663798812
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34301,6 +35042,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1673571481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34465,13 +35209,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673805106}
-  m_LocalRotation: {x: -0, y: 0.91809595, z: -0.39635825, w: 0}
-  m_LocalPosition: {x: 35.9, y: 18.96, z: 29.6}
+  m_LocalRotation: {x: -0.015667679, y: 0.7113824, z: -0.024879139, w: -0.7021899}
+  m_LocalPosition: {x: -18.88, y: 3.23, z: 15.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 46.701004, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.2910001, y: 269.276, z: 0.726}
 --- !u!114 &1673805110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34536,6 +35280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1676501215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34656,6 +35403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1699206221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34776,6 +35526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1711985833
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34896,6 +35649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1721037247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35016,6 +35772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1724167858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35150,6 +35909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1725113529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35256,6 +36018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1730896527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35376,6 +36141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1731029696
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35510,6 +36278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1735214853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35630,6 +36401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1738920993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35750,6 +36524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1746241188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35856,6 +36633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1755061782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35976,6 +36756,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1766705836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36096,6 +36879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1772814009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36216,6 +37002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1784672291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36336,6 +37125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1795190848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36456,6 +37248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1799480649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36590,6 +37385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1803275929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36696,6 +37494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1808825476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36816,6 +37617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1824266365
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37124,6 +37928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1838116669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37244,6 +38051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1853539790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37364,6 +38174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1869781112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37484,6 +38297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1870533339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37618,6 +38434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1879493423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37724,6 +38543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1885677269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37846,7 +38668,7 @@ Rigidbody:
   m_Drag: 0.3
   m_AngularDrag: 0.1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -37861,7 +38683,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000052154064, y: 0.806, z: -0.00000029802322}
+  m_ConnectedAnchor: {x: 0.00000017136335, y: 0.806, z: 0.0000006556511}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -37980,7 +38802,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900824132}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -38093,6 +38915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1911075319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38213,6 +39038,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1914732073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38319,6 +39147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1917890040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38439,6 +39270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1918254723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38559,6 +39393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1922011693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38646,6 +39483,105 @@ Transform:
   m_Father: {fileID: 554672586}
   m_RootOrder: 132
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1929592522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929592526}
+  - component: {fileID: 1929592525}
+  - component: {fileID: 1929592524}
+  - component: {fileID: 1929592523}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1929592523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929592522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1929592524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929592522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1929592525
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929592522}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1929592526
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929592522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1025536826}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1934885026
 GameObject:
   m_ObjectHideFlags: 0
@@ -38679,6 +39615,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1934885028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38825,7 +39764,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965139088}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -38875,7 +39814,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5000005, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.48750052, y: 0.8375008, z: -0.00000059604645}
+  m_ConnectedAnchor: {x: 0.48750052, y: 0.8374984, z: -0.0000017881393}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -38971,7 +39910,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -39069,7 +40008,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -39084,7 +40023,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.24000005, y: -0.16000003, z: -0.00000035762787}
+  m_ConnectedAnchor: {x: 0.2399997, y: -0.16000003, z: -0.00000035762787}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -39203,7 +40142,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968356992}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -39302,6 +40241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1974671476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39422,6 +40364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1979187888
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39542,6 +40487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2006611272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39662,6 +40610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2011051292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39782,6 +40733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2016999958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39902,6 +40856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2022238212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40022,6 +40979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2026244314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40197,7 +41157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026402559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.18, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: -74.4}
   m_LocalScale: {x: 3, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40331,6 +41291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2043450302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40451,6 +41414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2052040310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40585,6 +41551,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2059644199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40691,6 +41660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2061744436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40904,6 +41876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2077898428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41024,6 +41999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2080325810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41144,6 +42122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2083153446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41264,6 +42245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2097579848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41384,6 +42368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2100204477
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41504,6 +42491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2103175146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41624,6 +42614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2109429304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41744,6 +42737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2129821391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41864,6 +42860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2129902520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41998,6 +42997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2135052925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42123,7 +43125,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 11.161778, y: 1.503, z: -0.5667642}
+  m_ConnectedAnchor: {x: -25.92822, y: 1.503, z: 12.233235}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -42239,6 +43241,7 @@ MonoBehaviour:
   isGrounded: 0
   floored: 0
   animator: {fileID: 1102246796}
+  textWin: {fileID: 1025536827}
 --- !u!114 &2136688352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42261,7 +43264,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136688347}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -42390,6 +43393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2136694567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42510,6 +43516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2136995957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42630,6 +43639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2137200189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42861,7 +43873,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -42901,7 +43913,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146168699}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -42986,6 +43998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c61b047adf710d47b12df639bff07b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newColor: {r: 0, g: 0, b: 0, a: 0}
+  render: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2146469736
 BoxCollider:
   m_ObjectHideFlags: 0
