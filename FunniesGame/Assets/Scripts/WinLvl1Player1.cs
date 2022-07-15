@@ -6,6 +6,7 @@ public class WinLvl1Player1 : MonoBehaviour
     private int cont;
     public Text textCollected;
     public Text textWin;
+    public Text textEsc;
 
 
     void Start()
@@ -13,6 +14,8 @@ public class WinLvl1Player1 : MonoBehaviour
        
         cont = 0;
         textWin.text = "";
+        textEsc.text = "";
+
         SetText();
     }
 
@@ -23,6 +26,8 @@ public class WinLvl1Player1 : MonoBehaviour
         {
 
             textWin.text = "Purple Player Wins";
+            textEsc.text = "Press Escape to continue";
+
             Time.timeScale = 0f;
         }
     }

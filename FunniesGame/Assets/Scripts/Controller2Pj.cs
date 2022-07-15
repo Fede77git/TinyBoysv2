@@ -15,7 +15,7 @@ public class Controller2Pj : MonoBehaviour
 
     public Animator animator;
     public Text textWin;
-
+    public Text textEsc;
     void Start()
     {
         pelvis = GetComponent<Rigidbody>();
@@ -75,6 +75,8 @@ public class Controller2Pj : MonoBehaviour
     public void Dead()
     {
         textWin.text = "Orange Player Wins";
+        textEsc.text = "Press Escape to continue";
+
         Time.timeScale = 0;
 
 

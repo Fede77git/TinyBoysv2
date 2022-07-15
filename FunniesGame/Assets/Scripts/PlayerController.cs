@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
    
     public Text textWin;
-
+    public Text textEsc;
 
     void Awake()
     {
@@ -129,6 +129,8 @@ public class PlayerController : MonoBehaviour
     {
 
         textWin.text = "Purple Player Wins";
+        textEsc.text = "Press Escape to continue";
+
         Time.timeScale = 0;
 
 
