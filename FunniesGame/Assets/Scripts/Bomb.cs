@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour
     public float power = 10f;
     public float radius = 5f;
     public float force = 1f;
+   
     void Start()
     {
         
@@ -18,6 +19,7 @@ public class Bomb : MonoBehaviour
         if (bomb == enabled)
         {
             Invoke("Explode", 10);
+            
         }
     }
 

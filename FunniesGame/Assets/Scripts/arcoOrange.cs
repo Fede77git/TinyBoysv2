@@ -7,10 +7,14 @@ public class arcoOrange : MonoBehaviour
     private int cont;
     public Text textCollected;
     public Text textWin;
+    public Text textEsc;
+
     void Start()
     {
         cont = 0;
         textWin.text = "";
+        textEsc.text = "";
+
         SetText();
     }
 
@@ -21,6 +25,8 @@ public class arcoOrange : MonoBehaviour
         {
 
             textWin.text = "Purple Player Wins";
+            textEsc.text = "Press Escape to continue";
+
             Time.timeScale = 0f;
         }
     }

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameOver)
         {
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0;
            
         }
         GetInput();
