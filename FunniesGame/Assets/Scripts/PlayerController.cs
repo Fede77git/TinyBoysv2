@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
    
     public Text textWin;
     public Text textEsc;
+    public Text textFell;
 
     void Awake()
     {
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < 2 || transform.position.y > 50)
         {
             Dead();
+            textFell.text = "Orange player fell of the map";
         }
     }
 

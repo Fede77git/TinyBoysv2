@@ -16,6 +16,9 @@ public class Controller2Pj : MonoBehaviour
     public Animator animator;
     public Text textWin;
     public Text textEsc;
+    public Text textFell;
+
+
     void Start()
     {
         pelvis = GetComponent<Rigidbody>();
@@ -27,6 +30,8 @@ public class Controller2Pj : MonoBehaviour
         if (transform.position.y < 2 || transform.position.y > 50)
         {
             Dead();
+            textFell.text = "Purple player fell of the map";
+
         }
     }
     void FixedUpdate()

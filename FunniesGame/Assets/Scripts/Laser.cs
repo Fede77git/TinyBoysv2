@@ -10,8 +10,8 @@ public class Laser : MonoBehaviour
     public int timer;
     public Text textWin;
     public Text textEsc;
-
-    
+    public Text txtOrange;
+    public Text txtCut;
     private void Start()
     {
         line = GetComponent<LineRenderer>();
@@ -37,8 +37,10 @@ public class Laser : MonoBehaviour
             else if (hit.transform.tag == "Head1")
             {
                 Destroy(hit.transform.gameObject);
-                textWin.text = "Orange Player Wins";
+                txtOrange.text = "Orange Player Wins";
+                txtCut.text = "Purple player was cut into pieces";
                 textEsc.text = "Press Escape to continue";
+                
 
                 Time.timeScale = 0;
             }
@@ -46,6 +48,8 @@ public class Laser : MonoBehaviour
             {
                 Destroy(hit.transform.gameObject);
                 textWin.text = "Purple Player Wins";
+                txtCut.text = "Orange player was cut into pieces";
+
                 textEsc.text = "Press Escape to continue";
 
                 Time.timeScale = 0;
