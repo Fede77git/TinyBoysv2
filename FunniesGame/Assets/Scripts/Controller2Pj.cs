@@ -24,7 +24,7 @@ public class Controller2Pj : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < 2)
+        if (transform.position.y < 2 || transform.position.y > 50)
         {
             Dead();
         }

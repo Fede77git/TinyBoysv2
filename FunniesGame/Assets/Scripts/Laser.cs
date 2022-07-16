@@ -9,17 +9,20 @@ public class Laser : MonoBehaviour
     public Transform startPoint;
     public int timer;
     public Text textWin;
+    public Text textEsc;
+
+    
     private void Start()
     {
         line = GetComponent<LineRenderer>();
         Invoke("InvokeObject", timer);
         textWin.text = "";
-
+        textEsc.text = "";
     }
     void Update()
     {
-       
-        //line.SetPosition(0, startPoint.position);
+
+        line.SetPosition(0, startPoint.position);
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.right, out hit))
         {
@@ -35,12 +38,16 @@ public class Laser : MonoBehaviour
             {
                 Destroy(hit.transform.gameObject);
                 textWin.text = "Orange Player Wins";
+                textEsc.text = "Press Escape to continue";
+
                 Time.timeScale = 0;
             }
             else if (hit.transform.tag == "Head2")
             {
                 Destroy(hit.transform.gameObject);
                 textWin.text = "Purple Player Wins";
+                textEsc.text = "Press Escape to continue";
+
                 Time.timeScale = 0;
 
             }
@@ -54,5 +61,6 @@ public class Laser : MonoBehaviour
     void InvokeObject()
     {
         line.SetPosition(0, startPoint.position);
+        
     }
 }

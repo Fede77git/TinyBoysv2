@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         moveDirection = move.ReadValue<Vector2>();
 
-        if (transform.position.y < 2)
+        if (transform.position.y < 2 || transform.position.y > 50)
         {
             Dead();
         }
