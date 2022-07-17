@@ -77,7 +77,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         
-        pelvis.velocity = new Vector3(moveDirection.x * speed,0, moveDirection.y * strafeSpeed);
+        pelvis.velocity = new Vector3(moveDirection.x * strafeSpeed,0, moveDirection.y * speed);
+
     }
 
     //void FixedUpdate()
