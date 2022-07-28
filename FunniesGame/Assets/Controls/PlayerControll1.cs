@@ -1,4 +1,8 @@
+<<<<<<< HEAD:FunniesGame/Assets/Controls/PlayerControll1.cs
 // GENERATED AUTOMATICALLY FROM 'Assets/Controls/PlayerControll1.inputactions'
+=======
+// GENERATED AUTOMATICALLY FROM 'Assets/PlayerControll.inputactions'
+>>>>>>> parent of 67d89ba (imposible 4pjs):FunniesGame/Assets/Controls/PlayerControll.cs
 
 using System;
 using System.Collections;
