@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     int isWalking;
     
     Vector3 moveDirection ;
-    public PlayerControll1 playerControls;
+    public PlayerControll playerControls;
     private InputAction move;
     private InputAction jump;
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        playerControls = new PlayerControll1();
+        playerControls = new PlayerControll();
     }
 
     void Start()
