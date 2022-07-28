@@ -14,12 +14,12 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
-    
+    public int playerIndex = 0;
     
     int isWalking;
     
     Vector3 moveDirection ;
-    public PlayerControll playerControls;
+    public PlayerControll1 playerControls;
     private InputAction move;
     private InputAction jump;
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        playerControls = new PlayerControll();
+        playerControls = new PlayerControll1();
     }
 
     void Start()
@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
+    }
     private void OnEnable()
     {
         move = playerControls.PlayerKM.Move;
