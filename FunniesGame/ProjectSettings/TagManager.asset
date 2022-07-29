@@ -13,6 +13,7 @@ TagManager:
   - egg
   - PowerUp1
   - PowerUp2
+  - Head3
   layers:
   - Default
   - TransparentFX
