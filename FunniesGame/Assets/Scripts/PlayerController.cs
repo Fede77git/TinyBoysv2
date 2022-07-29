@@ -28,17 +28,19 @@ public class PlayerController : MonoBehaviour
     public Text textEsc;
     public Text textFell;
 
+    public bool dead1;
+
     void Awake()
     {
         playerControls = new PlayerControll();
     }
 
-    void Start()
+   public void Start()
     {
         pelvis = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         isWalking = Animator.StringToHash("isWalking");
-
+        dead1 = false;
     }
 
     public int GetPlayerIndex()
@@ -67,14 +69,16 @@ public class PlayerController : MonoBehaviour
 
     
     
-    void Update()
+   public void Update()
     {
         moveDirection = move.ReadValue<Vector2>();
 
         if (transform.position.y < 2 || transform.position.y > 50)
         {
+
             Dead();
-            textFell.text = "Orange player fell of the map";
+            dead1 = true;
+            //textFell.text = "Orange player fell of the map";
         }
     }
 
@@ -135,10 +139,10 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
 
-        textWin.text = "Purple Player Wins";
-        textEsc.text = "Press Escape to continue";
+        //textWin.text = "Purple Player Wins";
+        //textEsc.text = "Press Escape to continue";
 
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
 
 
 

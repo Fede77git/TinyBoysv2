@@ -17,22 +17,24 @@ public class Controller3 : MonoBehaviour
     public Text textWin;
     public Text textEsc;
     public Text textFell;
-
-
-    void Start()
+   
+    public bool dead3;
+   public void Start()
     {
         pelvis = GetComponent<Rigidbody>();
-
+        dead3 = false;
     }
 
-    private void Update()
+    public void Update()
     {
         if (transform.position.y < 2 || transform.position.y > 50)
         {
+            dead3 = true;
             Dead();
-            textFell.text = "Green player fell of the map";
+            //textFell.text = "Green player fell of the map";
 
         }
+       
     }
     void FixedUpdate()
     {
@@ -79,10 +81,10 @@ public class Controller3 : MonoBehaviour
     }
     public void Dead()
     {
-        textWin.text = "Orange Player Wins";
-        textEsc.text = "Press Escape to continue";
+        //textWin.text = "Orange Player Wins";
+        //textEsc.text = "Press Escape to continue";
 
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
 
 
 

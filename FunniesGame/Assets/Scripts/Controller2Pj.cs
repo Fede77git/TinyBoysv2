@@ -17,20 +17,22 @@ public class Controller2Pj : MonoBehaviour
     public Text textWin;
     public Text textEsc;
     public Text textFell;
+    public bool dead2;
 
-
-    void Start()
+    public  void Start()
     {
+        dead2 = false;
         pelvis = GetComponent<Rigidbody>();
         
     }
 
-    private void Update()
+    public void Update()
     {
         if (transform.position.y < 2 || transform.position.y > 50)
         {
-            Dead();
-            textFell.text = "Purple player fell of the map";
+            Dead2();
+            dead2 = true;
+            //textFell.text = "Purple player fell of the map";
 
         }
     }
@@ -77,12 +79,12 @@ public class Controller2Pj : MonoBehaviour
     }
 
 }
-    public void Dead()
+    public void Dead2()
     {
-        textWin.text = "Orange Player Wins";
-        textEsc.text = "Press Escape to continue";
+        //textWin.text = "Orange Player Wins";
+        //textEsc.text = "Press Escape to continue";
 
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
 
 
 
