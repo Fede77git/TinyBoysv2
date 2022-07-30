@@ -6,7 +6,7 @@ public class Pick4 : MonoBehaviour
 {
     private bool hold;
     public KeyCode grabKey;
-
+    
     public Animator animator;
     public bool RightHand;
 

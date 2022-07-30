@@ -12,6 +12,7 @@ public class Gamemanager2 : MonoBehaviour
     public Text textWin;
     public Text textEsc;
     public Text textFell;
+    public Image blue;
     void Start()
     {
         
@@ -24,30 +25,30 @@ public class Gamemanager2 : MonoBehaviour
 
         if (playerController.dead1 == true && controller2Pj.dead2 == true && controller3.dead3 == false && controller4.dead4 == true)
         {
-            textWin.text = "Green Player Wins";
+            textWin.text = "Wins";
             textEsc.text = "Press Escape to continue";
-            textFell.text = "Purple and Orange player fell of the map";
+            textFell.text = "The other players fell off the map";
             Time.timeScale = 0;
         }
         else if (playerController.dead1 == true && controller2Pj.dead2 == false && controller3.dead3 == true && controller4.dead4 == true)
         {
-            textWin.text = "Purple Player Wins";
+            textWin.text = "Wins";
             textEsc.text = "Press Escape to continue";
-            textFell.text = "Green and Orange player fell of the map";
+            textFell.text = "The other players fell off the map";
             Time.timeScale = 0;
         }
         else if (playerController.dead1 == false && controller2Pj.dead2 == true && controller3.dead3 == true && controller4.dead4 == true)
         {
-            textWin.text = "Orange Player Wins";
+            textWin.text = "Wins";
             textEsc.text = "Press Escape to continue";
-            textFell.text = "Purple and Green player fell of the map";
+            textFell.text = "The other players fell off the map";
             Time.timeScale = 0;
         }
         else if (playerController.dead1 == true && controller2Pj.dead2 == true && controller3.dead3 == true && controller4.dead4 == false)
         {
-            textWin.text = "Blue Player Wins";
+            textWin.text = "Wins";
             textEsc.text = "Press Escape to continue";
-            textFell.text = "Purple and Green player fell of the map";
+            textFell.text = "The other players fell off the map";
             Time.timeScale = 0;
         }
 
