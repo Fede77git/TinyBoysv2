@@ -7,6 +7,7 @@ public class Gamemanager2 : MonoBehaviour
     public PlayerController playerController;
     public Controller2Pj controller2Pj;
     public Controller3 controller3;
+    public Controller4 controller4;
 
     public Text textWin;
     public Text textEsc;
@@ -42,7 +43,7 @@ public class Gamemanager2 : MonoBehaviour
             textFell.text = "Purple and Green player fell of the map";
             Time.timeScale = 0;
         }
-<<<<<<< HEAD
+
         else if (playerController.dead1 == true && controller2Pj.dead2 == true && controller3.dead3 == true && controller4.dead4 == false)
         {
             textWin.text = "Blue Player Wins";
@@ -50,8 +51,7 @@ public class Gamemanager2 : MonoBehaviour
             textFell.text = "Purple and Green player fell of the map";
             Time.timeScale = 0;
         }
-=======
->>>>>>> parent of c392cc3 (players 4 implemented)
+
 
 
 
