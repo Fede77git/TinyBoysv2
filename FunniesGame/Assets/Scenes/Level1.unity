@@ -45957,7 +45957,7 @@ MonoBehaviour:
   pelvis: {fileID: 811979797}
   isGrounded: 0
   floored: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1593431282}
   isDead: 0
   playerIndex: 0
   textWin: {fileID: 0}
