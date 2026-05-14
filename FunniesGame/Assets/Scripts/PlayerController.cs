@@ -1,151 +1,120 @@
-﻿using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 150;
-    public float strafeSpeed = 100;
+    public float speed = 15;
+    public float strafeSpeed = 10;
     public float jumpForce;
 
     public Rigidbody pelvis;
     public bool isGrounded;
     public bool floored;
-
     public Animator animator;
+    public bool isDead;
 
     public int playerIndex = 0;
-    
-    int isWalking;
-    
-    Vector3 moveDirection ;
-    public PlayerControll playerControls;
-    private InputAction move;
-    private InputAction jump;
-
-   
-    public Text textWin;
-    public Text textEsc;
-    public Text textFell;
-
+    public UnityEngine.UI.Text textWin;
+    public UnityEngine.UI.Text textEsc;
+    public UnityEngine.UI.Text textFell;
     public bool dead1;
 
-    void Awake()
-    {
-        playerControls = new PlayerControll();
-    }
-
-   public void Start()
-    {
-        pelvis = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        isWalking = Animator.StringToHash("isWalking");
-        dead1 = false;
-    }
+    private Vector2 moveDirection;
+    
+    public InputActionReference moveAction;
+    public InputActionReference jumpAction;
 
     public int GetPlayerIndex()
     {
         return playerIndex;
     }
-    private void OnEnable()
-    {
-        move = playerControls.PlayerKM.Move;
-        move.Enable();
-        animator.SetBool("isWalking", true);
-        jump = playerControls.PlayerKM.Jump;
-        jump.Enable();
-        jump.performed += Jump;
 
+    void OnEnable()
+    {
+        if (moveAction != null) moveAction.action.Enable();
+        
+        if (jumpAction != null)
+        {
+            jumpAction.action.Enable();
+            jumpAction.action.performed += Jump;
+        }
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-        move.Disable();
-        //animator.SetBool("isWalking", false);
-        jump.Disable();
+        if (moveAction != null) moveAction.action.Disable();
+        
+        if (jumpAction != null)
+        {
+            jumpAction.action.Disable();
+            jumpAction.action.performed -= Jump;
+        }
     }
 
-   
-
-    
-    
-   public void Update()
+    void Update()
     {
-        moveDirection = move.ReadValue<Vector2>();
+        if (moveAction != null && moveAction.action != null)
+        {
+            moveDirection = moveAction.action.ReadValue<Vector2>();
+        }
+
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", moveDirection.sqrMagnitude > 0.01f);
+        }
 
         if (transform.position.y < 2 || transform.position.y > 50)
         {
-
-            Dead();
-            dead1 = true;
-            //textFell.text = "Orange player fell of the map";
+            if (!isDead)
+            {
+                Dead();
+            }
         }
     }
 
     void FixedUpdate()
     {
-        
-        pelvis.velocity = new Vector3(moveDirection.x * strafeSpeed,0, moveDirection.y * speed);
+        if (!isDead && pelvis != null)
+        {
+            Vector3 camForward = Camera.main.transform.forward;
+            Vector3 camRight = Camera.main.transform.right;
 
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
+
+            Vector3 direction = camForward * (moveDirection.y * speed) + camRight * (moveDirection.x * strafeSpeed);
+            
+            Vector3 targetVelocity = direction;
+
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
+                pelvis.MoveRotation(Quaternion.Slerp(pelvis.rotation, targetRotation, Time.fixedDeltaTime * 15f));
+            }
+
+            Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
+            foreach (Rigidbody rb in allBodies)
+            {
+                Vector3 newVel = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
+                rb.velocity = newVel;
+            }
+        }
     }
-
-    //void FixedUpdate()
-    //{
-    //    if (Input.GetKey(KeyCode.W))
-    //    {
-    //        pelvis.AddForce(pelvis.transform.forward * speed);
-    //        animator.SetBool("isWalking", true);
-    //    }
-    //    else
-    //    {
-    //        animator.SetBool("isWalking", false);
-    //    }
-
-    //    if (Input.GetKey(KeyCode.A))
-    //    {
-    //        pelvis.AddForce(-pelvis.transform.right * strafeSpeed);
-    //        animator.SetBool("isWalking", true);
-    //    }
-       
-
-    //    if (Input.GetKey(KeyCode.D))
-    //    {
-    //        pelvis.AddForce(pelvis.transform.right * strafeSpeed);
-    //        animator.SetBool("isWalking", true);
-    //    }
-        
-    //    if (Input.GetKey(KeyCode.S))
-    //    {
-    //        pelvis.AddForce(-pelvis.transform.forward * speed);
-    //        animator.SetBool("isWalking", true);
-    //    }
-
-       
-
-    //}
 
     void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded && floored)
+        if (isGrounded && floored && !isDead && pelvis != null)
         {
-
-            pelvis.AddForce(new Vector3(0, jumpForce, 0));
+            pelvis.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isGrounded = false;
-            
-
-
         }
     }
+
     public void Dead()
     {
-
-        //textWin.text = "Purple Player Wins";
-        //textEsc.text = "Press Escape to continue";
-
-        //Time.timeScale = 0;
-
-
-
+        isDead = true;
     }
-   
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.082759745, g: 0.036200225, b: 0.13373429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -13423,9 +13423,11 @@ MonoBehaviour:
   isGrounded: 0
   floored: 0
   animator: {fileID: 286503593}
-  gravity: 9.8
-  fallVel: 0
+  playerIndex: 0
   textWin: {fileID: 1025536827}
+  textEsc: {fileID: 0}
+  textFell: {fileID: 0}
+  dead1: 0
 --- !u!114 &704750568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16365,7 +16367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823301154}
   m_LocalRotation: {x: -0, y: 0.73547965, z: -0, w: 0.67754686}
-  m_LocalPosition: {x: -25, y: 1.6338698, z: 12.24}
+  m_LocalPosition: {x: 1.46, y: 1.6338698, z: -64.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 623784657}
@@ -31196,7 +31198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493428533}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -25, y: 1.6338698, z: 17.79}
+  m_LocalPosition: {x: -0.12, y: 1.6338698, z: -73.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1650063908}
@@ -35209,8 +35211,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673805106}
-  m_LocalRotation: {x: -0.015667679, y: 0.7113824, z: -0.024879139, w: -0.7021899}
-  m_LocalPosition: {x: -18.88, y: 3.23, z: 15.07}
+  m_LocalRotation: {x: 0.20911168, y: -0.67565644, z: 0.20923536, w: 0.6752638}
+  m_LocalPosition: {x: 21.697481, y: 14.867672, z: -74.383286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43242,6 +43244,9 @@ MonoBehaviour:
   floored: 0
   animator: {fileID: 1102246796}
   textWin: {fileID: 1025536827}
+  textEsc: {fileID: 0}
+  textFell: {fileID: 0}
+  dead2: 0
 --- !u!114 &2136688352
 MonoBehaviour:
   m_ObjectHideFlags: 0
