@@ -3,7 +3,22 @@ guid: ac61c27a7759b7647ae870bf5814a2fd
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carita
+    second: {fileID: 2100000, guid: ffd5178fa4da1a04382d9177085f1e14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cuerpo
+    second: {fileID: 2100000, guid: fd97569f9b135a042a92df91f4d20f8c, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: texture_0
+    second: {fileID: 2800000, guid: 82774959e16d83e41a89b21ce985fdfa, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

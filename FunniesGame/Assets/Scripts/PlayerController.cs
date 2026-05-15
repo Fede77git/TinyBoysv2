@@ -123,6 +123,11 @@ public class PlayerController : MonoBehaviour
             Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
             foreach (Rigidbody rb in allBodies)
             {
+                if (rb.gameObject.name.Contains("Head"))
+                {
+                    continue;
+                }
+
                 Vector3 newVel = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
                 rb.velocity = newVel;
             }
