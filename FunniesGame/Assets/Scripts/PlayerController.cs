@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalking", moveDirection.sqrMagnitude > 0.01f);
         }
 
-        if (transform.position.y < 2 || transform.position.y > 50)
+        if (pelvis != null && (pelvis.position.y < 2 || pelvis.position.y > 50))
         {
             if (!isDead)
             {
