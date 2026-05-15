@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 15;
     public float strafeSpeed = 10;
-    public float jumpForce;
+    public float jumpForce = 2;
 
     public Rigidbody pelvis;
     public bool isGrounded;
@@ -73,10 +73,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CheckGround()
+    {
+        if (pelvis == null) return;
+
+        int layerMask = ~LayerMask.GetMask("nocoll");
+        
+        if (Physics.Raycast(pelvis.position, Vector3.down, 1.2f, layerMask))
+        {
+            isGrounded = true;
+            floored = true;
+        }
+        else
+        {
+            isGrounded = false;
+            floored = false;
+        }
+    }
+
     void FixedUpdate()
     {
         if (!isDead && pelvis != null)
         {
+            CheckGround();
+
             Vector3 camForward = Camera.main.transform.forward;
             Vector3 camRight = Camera.main.transform.right;
 

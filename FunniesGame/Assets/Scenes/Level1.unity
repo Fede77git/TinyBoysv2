@@ -55957,7 +55957,6 @@ GameObject:
   - component: {fileID: 1884980314}
   - component: {fileID: 1884980313}
   - component: {fileID: 1884980312}
-  - component: {fileID: 1884980311}
   - component: {fileID: 1884980315}
   m_Layer: 0
   m_Name: Player1_BaseFinal
@@ -55966,19 +55965,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1884980311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884980310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f278424c7645c4b92c2b01cc29f7c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 1884980313}
 --- !u!114 &1884980312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56023,7 +56009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   strafeSpeed: 10
-  jumpForce: 0
+  jumpForce: 5
   pelvis: {fileID: 2127247767}
   isGrounded: 0
   floored: 0
@@ -64671,8 +64657,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15.8
-  m_Center: {x: 1.1206748, y: 4.17624, z: 0.00000031167775}
+  m_Radius: 14.277296
+  m_Center: {x: 1.1206747, y: 5.698951, z: 0.00000077304287}
 --- !u!153 &2127247769
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -65421,19 +65407,6 @@ CapsuleCollider:
   m_Height: 51.616177
   m_Direction: 1
   m_Center: {x: 2.4739058, y: 26.652544, z: -0.0000018319483}
---- !u!114 &2127247787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127247759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f278424c7645c4b92c2b01cc29f7c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 1884980313}
 --- !u!1 &2130213490
 GameObject:
   m_ObjectHideFlags: 0
