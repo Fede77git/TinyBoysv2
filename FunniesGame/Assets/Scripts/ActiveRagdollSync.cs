@@ -7,16 +7,19 @@ public class ActiveRagdollSync : MonoBehaviour
 
     private ConfigurableJoint[] joints;
     private Transform[] animatedBones;
+    private Quaternion[] initialJointRotations;
 
     void Start()
     {
         joints = physicalRoot.GetComponentsInChildren<ConfigurableJoint>();
         animatedBones = new Transform[joints.Length];
+        initialJointRotations = new Quaternion[joints.Length];
 
         for (int i = 0; i < joints.Length; i++)
         {
             Transform physicalBone = joints[i].transform;
             animatedBones[i] = FindChildByName(animatedRoot, physicalBone.name);
+            initialJointRotations[i] = physicalBone.localRotation;
         }
     }
 
@@ -26,7 +29,7 @@ public class ActiveRagdollSync : MonoBehaviour
         {
             if (animatedBones[i] != null)
             {
-                joints[i].targetRotation = animatedBones[i].localRotation;
+                joints[i].targetRotation = Quaternion.Inverse(animatedBones[i].localRotation) * initialJointRotations[i];
             }
         }
     }
