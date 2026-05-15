@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
             foreach (Rigidbody rb in allBodies)
             {
-                if (rb.gameObject.name.Contains("Head"))
+                if (rb.gameObject.name.Contains("Head") || rb.gameObject.name.Contains("Arm"))
                 {
                     continue;
                 }
