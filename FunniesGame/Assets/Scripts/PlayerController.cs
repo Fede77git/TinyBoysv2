@@ -93,6 +93,11 @@ public class PlayerController : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
                 pelvis.MoveRotation(Quaternion.Slerp(pelvis.rotation, targetRotation, Time.fixedDeltaTime * 15f));
+                
+                if (animator != null)
+                {
+                    animator.transform.rotation = pelvis.rotation;
+                }
             }
 
             Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
