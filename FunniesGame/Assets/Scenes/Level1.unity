@@ -33550,6 +33550,11 @@ MonoBehaviour:
   - {fileID: 1959422169}
   - {fileID: 859474821}
   - {fileID: 1141489521}
+  playerUI:
+  - {fileID: 1779892296}
+  - {fileID: 1331623433}
+  - {fileID: 1348598504}
+  - {fileID: 705714998}
   textWin: {fileID: 250121174}
   textEsc: {fileID: 692511593}
 --- !u!4 &1041245521
@@ -33588,7 +33593,7 @@ MonoBehaviour:
   - {fileID: 1012452314}
   - {fileID: 623522860}
   - {fileID: 916378288}
-  numberOfPlayers: 4
+  numberOfPlayers: 2
 --- !u!1 &1042065124
 GameObject:
   m_ObjectHideFlags: 0
@@ -61305,7 +61310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!222 &1993704022
 CanvasRenderer:
   m_ObjectHideFlags: 0

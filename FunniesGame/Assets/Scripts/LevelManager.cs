@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private int[] playerScores = new int[4];
 
     public Text[] scoreTexts; 
+    public GameObject[] playerUI;
     public Text textWin;
     public Text textEsc;
 
@@ -35,6 +36,17 @@ public class LevelManager : MonoBehaviour
 
     public void SetupUI(int activePlayers)
     {
+        if (playerUI != null)
+        {
+            for (int i = 0; i < playerUI.Length; i++)
+            {
+                if (playerUI[i] != null)
+                {
+                    playerUI[i].SetActive(i < activePlayers);
+                }
+            }
+        }
+
         for (int i = 0; i < scoreTexts.Length; i++)
         {
             if (scoreTexts[i] != null)
