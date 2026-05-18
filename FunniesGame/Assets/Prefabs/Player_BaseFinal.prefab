@@ -369,7 +369,7 @@ MonoBehaviour:
   floored: 0
   animator: {fileID: 7349010790540885540}
   isDead: 0
-  playerIndex: 0
+  playerIndex: 3
   textWin: {fileID: 0}
   textEsc: {fileID: 0}
   textFell: {fileID: 0}
@@ -1271,6 +1271,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8111781155169087978, guid: ac61c27a7759b7647ae870bf5814a2fd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c15dab1c9c9dec48b8ca4a656536cd5, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: ac61c27a7759b7647ae870bf5814a2fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac61c27a7759b7647ae870bf5814a2fd, type: 3}
