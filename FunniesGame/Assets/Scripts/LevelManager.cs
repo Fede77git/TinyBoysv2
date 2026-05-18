@@ -33,6 +33,17 @@ public class LevelManager : MonoBehaviour
         UpdateScoreUI();
     }
 
+    public void SetupUI(int activePlayers)
+    {
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            if (scoreTexts[i] != null)
+            {
+                scoreTexts[i].gameObject.SetActive(i < activePlayers);
+            }
+        }
+    }
+
 
     public void AddCoin(int playerIndex)
     {
