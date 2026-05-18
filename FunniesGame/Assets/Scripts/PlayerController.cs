@@ -150,5 +150,10 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         isDead = true;
+        
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.PlayerDied(playerIndex);
+        }
     }
 }

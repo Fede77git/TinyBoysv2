@@ -9,6 +9,7 @@ public class Pick : MonoBehaviour
 
 
     private bool hold;
+    private Rigidbody grabbedRb;
     public UnityEngine.InputSystem.InputActionReference grabAction;
    
     public Animator animator;
@@ -36,6 +37,13 @@ public class Pick : MonoBehaviour
                 else animator.SetBool("isLeftHand", true);
                 
                 hold = true;
+
+                FixedJoint currentJoint = GetComponent<FixedJoint>();
+                if (currentJoint != null && grabbedRb != null && currentJoint.connectedBody == null)
+                {
+                    Destroy(currentJoint);
+                    grabbedRb = null;
+                }
             }
             else
             {
@@ -43,6 +51,7 @@ public class Pick : MonoBehaviour
                 else animator.SetBool("isLeftHand", false);
 
                 hold = false;
+                grabbedRb = null;
                 Destroy(GetComponent<FixedJoint>());
             }
         }
@@ -59,10 +68,10 @@ public class Pick : MonoBehaviour
             {
                 FixedJoint fj = gameObject.AddComponent<FixedJoint>();
                 fj.connectedBody = rb;
+                grabbedRb = rb;
             }
             else
             {
-
                 gameObject.AddComponent<FixedJoint>();
             }
         }
