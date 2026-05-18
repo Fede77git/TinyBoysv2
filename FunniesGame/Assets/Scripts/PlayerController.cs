@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
 
     public int playerIndex = 0;
-    public UnityEngine.UI.Text textWin;
-    public UnityEngine.UI.Text textEsc;
-    public UnityEngine.UI.Text textFell;
     public bool dead1;
 
     private Vector2 moveDirection;
