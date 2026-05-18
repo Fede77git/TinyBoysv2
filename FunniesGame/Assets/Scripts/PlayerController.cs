@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public int playerIndex = 0;
     public bool dead1;
+    public float groundCheckDistance = 1.0f;
 
     private Vector2 moveDirection;
     private float jumpCooldown;
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         int layerMask = ~LayerMask.GetMask("nocoll");
         
-        if (pelvis.velocity.y <= 0.1f && Physics.Raycast(pelvis.position, Vector3.down, 1.2f, layerMask))
+        if (pelvis.velocity.y <= 0.1f && Physics.Raycast(pelvis.position, Vector3.down, groundCheckDistance, layerMask))
         {
             isGrounded = true;
             floored = true;

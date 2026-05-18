@@ -16391,6 +16391,7 @@ MonoBehaviour:
   isDead: 0
   playerIndex: 0
   dead1: 0
+  groundCheckDistance: 1
   moveAction: {fileID: -6926371480242000162, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
@@ -33347,13 +33348,13 @@ MonoBehaviour:
   - {fileID: 3789352240768472967, guid: 9fee6489e9285724b9490dfdd0775f1c, type: 3}
   - {fileID: 438735617139219992, guid: 4c87de0613da24743a1ab5ab31bb609e, type: 3}
   - {fileID: 2905613925923615630, guid: 6109632b7b5333c43afd3384ecb46b6d, type: 3}
-  - {fileID: 3789352240768472967, guid: 9fee6489e9285724b9490dfdd0775f1c, type: 3}
+  - {fileID: 1755528344592595822, guid: e955bb2ae76b5614a8bb484f6aedaefd, type: 3}
   spawnPoints:
   - {fileID: 533055814}
   - {fileID: 1012452314}
   - {fileID: 623522860}
   - {fileID: 916378288}
-  numberOfPlayers: 4
+  numberOfPlayers: 2
 --- !u!1 &1042065124
 GameObject:
   m_ObjectHideFlags: 0
@@ -40444,6 +40445,7 @@ MonoBehaviour:
   isDead: 0
   playerIndex: 0
   dead1: 0
+  groundCheckDistance: 1
   moveAction: {fileID: 0}
   jumpAction: {fileID: 0}
   jumpSound: {fileID: 0}
@@ -46509,6 +46511,7 @@ MonoBehaviour:
   isDead: 0
   playerIndex: 0
   dead1: 0
+  groundCheckDistance: 1
   moveAction: {fileID: -6926371480242000162, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
