@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
 
+    public float minHeightLimit = -10f;
+    public float maxHeightLimit = 50f;
+    public float maxFallSpeed = -15f;
+
     public int GetPlayerIndex()
     {
         return playerIndex;
@@ -78,7 +82,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isGrounded", isGrounded);
         }
 
-        if (pelvis != null && (pelvis.position.y < 2 || pelvis.position.y > 50))
+        if (pelvis != null && (pelvis.position.y < minHeightLimit || pelvis.position.y > maxHeightLimit))
         {
             if (!isDead)
             {
@@ -143,6 +147,12 @@ public class PlayerController : MonoBehaviour
                 }
 
                 Vector3 newVel = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
+                
+                if (newVel.y < maxFallSpeed) 
+                {
+                    newVel.y = maxFallSpeed;
+                }
+
                 rb.velocity = newVel;
             }
         }

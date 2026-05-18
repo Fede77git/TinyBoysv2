@@ -376,6 +376,9 @@ MonoBehaviour:
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
+  minHeightLimit: -1
+  maxHeightLimit: 50
+  maxFallSpeed: -10
   jumpSound: {fileID: 0}
   jumpParticles: {fileID: 0}
 --- !u!114 &3789352240768472969

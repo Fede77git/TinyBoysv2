@@ -78,10 +78,6 @@ public class Pick : MonoBehaviour
                 fj.connectedBody = rb;
                 grabbedRb = rb;
             }
-            else
-            {
-                gameObject.AddComponent<FixedJoint>();
-            }
         }
     }
 }
