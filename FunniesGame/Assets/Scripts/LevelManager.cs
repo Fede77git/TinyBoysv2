@@ -73,19 +73,42 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private bool[] isPlayerDead = new bool[4];
+
     public void PlayerDied(int deadPlayerIndex)
     {
-        int winnerIndex = (deadPlayerIndex == 0) ? 1 : 0;
-        
-        string playerName = "Player " + (winnerIndex + 1);
-        if (winnerIndex == 0) playerName = "Purple Player";
-        else if (winnerIndex == 1) playerName = "Orange Player";
-        else if (winnerIndex == 2) playerName = "Green Player";
-        else if (winnerIndex == 3) playerName = "Blue Player";
+        if (deadPlayerIndex >= 0 && deadPlayerIndex < 4)
+        {
+            isPlayerDead[deadPlayerIndex] = true;
+        }
 
-        if (textWin != null) textWin.text = playerName + " Wins!";
-        if (textEsc != null) textEsc.text = "Press Escape to continue";
+        int totalPlayers = FindObjectsOfType<PlayerController>().Length;
+        if (totalPlayers == 0) totalPlayers = 2;
 
-        Time.timeScale = 0f;
+        int aliveCount = 0;
+        int lastAliveIndex = 0;
+
+        for (int i = 0; i < totalPlayers; i++)
+        {
+            if (!isPlayerDead[i])
+            {
+                aliveCount++;
+                lastAliveIndex = i;
+            }
+        }
+
+        if (aliveCount <= 1)
+        {
+            string playerName = "Player " + (lastAliveIndex + 1);
+            if (lastAliveIndex == 0) playerName = "Purple Player";
+            else if (lastAliveIndex == 1) playerName = "Orange Player";
+            else if (lastAliveIndex == 2) playerName = "Green Player";
+            else if (lastAliveIndex == 3) playerName = "Blue Player";
+
+            if (textWin != null) textWin.text = playerName + " Wins!";
+            if (textEsc != null) textEsc.text = "Press Escape to continue";
+
+            Time.timeScale = 0f;
+        }
     }
 }
