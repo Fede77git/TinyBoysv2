@@ -57,11 +57,19 @@ public class Pick : MonoBehaviour
         }
     }
 
+    private PlayerController myController;
+
+    void Start()
+    {
+        myController = GetComponentInParent<PlayerController>();
+    }
+
     private void OnCollisionStay(Collision col)
     {
         if (hold && GetComponent<FixedJoint>() == null)
         {
-            if (col.gameObject.layer == LayerMask.NameToLayer("nocoll")) return;
+            PlayerController otherController = col.collider.GetComponentInParent<PlayerController>();
+            if (otherController != null && otherController == myController) return;
 
             Rigidbody rb = col.collider.GetComponent<Rigidbody>();
             if (rb != null)

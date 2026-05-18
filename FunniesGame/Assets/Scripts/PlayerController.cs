@@ -53,6 +53,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Collider[] myColliders = GetComponentsInChildren<Collider>();
+        for (int i = 0; i < myColliders.Length; i++)
+        {
+            for (int j = i + 1; j < myColliders.Length; j++)
+            {
+                Physics.IgnoreCollision(myColliders[i], myColliders[j]);
+            }
+        }
+    }
+
     void Update()
     {
         if (jumpCooldown > 0f) jumpCooldown -= Time.deltaTime;
