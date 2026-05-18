@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("isWalking", moveDirection.sqrMagnitude > 0.01f);
+            animator.SetBool("isGrounded", isGrounded);
         }
 
         if (pelvis != null && (pelvis.position.y < 2 || pelvis.position.y > 50))
@@ -149,6 +150,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public AudioSource jumpSound;
+    public ParticleSystem jumpParticles;
+
     void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded && floored && !isDead && pelvis != null && jumpCooldown <= 0f)
@@ -156,6 +160,9 @@ public class PlayerController : MonoBehaviour
             pelvis.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isGrounded = false;
             jumpCooldown = 0.2f;
+
+            if (jumpSound != null) jumpSound.Play();
+            if (jumpParticles != null) jumpParticles.Play();
         }
     }
 

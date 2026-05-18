@@ -16398,6 +16398,8 @@ MonoBehaviour:
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
+  jumpSound: {fileID: 0}
+  jumpParticles: {fileID: 0}
 --- !u!1001 &499944906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40427,6 +40429,8 @@ MonoBehaviour:
   dead1: 0
   moveAction: {fileID: 0}
   jumpAction: {fileID: 0}
+  jumpSound: {fileID: 0}
+  jumpParticles: {fileID: 0}
 --- !u!114 &1326015662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46525,6 +46529,8 @@ MonoBehaviour:
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
+  jumpSound: {fileID: 0}
+  jumpParticles: {fileID: 0}
 --- !u!4 &1494630675
 Transform:
   m_ObjectHideFlags: 0
@@ -65154,6 +65160,16 @@ PrefabInstance:
       propertyPath: textFell
       value: 
       objectReference: {fileID: 944898272}
+    - target: {fileID: 3789352240768472968, guid: 9fee6489e9285724b9490dfdd0775f1c,
+        type: 3}
+      propertyPath: jumpForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789352240768472968, guid: 9fee6489e9285724b9490dfdd0775f1c,
+        type: 3}
+      propertyPath: jumpParticles
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3789352240768472971, guid: 9fee6489e9285724b9490dfdd0775f1c,
         type: 3}
       propertyPath: m_RootOrder
