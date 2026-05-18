@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool dead1;
 
     private Vector2 moveDirection;
+    private float jumpCooldown;
     
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
@@ -54,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (jumpCooldown > 0f) jumpCooldown -= Time.deltaTime;
+
         if (moveAction != null && moveAction.action != null)
         {
             moveDirection = moveAction.action.ReadValue<Vector2>();
@@ -79,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         int layerMask = ~LayerMask.GetMask("nocoll");
         
-        if (Physics.Raycast(pelvis.position, Vector3.down, 1.2f, layerMask))
+        if (pelvis.velocity.y <= 0.1f && Physics.Raycast(pelvis.position, Vector3.down, 1.2f, layerMask))
         {
             isGrounded = true;
             floored = true;
@@ -136,10 +139,11 @@ public class PlayerController : MonoBehaviour
 
     void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded && floored && !isDead && pelvis != null)
+        if (isGrounded && floored && !isDead && pelvis != null && jumpCooldown <= 0f)
         {
             pelvis.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             isGrounded = false;
+            jumpCooldown = 0.2f;
         }
     }
 
