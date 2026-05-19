@@ -9,6 +9,8 @@ public class LaserKill : MonoBehaviour
     public float rotationSpeed = 20f;
     public float speedAcceleration = 0.5f;
     public float gameOverDelay = 1.5f;
+    public GameObject deathParticle;
+    public AudioSource deathSound;
 
     private bool isActive = false;
 
@@ -56,6 +58,19 @@ public class LaserKill : MonoBehaviour
                     if (pc != null && !pc.isDead)
                     {
                         pc.isDead = true;
+
+                        if (deathParticle != null)
+                        {
+                            GameObject fx = Instantiate(deathParticle, hit.point, Quaternion.identity);
+                            Destroy(fx, 3f);
+                        }
+
+                        if (deathSound != null)
+                        {
+                            deathSound.pitch = Random.Range(0.9f, 1.1f);
+                            deathSound.Play();
+                        }
+
                         StartCoroutine(NotifyAfterDelay(pc.playerIndex));
                     }
                 }
