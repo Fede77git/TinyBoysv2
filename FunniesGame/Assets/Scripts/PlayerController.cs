@@ -160,6 +160,8 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource jumpSound;
     public ParticleSystem jumpParticles;
+    public float minPitch = 0.85f;
+    public float maxPitch = 1.15f;
 
     void Jump(InputAction.CallbackContext context)
     {
@@ -169,7 +171,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             jumpCooldown = 0.2f;
 
-            if (jumpSound != null) jumpSound.Play();
+            if (jumpSound != null)
+            {
+                jumpSound.pitch = Random.Range(minPitch, maxPitch);
+                jumpSound.Play();
+            }
             if (jumpParticles != null) jumpParticles.Play();
         }
     }
