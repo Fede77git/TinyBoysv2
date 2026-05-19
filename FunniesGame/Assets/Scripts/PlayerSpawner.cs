@@ -17,6 +17,10 @@ public class PlayerSpawner : MonoBehaviour
         {
             LevelManager.Instance.SetupUI(numberOfPlayers);
         }
+        else if (LevelManager2.Instance != null)
+        {
+            LevelManager2.Instance.SetupUI(numberOfPlayers);
+        }
     }
 
     private void SpawnPlayers()

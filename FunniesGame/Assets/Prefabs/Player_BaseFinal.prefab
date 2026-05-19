@@ -372,7 +372,7 @@ MonoBehaviour:
   isDead: 0
   playerIndex: 0
   dead1: 0
-  groundCheckDistance: 0.5
+  groundCheckDistance: 0.7
   moveAction: {fileID: -6926371480242000162, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,

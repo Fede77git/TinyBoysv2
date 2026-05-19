@@ -96,17 +96,23 @@ public class PlayerController : MonoBehaviour
         if (pelvis == null) return;
 
         int layerMask = ~LayerMask.GetMask("nocoll");
-        
-        if (pelvis.velocity.y <= 0.1f && Physics.Raycast(pelvis.position, Vector3.down, groundCheckDistance, layerMask))
+        float checkRadius = 0.25f;
+
+        bool velocityOk = pelvis.velocity.y <= 0.5f;
+
+        bool hit = false;
+        if (velocityOk)
         {
-            isGrounded = true;
-            floored = true;
+            Vector3 origin = pelvis.position;
+            hit = Physics.Raycast(origin, Vector3.down, groundCheckDistance, layerMask)
+               || Physics.Raycast(origin + Vector3.right  * checkRadius, Vector3.down, groundCheckDistance, layerMask)
+               || Physics.Raycast(origin + Vector3.left   * checkRadius, Vector3.down, groundCheckDistance, layerMask)
+               || Physics.Raycast(origin + Vector3.forward * checkRadius, Vector3.down, groundCheckDistance, layerMask)
+               || Physics.Raycast(origin + Vector3.back   * checkRadius, Vector3.down, groundCheckDistance, layerMask);
         }
-        else
-        {
-            isGrounded = false;
-            floored = false;
-        }
+
+        isGrounded = hit;
+        floored = hit;
     }
 
     void FixedUpdate()
@@ -183,10 +189,14 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         isDead = true;
-        
+
         if (LevelManager.Instance != null)
         {
             LevelManager.Instance.PlayerDied(playerIndex);
+        }
+        else if (LevelManager2.Instance != null)
+        {
+            LevelManager2.Instance.PlayerDied(playerIndex);
         }
     }
 }

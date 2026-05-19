@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6577628536280039571}
   - component: {fileID: 2532680629795202408}
   - component: {fileID: 1567115633753668956}
-  - component: {fileID: 7387897687009032116}
   m_Layer: 0
   m_Name: Bomb 1 1
   m_TagString: Untagged
@@ -161,7 +160,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c6bb378609e6e446b5dbdea8225bf45, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -205,7 +204,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -245,11 +244,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &7387897687009032116
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6577628536280039568}
-  m_Enabled: 1
