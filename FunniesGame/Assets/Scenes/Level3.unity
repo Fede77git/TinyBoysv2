@@ -1099,8 +1099,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61470ea36635f4cb9c9747cc98de8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 410412031}
-  timerDelay: 3
+  startPoint: {fileID: 1771497202}
+  rotationDelay: 5
+  rotationSpeed: 20
+  speedAcceleration: 0.5
+  gameOverDelay: 0.5
 --- !u!120 &410412027
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1218,7 +1221,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410412024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -1266,7 +1269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410412024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.3, y: 23, z: 3.82}
+  m_LocalPosition: {x: -36.49, y: 22.7, z: 8.93}
   m_LocalScale: {x: 0.506276, y: 1.1006, z: 1.1006}
   m_Children:
   - {fileID: 1771497202}
@@ -1326,8 +1329,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61470ea36635f4cb9c9747cc98de8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 435278988}
-  timerDelay: 3
+  startPoint: {fileID: 722141706}
+  rotationDelay: 5
+  rotationSpeed: 20
+  speedAcceleration: 0.5
+  gameOverDelay: 0.5
 --- !u!120 &435278984
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1445,7 +1451,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435278981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -1493,7 +1499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435278981}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -15.15, y: 23, z: -16.82}
+  m_LocalPosition: {x: -20.16, y: 22.7, z: -16.01}
   m_LocalScale: {x: 0.506276, y: 1.1006, z: 1.1006}
   m_Children:
   - {fileID: 722141706}
@@ -18011,7 +18017,7 @@ Transform:
   m_GameObject: {fileID: 608822990}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5.21, y: 21.78, z: 4.18}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 0.4775858}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -19544,7 +19550,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.9
+  orthographic size: 16.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19568,7 +19574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412622614}
   m_LocalRotation: {x: 0.22612306, y: -0.6699764, z: 0.22612306, w: 0.6699764}
-  m_LocalPosition: {x: 47, y: 75.3, z: 4.39}
+  m_LocalPosition: {x: 47, y: 73.5, z: 4.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38498,8 +38504,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61470ea36635f4cb9c9747cc98de8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 1875537743}
-  timerDelay: 3
+  startPoint: {fileID: 1432838581}
+  rotationDelay: 5
+  rotationSpeed: 20
+  speedAcceleration: 0.5
+  gameOverDelay: 0.5
 --- !u!120 &1875537739
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -38617,7 +38626,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875537736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -38665,7 +38674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875537736}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.8, y: 23, z: 3.82}
+  m_LocalPosition: {x: 4.8, y: 22.7, z: 6.07}
   m_LocalScale: {x: 0.506276, y: 1.1006, z: 1.1006}
   m_Children:
   - {fileID: 1432838581}
@@ -38755,8 +38764,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e61470ea36635f4cb9c9747cc98de8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 1937838842}
-  timerDelay: 3
+  startPoint: {fileID: 953158692}
+  rotationDelay: 5
+  rotationSpeed: 20
+  speedAcceleration: 0.5
+  gameOverDelay: 0.5
 --- !u!120 &1937838838
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -38874,7 +38886,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937838835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
@@ -38922,7 +38934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937838835}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -15.11, y: 23, z: 25.13}
+  m_LocalPosition: {x: -19.8, y: 22.52, z: 25.05}
   m_LocalScale: {x: 0.506276, y: 1.1006, z: 1.1006}
   m_Children:
   - {fileID: 953158692}
@@ -38965,10 +38977,10 @@ MonoBehaviour:
   - {fileID: 2905613925923615630, guid: 6109632b7b5333c43afd3384ecb46b6d, type: 3}
   - {fileID: 1755528344592595822, guid: e955bb2ae76b5614a8bb484f6aedaefd, type: 3}
   spawnPoints:
-  - {fileID: 239019692}
   - {fileID: 881949289}
-  - {fileID: 2038460737}
+  - {fileID: 239019692}
   - {fileID: 1910918281}
+  - {fileID: 2038460737}
   numberOfPlayers: 2
 --- !u!114 &1991383055
 MonoBehaviour:

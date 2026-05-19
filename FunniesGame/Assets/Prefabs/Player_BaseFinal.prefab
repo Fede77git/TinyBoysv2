@@ -369,6 +369,7 @@ MonoBehaviour:
   isGrounded: 0
   floored: 0
   animator: {fileID: 7349010790540885540}
+  activeRagdollSync: {fileID: 3789352240768472970}
   isDead: 0
   playerIndex: 0
   dead1: 0

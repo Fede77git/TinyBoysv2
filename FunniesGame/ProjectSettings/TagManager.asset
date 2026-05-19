@@ -15,6 +15,7 @@ TagManager:
   - PowerUp2
   - Head3
   - pepe
+  - Head
   layers:
   - Default
   - TransparentFX
