@@ -192,5 +192,9 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager2.Instance.PlayerDied(playerIndex);
         }
+        else if (LevelManager3.Instance != null)
+        {
+            LevelManager3.Instance.PlayerDied(playerIndex);
+        }
     }
 }
