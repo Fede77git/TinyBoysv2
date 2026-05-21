@@ -2000,13 +2000,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037714920}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.78, y: 25.18, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048256419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8ea70c56bf1244a8ff5f3a52cd846f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamIndex: 2
+  teamIndex: 1
 --- !u!1001 &1076026796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3256,7 +3256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8ea70c56bf1244a8ff5f3a52cd846f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamIndex: 1
+  teamIndex: 2
 --- !u!1 &1480377163
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,6 +3268,7 @@ GameObject:
   - component: {fileID: 1480377168}
   - component: {fileID: 1480377167}
   - component: {fileID: 1480377166}
+  - component: {fileID: 1480377164}
   m_Layer: 1
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3275,6 +3276,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &1480377164
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480377163}
+  m_Enabled: 1
 --- !u!114 &1480377166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3954,6 +3963,7 @@ GameObject:
   - component: {fileID: 1593810110}
   - component: {fileID: 1593810109}
   - component: {fileID: 1593810108}
+  - component: {fileID: 1593810111}
   m_Layer: 0
   m_Name: LevelManager4
   m_TagString: Untagged
@@ -3983,7 +3993,7 @@ MonoBehaviour:
   - {fileID: 1524771254}
   - {fileID: 1037714921}
   - {fileID: 911156142}
-  numberOfPlayers: 2
+  numberOfPlayers: 3
 --- !u!114 &1593810109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4018,6 +4028,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1593810111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593810107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eee823aab3b78c47890212b0fce1a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1604503191
 GameObject:
   m_ObjectHideFlags: 0
