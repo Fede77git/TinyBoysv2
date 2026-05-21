@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveDirection;
     private float jumpCooldown;
+    private bool hasIsWalking;
+    private bool hasIsGrounded;
     
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
@@ -65,6 +67,15 @@ public class PlayerController : MonoBehaviour
                 Physics.IgnoreCollision(myColliders[i], myColliders[j]);
             }
         }
+
+        if (animator != null)
+        {
+            foreach (AnimatorControllerParameter param in animator.parameters)
+            {
+                if (param.name == "isWalking") hasIsWalking = true;
+                if (param.name == "isGrounded") hasIsGrounded = true;
+            }
+        }
     }
 
     void Update()
@@ -78,8 +89,8 @@ public class PlayerController : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetBool("isWalking", moveDirection.sqrMagnitude > 0.01f);
-            animator.SetBool("isGrounded", isGrounded);
+            if (hasIsWalking) animator.SetBool("isWalking", moveDirection.sqrMagnitude > 0.01f);
+            if (hasIsGrounded) animator.SetBool("isGrounded", isGrounded);
         }
 
         if (pelvis != null && (pelvis.position.y < minHeightLimit || pelvis.position.y > maxHeightLimit))
