@@ -11,11 +11,10 @@ TagManager:
   - Head1
   - Head2
   - egg
-  - PowerUp1
-  - PowerUp2
   - Head3
   - pepe
   - Head
+  - PowerUp
   layers:
   - Default
   - TransparentFX
