@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 3789352240768472968}
   - component: {fileID: 3789352240768472969}
   - component: {fileID: 3789352240768472970}
-  - component: {fileID: 4418115703375223887}
+  - component: {fileID: 5502224051744890105}
   m_Layer: 0
   m_Name: Player_BaseFinal
   m_TagString: Untagged
@@ -369,7 +369,6 @@ MonoBehaviour:
   isGrounded: 0
   floored: 0
   animator: {fileID: 7349010790540885540}
-  activeRagdollSync: {fileID: 3789352240768472970}
   isDead: 0
   playerIndex: 0
   dead1: 0
@@ -381,7 +380,10 @@ MonoBehaviour:
   minHeightLimit: -1
   maxHeightLimit: 50
   maxFallSpeed: -10
-  jumpSound: {fileID: 4418115703375223887}
+  jumpSound: {fileID: 8300000, guid: bb8a7f3939e845745bdfd9b984561f99, type: 3}
+  jumpVolume: 0.3
+  coinSound: {fileID: 8300000, guid: 1f65d9e36347d2347a968140fc8107e2, type: 3}
+  coinVolume: 0.5
   jumpParticles: {fileID: 0}
   minPitch: 0.85
   maxPitch: 1.15
@@ -429,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatedRoot: {fileID: 3683032673930863710}
   physicalRoot: {fileID: 3683032674973846964}
---- !u!82 &4418115703375223887
+--- !u!82 &5502224051744890105
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,9 +441,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bb8a7f3939e845745bdfd9b984561f99, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -485,7 +487,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.707
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -59,6 +59,12 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerAudioSource = GetComponent<AudioSource>();
+        if (playerAudioSource == null)
+        {
+            playerAudioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         Collider[] myColliders = GetComponentsInChildren<Collider>();
         for (int i = 0; i < myColliders.Length; i++)
         {
@@ -169,7 +175,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public AudioSource jumpSound;
+    [Header("Audio Settings")]
+    public AudioClip jumpSound;
+    [Range(0f, 1f)] public float jumpVolume = 1f;
+    
+    public AudioClip coinSound;
+    [Range(0f, 1f)] public float coinVolume = 1f;
+    
+    private AudioSource playerAudioSource;
     public ParticleSystem jumpParticles;
     public float minPitch = 0.85f;
     public float maxPitch = 1.15f;
@@ -182,10 +195,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             jumpCooldown = 0.2f;
 
-            if (jumpSound != null)
+            if (jumpSound != null && playerAudioSource != null)
             {
-                jumpSound.pitch = Random.Range(minPitch, maxPitch);
-                jumpSound.Play();
+                playerAudioSource.pitch = Random.Range(minPitch, maxPitch);
+                playerAudioSource.PlayOneShot(jumpSound, jumpVolume);
             }
             if (jumpParticles != null) jumpParticles.Play();
         }
@@ -206,6 +219,15 @@ public class PlayerController : MonoBehaviour
         else if (LevelManager3.Instance != null)
         {
             LevelManager3.Instance.PlayerDied(playerIndex);
+        }
+    }
+
+    public void PlayCoinSound()
+    {
+        if (coinSound != null && playerAudioSource != null)
+        {
+            playerAudioSource.pitch = 1f;
+            playerAudioSource.PlayOneShot(coinSound, coinVolume);
         }
     }
 }

@@ -22,6 +22,11 @@ public class PlayerCollector : MonoBehaviour
             {
                 LevelManager.Instance.AddCoin(playerController.playerIndex);
                 
+                if (playerController != null)
+                {
+                    playerController.PlayCoinSound();
+                }
+
                 other.gameObject.SetActive(false);
             }
         }
