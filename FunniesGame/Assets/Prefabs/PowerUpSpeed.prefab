@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6725396834289625179}
   - component: {fileID: 6725396834289625180}
   - component: {fileID: -3224501415639696561}
+  - component: {fileID: -8017428472437865673}
   m_Layer: 0
   m_Name: PowerUpSpeed
   m_TagString: PowerUp
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6725396834289625181}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -4172254434359507010, guid: 64a927c80033db0409b71cfd8df5461a, type: 3}
 --- !u!23 &6725396834289625179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f154dff7fb489d2499686dc9f08c626a, type: 2}
+  - {fileID: 2100000, guid: 9026876ecbc956342bdfdce528c66e47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,3 +109,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedBoost: 3
   strafeSpeedBoost: 2
+--- !u!114 &-8017428472437865673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725396834289625181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845c415f3181b4840ab566c40e714752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRotating: 1
+  rotateX: 0
+  rotateY: 1
+  rotateZ: 0
+  rotationSpeed: 85.67
+  isFloating: 1
+  useEasingForFloating: 1
+  floatHeight: 1.93
+  floatSpeed: 0.4
+  startScale: {x: 1, y: 1, z: 1}
+  endScale: {x: 1.2, y: 1.2, z: 1.2}
+  isScaling: 1
+  useEasingForScaling: 1
+  scaleLerpSpeed: 1.11
