@@ -96,6 +96,7 @@ public class LevelManager5 : MonoBehaviour
     }
 
     private bool[] isPlayerDead = new bool[4];
+    private bool gameEnding = false;
 
     public void PlayerDied(int deadPlayerIndex)
     {
@@ -119,18 +120,26 @@ public class LevelManager5 : MonoBehaviour
             }
         }
 
-        if (aliveCount <= 1)
+        if (aliveCount <= 1 && !gameEnding)
         {
-            string playerName = "Player " + (lastAliveIndex + 1);
-            if (lastAliveIndex == 0) playerName = "Purple Player";
-            else if (lastAliveIndex == 1) playerName = "Orange Player";
-            else if (lastAliveIndex == 2) playerName = "Green Player";
-            else if (lastAliveIndex == 3) playerName = "Blue Player";
-
-            if (textWin != null) textWin.text = playerName + " Wins!";
-            if (textEsc != null) textEsc.text = "Press Escape to continue";
-
-            Time.timeScale = 0f;
+            gameEnding = true;
+            StartCoroutine(EndGameRoutine(lastAliveIndex));
         }
+    }
+
+    private System.Collections.IEnumerator EndGameRoutine(int lastAliveIndex)
+    {
+        yield return new WaitForSeconds(1f);
+
+        string playerName = "Player " + (lastAliveIndex + 1);
+        if (lastAliveIndex == 0) playerName = "Purple Player";
+        else if (lastAliveIndex == 1) playerName = "Orange Player";
+        else if (lastAliveIndex == 2) playerName = "Green Player";
+        else if (lastAliveIndex == 3) playerName = "Blue Player";
+
+        if (textWin != null) textWin.text = playerName + " Wins!";
+        if (textEsc != null) textEsc.text = "Press Escape to continue";
+
+        Time.timeScale = 0f;
     }
 }
