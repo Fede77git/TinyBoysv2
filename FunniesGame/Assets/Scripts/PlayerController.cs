@@ -218,6 +218,10 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager3.Instance.PlayerDied(playerIndex);
         }
+        else if (LevelManager5.Instance != null)
+        {
+            LevelManager5.Instance.PlayerDied(playerIndex);
+        }
     }
 
     public void PlayCoinSound()
