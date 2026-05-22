@@ -11,13 +11,26 @@ public class HammerManager : MonoBehaviour
     
     public float explosionForce = 5000f;
     public float explosionRadius = 5f;
+    public Animator hammerAnimator;
+    public Vector3 hitOffset;
+    
+
+    public AudioClip hitSound;
+    public float hitVolume = 1f;
 
     private float currentDelay;
     private GameObject currentIndicator;
     private Transform currentTarget;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         currentDelay = initialDelay;
         StartCoroutine(HammerRoutine());
     }
@@ -59,8 +72,14 @@ public class HammerManager : MonoBehaviour
 
     void HitTarget(Vector3 position)
     {
-        transform.position = position;
+        transform.position = position + hitOffset;
 
+        if (hammerAnimator != null)
+        {
+            hammerAnimator.SetTrigger("Hit");
+        }
+
+        bool playedSound = false;
         Collider[] colliders = Physics.OverlapSphere(position, explosionRadius);
         foreach (Collider hit in colliders)
         {
@@ -73,6 +92,12 @@ public class HammerManager : MonoBehaviour
                 if (player != null && !player.isDead)
                 {
                     player.Dead();
+
+                    if (!playedSound && hitSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(hitSound, hitVolume);
+                        playedSound = true;
+                    }
                 }
             }
         }
