@@ -183,7 +183,6 @@ public class PlayerController : MonoBehaviour
     [Range(0f, 1f)] public float coinVolume = 1f;
     
     private AudioSource playerAudioSource;
-    public ParticleSystem jumpParticles;
     public float minPitch = 0.85f;
     public float maxPitch = 1.15f;
 
@@ -200,7 +199,6 @@ public class PlayerController : MonoBehaviour
                 playerAudioSource.pitch = Random.Range(minPitch, maxPitch);
                 playerAudioSource.PlayOneShot(jumpSound, jumpVolume);
             }
-            if (jumpParticles != null) jumpParticles.Play();
         }
     }
 
