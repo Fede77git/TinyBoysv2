@@ -351,7 +351,7 @@ public partial class @PlayerControll : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1a4ef59d-f4ce-4d15-83d6-65a9e3850d7e"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
