@@ -40,15 +40,29 @@ public class StampedeObstacle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponentInParent<PlayerController>();
-            if (player != null)
+            if (player != null && player.pelvis != null)
             {
-                if (player.pelvis != null)
-                {
-                    player.pelvis.AddExplosionForce(pushForce * 5f, transform.position, 5f);
-                }
+                Vector3 localPos = transform.InverseTransformPoint(player.pelvis.position);
+                
+                float absX = Mathf.Abs(localPos.x);
+                float absY = Mathf.Abs(localPos.y);
+                float absZ = Mathf.Abs(localPos.z) * 0.5f;
 
-                Vector3 pushDir = useLocalDirection ? transform.TransformDirection(moveDirection.normalized) : moveDirection.normalized;
-                player.AddKnockback(pushDir * (pushForce * 0.1f));
+                if (absY > absX && absY > absZ && localPos.y > 0)
+                {
+                    player.pelvis.AddForce(Vector3.up * (pushForce * 0.15f), ForceMode.Impulse);
+                }
+                else if (absZ > absX && localPos.z > 0)
+                {
+                    Vector3 pushDir = transform.forward;
+                    player.AddKnockback(pushDir * (pushForce * 0.1f));
+                    player.pelvis.AddForce(Vector3.up * (pushForce * 0.05f), ForceMode.Impulse);
+                }
+                else
+                {
+                    Vector3 pushDir = Mathf.Sign(localPos.x) * transform.right;
+                    player.AddKnockback(pushDir * (pushForce * 0.05f));
+                }
             }
         }
     }
