@@ -25,6 +25,12 @@ public class LevelManager6 : MonoBehaviour
     {
         if (textWin != null) textWin.text = "";
         if (textEsc != null) textEsc.text = "";
+
+        PlayerController[] players = FindObjectsOfType<PlayerController>();
+        foreach (PlayerController p in players)
+        {
+            p.jumpForce = 50f;
+        }
     }
 
     public void SetupUI(int activePlayers)

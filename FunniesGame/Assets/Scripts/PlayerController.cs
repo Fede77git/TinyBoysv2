@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 15;
-    public float strafeSpeed = 10;
-    public float jumpForce = 2;
+    public float speed = 8;
+    public float strafeSpeed = 7;
+    public float jumpForce = 30;
 
     public Rigidbody pelvis;
     public bool isGrounded;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float jumpCooldown;
     private bool hasIsWalking;
     private bool hasIsGrounded;
+    private Vector3 knockbackVelocity;
     
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
@@ -142,7 +143,8 @@ public class PlayerController : MonoBehaviour
 
             Vector3 direction = camForward * (moveDirection.y * speed) + camRight * (moveDirection.x * strafeSpeed);
             
-            Vector3 targetVelocity = direction;
+            knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, Time.fixedDeltaTime * 5f);
+            Vector3 targetVelocity = direction + knockbackVelocity;
 
             if (direction != Vector3.zero)
             {
@@ -175,7 +177,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [Header("Audio Settings")]
+
     public AudioClip jumpSound;
     [Range(0f, 1f)] public float jumpVolume = 1f;
     
@@ -222,6 +224,15 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager5.Instance.PlayerDied(playerIndex);
         }
+        else if (LevelManager6.Instance != null)
+        {
+            LevelManager6.Instance.PlayerDied(playerIndex);
+        }
+    }
+
+    public void AddKnockback(Vector3 force)
+    {
+        knockbackVelocity += force;
     }
 
     public void PlayCoinSound()

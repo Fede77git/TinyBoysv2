@@ -12,6 +12,12 @@ public class StampedeObstacle : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        Collider myCollider = GetComponent<Collider>();
+        if (myCollider != null)
+        {
+            myCollider.isTrigger = true;
+        }
         
         Vector3 dir = useLocalDirection ? transform.TransformDirection(moveDirection.normalized) : moveDirection.normalized;
         if (dir != Vector3.zero)
@@ -29,15 +35,20 @@ public class StampedeObstacle : MonoBehaviour
         rb.MovePosition(newPos);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
-            if (playerRb != null)
+            PlayerController player = other.GetComponentInParent<PlayerController>();
+            if (player != null)
             {
+                if (player.pelvis != null)
+                {
+                    player.pelvis.AddExplosionForce(pushForce * 5f, transform.position, 5f);
+                }
+
                 Vector3 pushDir = useLocalDirection ? transform.TransformDirection(moveDirection.normalized) : moveDirection.normalized;
-                playerRb.AddForce(pushDir * pushForce, ForceMode.Impulse);
+                player.AddKnockback(pushDir * (pushForce * 0.1f));
             }
         }
     }
