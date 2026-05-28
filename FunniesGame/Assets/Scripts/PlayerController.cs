@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public int playerIndex = 0;
     public bool dead1;
     public float groundCheckDistance = 1.0f;
+    public int grabbersCount = 0;
 
     private Vector2 moveDirection;
     private float jumpCooldown;
@@ -165,14 +166,21 @@ public class PlayerController : MonoBehaviour
                     continue;
                 }
 
-                Vector3 newVel = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
-                
-                if (newVel.y < maxFallSpeed) 
+                if (grabbersCount > 0)
                 {
-                    newVel.y = maxFallSpeed;
+                    rb.AddForce(targetVelocity * 10f, ForceMode.Force);
                 }
+                else
+                {
+                    Vector3 newVel = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
+                    
+                    if (newVel.y < maxFallSpeed) 
+                    {
+                        newVel.y = maxFallSpeed;
+                    }
 
-                rb.velocity = newVel;
+                    rb.velocity = newVel;
+                }
             }
         }
     }

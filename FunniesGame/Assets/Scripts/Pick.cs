@@ -11,7 +11,6 @@ public class Pick : MonoBehaviour
     private bool hold;
     private Rigidbody grabbedRb;
     public UnityEngine.InputSystem.InputActionReference grabAction;
-   
     public Animator animator;
     public bool RightHand;
 
@@ -27,11 +26,14 @@ public class Pick : MonoBehaviour
             grabAction.action.Disable();
     }
 
+    private bool brokenGrab = false;
+    private PlayerController grabbedPlayer;
+
     void Update()
     {
         if (grabAction != null && grabAction.action != null)
         {
-            if (grabAction.action.IsPressed())
+            if (grabAction.action.IsPressed() && !brokenGrab)
             {
                 if (RightHand) animator.SetBool("isRightHand", true);
                 else animator.SetBool("isLeftHand", true);
@@ -41,8 +43,7 @@ public class Pick : MonoBehaviour
                 FixedJoint currentJoint = GetComponent<FixedJoint>();
                 if (currentJoint != null && grabbedRb != null && currentJoint.connectedBody == null)
                 {
-                    Destroy(currentJoint);
-                    grabbedRb = null;
+                    ReleaseGrab();
                 }
             }
             else
@@ -50,11 +51,36 @@ public class Pick : MonoBehaviour
                 if (RightHand) animator.SetBool("isRightHand", false);
                 else animator.SetBool("isLeftHand", false);
 
-                hold = false;
-                grabbedRb = null;
-                Destroy(GetComponent<FixedJoint>());
+                ReleaseGrab();
+
+                if (!grabAction.action.IsPressed())
+                {
+                    brokenGrab = false;
+                }
             }
         }
+    }
+
+    void OnJointBreak(float breakForce)
+    {
+        brokenGrab = true;
+        if (RightHand) animator.SetBool("isRightHand", false);
+        else animator.SetBool("isLeftHand", false);
+        ReleaseGrab();
+    }
+
+    void ReleaseGrab()
+    {
+        if (grabbedPlayer != null)
+        {
+            grabbedPlayer.grabbersCount--;
+            if (grabbedPlayer.grabbersCount < 0) grabbedPlayer.grabbersCount = 0;
+            grabbedPlayer = null;
+        }
+        hold = false;
+        grabbedRb = null;
+        FixedJoint fj = GetComponent<FixedJoint>();
+        if (fj != null) Destroy(fj);
     }
 
     private PlayerController myController;
@@ -75,8 +101,16 @@ public class Pick : MonoBehaviour
             if (rb != null)
             {
                 FixedJoint fj = gameObject.AddComponent<FixedJoint>();
+                fj.breakForce = 2500f;
+                fj.breakTorque = 2500f;
                 fj.connectedBody = rb;
                 grabbedRb = rb;
+
+                if (otherController != null)
+                {
+                    grabbedPlayer = otherController;
+                    grabbedPlayer.grabbersCount++;
+                }
             }
         }
     }
