@@ -7,12 +7,24 @@ public class StampedeObstacle : MonoBehaviour
     public Vector3 moveDirection = new Vector3(-1, 0, 0);
     public bool useLocalDirection = false;
 
+    public AudioClip hitSound;
+    [Range(0f, 1f)] public float hitVolume = 1f;
+
     private Rigidbody rb;
+    private AudioSource audioSource;
+    private float lastSoundTime;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         Collider myCollider = GetComponent<Collider>();
         if (myCollider != null)
         {
@@ -42,6 +54,13 @@ public class StampedeObstacle : MonoBehaviour
             PlayerController player = other.GetComponentInParent<PlayerController>();
             if (player != null && player.pelvis != null)
             {
+                if (hitSound != null && audioSource != null && Time.time > lastSoundTime + 0.1f)
+                {
+                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                    audioSource.PlayOneShot(hitSound, hitVolume);
+                    lastSoundTime = Time.time;
+                }
+
                 Vector3 localPos = transform.InverseTransformPoint(player.pelvis.position);
                 
                 float absX = Mathf.Abs(localPos.x);

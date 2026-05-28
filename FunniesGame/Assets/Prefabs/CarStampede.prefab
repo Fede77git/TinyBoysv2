@@ -131,6 +131,8 @@ MonoBehaviour:
   pushForce: 500
   moveDirection: {x: -1, y: 0, z: 0}
   useLocalDirection: 0
+  hitSound: {fileID: 8300000, guid: 71ade6f2facf2aa4f8e2ef8d9473c07f, type: 3}
+  hitVolume: 0.15
 --- !u!1 &8783910546416258569
 GameObject:
   m_ObjectHideFlags: 0
