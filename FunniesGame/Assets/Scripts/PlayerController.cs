@@ -110,13 +110,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool IsValidGroundHit(Vector3 origin, float dist, int layerMask)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(origin, Vector3.down, dist, layerMask);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].collider != null && !hits[i].transform.IsChildOf(transform))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void CheckGround()
     {
         if (pelvis == null) return;
 
         int layerMask = ~LayerMask.GetMask("nocoll");
 
-        if (pelvis.velocity.y <= 0.1f && Physics.Raycast(pelvis.position, Vector3.down, groundCheckDistance, layerMask))
+        Vector3 startPos = pelvis.position + Vector3.up * 0.2f;
+        float checkDist = groundCheckDistance + 0.2f;
+        bool hitGround = false;
+
+        if (IsValidGroundHit(startPos, checkDist, layerMask)) hitGround = true;
+        else if (IsValidGroundHit(startPos + Vector3.forward * 0.3f, checkDist, layerMask)) hitGround = true;
+        else if (IsValidGroundHit(startPos + Vector3.back * 0.3f, checkDist, layerMask)) hitGround = true;
+        else if (IsValidGroundHit(startPos + Vector3.left * 0.3f, checkDist, layerMask)) hitGround = true;
+        else if (IsValidGroundHit(startPos + Vector3.right * 0.3f, checkDist, layerMask)) hitGround = true;
+
+        if (pelvis.velocity.y <= 0.8f && hitGround && jumpCooldown <= 0f)
         {
             isGrounded = true;
             floored = true;
