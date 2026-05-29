@@ -4,6 +4,7 @@ using System.Collections;
 public class StampedeManager : MonoBehaviour
 {
     public Transform[] spawnPoints = new Transform[5];
+    public GameObject[] warningLights = new GameObject[5];
     public GameObject obstaclePrefab;
 
     public float initialSpawnDelay = 2f;
@@ -21,6 +22,15 @@ public class StampedeManager : MonoBehaviour
     {
         currentSpawnDelay = initialSpawnDelay;
         currentSpeed = initialSpeed;
+        
+        if (warningLights != null)
+        {
+            foreach (GameObject wl in warningLights)
+            {
+                if (wl != null) wl.SetActive(false);
+            }
+        }
+        
         StartCoroutine(SpawnRoutine());
     }
 
@@ -28,13 +38,52 @@ public class StampedeManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(currentSpawnDelay);
+            int randomIndex = 0;
+            Transform spawnPoint = null;
+            GameObject warningObj = null;
 
-            if (spawnPoints.Length > 0 && obstaclePrefab != null)
+            if (spawnPoints.Length > 0)
             {
-                int randomIndex = Random.Range(0, spawnPoints.Length);
-                Transform spawnPoint = spawnPoints[randomIndex];
+                randomIndex = Random.Range(0, spawnPoints.Length);
+                spawnPoint = spawnPoints[randomIndex];
+                
+                if (warningLights != null && randomIndex < warningLights.Length)
+                {
+                    warningObj = warningLights[randomIndex];
+                }
+            }
 
+            float waitBeforeLight = currentSpawnDelay - 1f;
+            if (waitBeforeLight > 0f)
+            {
+                yield return new WaitForSeconds(waitBeforeLight);
+            }
+
+            if (warningObj != null) 
+            {
+                warningObj.SetActive(true);
+            }
+            else if (spawnPoint != null)
+            {
+                Light l = spawnPoint.GetComponentInChildren<Light>(true);
+                if (l != null) l.enabled = true;
+            }
+
+            float lightDuration = currentSpawnDelay < 1f ? currentSpawnDelay : 1f;
+            yield return new WaitForSeconds(lightDuration);
+
+            if (warningObj != null) 
+            {
+                warningObj.SetActive(false);
+            }
+            else if (spawnPoint != null)
+            {
+                Light l = spawnPoint.GetComponentInChildren<Light>(true);
+                if (l != null) l.enabled = false;
+            }
+
+            if (spawnPoint != null && obstaclePrefab != null)
+            {
                 GameObject newObstacle = Instantiate(obstaclePrefab, spawnPoint.position, spawnPoint.rotation);
                 StampedeObstacle obsScript = newObstacle.GetComponent<StampedeObstacle>();
                 
