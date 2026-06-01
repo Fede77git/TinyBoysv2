@@ -261,6 +261,10 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager6.Instance.PlayerDied(playerIndex);
         }
+        else if (LevelManager7.Instance != null)
+        {
+            LevelManager7.Instance.PlayerDied(playerIndex);
+        }
     }
 
     public void AddKnockback(Vector3 force)

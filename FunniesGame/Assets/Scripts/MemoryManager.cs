@@ -8,6 +8,7 @@ public class MemoryManager : MonoBehaviour
     public List<MemoryTile> tiles;
     public Sprite[] availableSprites;
     public Image displayScreen;
+    public Text[] timerTexts;
 
     public float memorizeTime = 5f;
     public float reactionTime = 3f;
@@ -16,6 +17,10 @@ public class MemoryManager : MonoBehaviour
 
     private void Start()
     {
+        if (displayScreen != null)
+        {
+            displayScreen.enabled = false;
+        }
         StartCoroutine(RoundRoutine());
     }
 
@@ -39,7 +44,7 @@ public class MemoryManager : MonoBehaviour
 
             if (activeIds.Count == 0) yield break;
 
-            yield return new WaitForSeconds(memorizeTime);
+            yield return StartCoroutine(WaitAndUpdateTimer(memorizeTime));
 
             foreach (MemoryTile tile in tiles)
             {
@@ -50,7 +55,7 @@ public class MemoryManager : MonoBehaviour
             displayScreen.sprite = availableSprites[chosenId];
             displayScreen.enabled = true;
 
-            yield return new WaitForSeconds(reactionTime);
+            yield return StartCoroutine(WaitAndUpdateTimer(reactionTime));
 
             displayScreen.enabled = false;
 
@@ -71,6 +76,25 @@ public class MemoryManager : MonoBehaviour
             currentPhase++;
 
             yield return new WaitForSeconds(timeBetweenRounds);
+        }
+    }
+
+    private IEnumerator WaitAndUpdateTimer(float duration)
+    {
+        float timeLeft = duration;
+        while (timeLeft > 0f)
+        {
+            string timeString = Mathf.CeilToInt(timeLeft).ToString();
+            foreach (Text t in timerTexts)
+            {
+                if (t != null) t.text = timeString;
+            }
+            timeLeft -= Time.deltaTime;
+            yield return null;
+        }
+        foreach (Text t in timerTexts)
+        {
+            if (t != null) t.text = "";
         }
     }
 }
