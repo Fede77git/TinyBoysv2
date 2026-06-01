@@ -21,13 +21,17 @@ public class MemoryManager : MonoBehaviour
 
     private IEnumerator RoundRoutine()
     {
-        while (tiles.Count > 0)
+        int currentPhase = 1;
+
+        while (true)
         {
             List<int> activeIds = new List<int>();
+            int currentSpriteCount = Mathf.Min(2 + currentPhase, availableSprites.Length);
 
             foreach (MemoryTile tile in tiles)
             {
-                int randomId = Random.Range(0, availableSprites.Length);
+                tile.ResetTile();
+                int randomId = Random.Range(0, currentSpriteCount);
                 tile.Setup(randomId, availableSprites[randomId]);
                 tile.ShowImage(true);
                 activeIds.Add(randomId);
@@ -50,24 +54,21 @@ public class MemoryManager : MonoBehaviour
 
             displayScreen.enabled = false;
 
-            List<MemoryTile> remainingTiles = new List<MemoryTile>();
-
             foreach (MemoryTile tile in tiles)
             {
                 if (tile.id != chosenId)
                 {
                     tile.Drop();
                 }
-                else
-                {
-                    remainingTiles.Add(tile);
-                }
             }
 
-            tiles = remainingTiles;
+            if (currentPhase >= 4)
+            {
+                memorizeTime *= difficultyMultiplier;
+                reactionTime *= difficultyMultiplier;
+            }
 
-            memorizeTime *= difficultyMultiplier;
-            reactionTime *= difficultyMultiplier;
+            currentPhase++;
 
             yield return new WaitForSeconds(timeBetweenRounds);
         }
