@@ -22,6 +22,11 @@ public class ScoringManager : MonoBehaviour
         {
             matchTimer = 0f;
             isMatchActive = false;
+            
+            if (LevelManager8.Instance != null)
+            {
+                LevelManager8.Instance.TimeUp();
+            }
         }
 
         spawnTimer += Time.deltaTime;
