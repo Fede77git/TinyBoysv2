@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool hasIsWalking;
     private bool hasIsGrounded;
     private Vector3 knockbackVelocity;
+    public Vector3 platformVelocity;
     
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
@@ -170,7 +171,8 @@ public class PlayerController : MonoBehaviour
             Vector3 direction = camForward * (moveDirection.y * speed) + camRight * (moveDirection.x * strafeSpeed);
             
             knockbackVelocity = Vector3.Lerp(knockbackVelocity, Vector3.zero, Time.fixedDeltaTime * 5f);
-            Vector3 targetVelocity = direction + knockbackVelocity;
+            Vector3 targetVelocity = direction + knockbackVelocity + platformVelocity;
+            platformVelocity = Vector3.zero;
 
             if (direction != Vector3.zero)
             {

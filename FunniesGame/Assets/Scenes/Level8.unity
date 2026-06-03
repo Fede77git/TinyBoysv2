@@ -497,6 +497,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4992602182176871446, guid: b332f3162fe31e44fa912067acfcd610, type: 3}
+--- !u!114 &118536197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118536192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd4e9e73f3433b4c89ad6d010836565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 35, z: 0}
 --- !u!1001 &157144316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5285,6 +5298,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2436478781509483652, guid: 79442a884954497498ade716fb8de5e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 4975438312564046246, guid: 79442a884954497498ade716fb8de5e3,
         type: 3}
       propertyPath: m_Name
