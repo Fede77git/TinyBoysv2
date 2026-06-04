@@ -29,6 +29,10 @@ public class Pick : MonoBehaviour
     private bool brokenGrab = false;
     private PlayerController grabbedPlayer;
 
+    private Renderer grabbedRenderer;
+    private Material grabbedMaterial;
+    private Color originalEmission;
+
     void Update()
     {
         if (grabAction != null && grabAction.action != null)
@@ -77,6 +81,13 @@ public class Pick : MonoBehaviour
             if (grabbedPlayer.grabbersCount < 0) grabbedPlayer.grabbersCount = 0;
             grabbedPlayer = null;
         }
+        if (grabbedMaterial != null && grabbedMaterial.HasProperty("_EmissionColor"))
+        {
+            grabbedMaterial.SetColor("_EmissionColor", originalEmission);
+            grabbedMaterial = null;
+        }
+        grabbedRenderer = null;
+
         hold = false;
         grabbedRb = null;
         FixedJoint fj = GetComponent<FixedJoint>();
@@ -110,6 +121,18 @@ public class Pick : MonoBehaviour
                 {
                     grabbedPlayer = otherController;
                     grabbedPlayer.grabbersCount++;
+                }
+
+                grabbedRenderer = rb.GetComponentInChildren<Renderer>();
+                if (grabbedRenderer != null)
+                {
+                    grabbedMaterial = grabbedRenderer.material;
+                    if (grabbedMaterial.HasProperty("_EmissionColor"))
+                    {
+                        originalEmission = grabbedMaterial.GetColor("_EmissionColor");
+                        grabbedMaterial.EnableKeyword("_EMISSION");
+                        grabbedMaterial.SetColor("_EmissionColor", Color.white * 0.5f);
+                    }
                 }
             }
         }
