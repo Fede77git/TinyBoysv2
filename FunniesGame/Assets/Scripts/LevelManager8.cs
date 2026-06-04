@@ -9,6 +9,10 @@ public class LevelManager8 : MonoBehaviour
     public Text textEsc;
     public ScoringManager scoringManager;
 
+    public Text[] scoreTexts; 
+    public GameObject[] playerUI;
+    public Text timerText;
+
     private bool gameEnding = false;
 
     void Awake()
@@ -27,6 +31,50 @@ public class LevelManager8 : MonoBehaviour
     {
         if (textWin != null) textWin.text = "";
         if (textEsc != null) textEsc.text = "";
+        UpdateScoreUI();
+    }
+
+    void Update()
+    {
+        if (scoringManager != null && scoringManager.isMatchActive && timerText != null)
+        {
+            timerText.text = Mathf.CeilToInt(scoringManager.matchTimer).ToString();
+        }
+    }
+
+    public void SetupUI(int activePlayers)
+    {
+        if (playerUI != null)
+        {
+            for (int i = 0; i < playerUI.Length; i++)
+            {
+                if (playerUI[i] != null)
+                {
+                    playerUI[i].SetActive(i < activePlayers);
+                }
+            }
+        }
+
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            if (scoreTexts[i] != null)
+            {
+                scoreTexts[i].gameObject.SetActive(i < activePlayers);
+            }
+        }
+    }
+
+    public void UpdateScoreUI()
+    {
+        if (scoringManager == null) return;
+        
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            if (scoreTexts[i] != null)
+            {
+                scoreTexts[i].text = " " + scoringManager.playerScores[i].ToString();
+            }
+        }
     }
 
     public void TimeUp()

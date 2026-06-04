@@ -55,6 +55,7 @@ public class ScoringManager : MonoBehaviour
         if (playerIndex >= 0 && playerIndex < 4)
         {
             playerScores[playerIndex] += points;
+            if (LevelManager8.Instance != null) LevelManager8.Instance.UpdateScoreUI();
         }
     }
 
@@ -63,6 +64,7 @@ public class ScoringManager : MonoBehaviour
         if (playerIndex >= 0 && playerIndex < 4)
         {
             playerScores[playerIndex] -= points;
+            if (LevelManager8.Instance != null) LevelManager8.Instance.UpdateScoreUI();
         }
     }
 }
