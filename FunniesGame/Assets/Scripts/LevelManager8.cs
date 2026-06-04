@@ -38,7 +38,10 @@ public class LevelManager8 : MonoBehaviour
     {
         if (scoringManager != null && scoringManager.isMatchActive && timerText != null)
         {
-            timerText.text = Mathf.CeilToInt(scoringManager.matchTimer).ToString();
+            int timeInSeconds = Mathf.CeilToInt(scoringManager.matchTimer);
+            int minutes = timeInSeconds / 60;
+            int seconds = timeInSeconds % 60;
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 
