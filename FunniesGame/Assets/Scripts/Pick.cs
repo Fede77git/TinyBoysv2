@@ -112,8 +112,8 @@ public class Pick : MonoBehaviour
             if (rb != null)
             {
                 FixedJoint fj = gameObject.AddComponent<FixedJoint>();
-                fj.breakForce = 2500f;
-                fj.breakTorque = 2500f;
+                fj.breakForce = 600f;
+                fj.breakTorque = 600f;
                 fj.connectedBody = rb;
                 grabbedRb = rb;
 
