@@ -471,6 +471,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 1
   scoringManager: {fileID: 511045002}
+  fbxEffect: {fileID: 6532625474870085665, guid: 07a977963523b3b4dbcaa27119f6b469,
+    type: 3}
+  soundFx: {fileID: 8300000, guid: cf212bb1b386ec2458c96cb3360b39ca, type: 3}
+  hitVolume: 0.7
+  cooldownTime: 1
 --- !u!1001 &90395073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2775,6 +2780,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 3
   scoringManager: {fileID: 511045002}
+  fbxEffect: {fileID: 6532625474870085665, guid: 07a977963523b3b4dbcaa27119f6b469,
+    type: 3}
+  soundFx: {fileID: 8300000, guid: cf212bb1b386ec2458c96cb3360b39ca, type: 3}
+  hitVolume: 0.7
+  cooldownTime: 1
 --- !u!1001 &937760301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4051,6 +4061,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   scoringManager: {fileID: 511045002}
+  fbxEffect: {fileID: 6532625474870085665, guid: 07a977963523b3b4dbcaa27119f6b469,
+    type: 3}
+  soundFx: {fileID: 8300000, guid: cf212bb1b386ec2458c96cb3360b39ca, type: 3}
+  hitVolume: 0.7
+  cooldownTime: 1
 --- !u!1 &1357390978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,6 +6370,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 2
   scoringManager: {fileID: 511045002}
+  fbxEffect: {fileID: 6532625474870085665, guid: 07a977963523b3b4dbcaa27119f6b469,
+    type: 3}
+  soundFx: {fileID: 8300000, guid: cf212bb1b386ec2458c96cb3360b39ca, type: 3}
+  hitVolume: 0.7
+  cooldownTime: 1
 --- !u!1 &1960726713
 GameObject:
   m_ObjectHideFlags: 0
