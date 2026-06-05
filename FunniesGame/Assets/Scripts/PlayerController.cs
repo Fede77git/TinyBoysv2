@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public float minHeightLimit = -10f;
     public float maxHeightLimit = 50f;
     public float maxFallSpeed = -15f;
+    private Vector3 initialPelvisPosition;
 
     public int GetPlayerIndex()
     {
@@ -62,6 +63,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if (pelvis != null)
+        {
+            initialPelvisPosition = pelvis.position;
+        }
+
         playerAudioSource = GetComponent<AudioSource>();
         if (playerAudioSource == null)
         {
@@ -243,6 +249,12 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
 
+        if (LevelManager8.Instance != null)
+        {
+            StartCoroutine(RespawnRoutine());
+            return;
+        }
+
         if (LevelManager.Instance != null)
         {
             LevelManager.Instance.PlayerDied(playerIndex);
@@ -267,6 +279,33 @@ public class PlayerController : MonoBehaviour
         {
             LevelManager7.Instance.PlayerDied(playerIndex);
         }
+    }
+
+    private System.Collections.IEnumerator RespawnRoutine()
+    {
+        Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rb in allBodies)
+        {
+            rb.isKinematic = true;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        if (pelvis != null)
+        {
+            Vector3 offset = initialPelvisPosition - pelvis.position;
+            transform.position += offset;
+        }
+
+        foreach (Rigidbody rb in allBodies)
+        {
+            rb.isKinematic = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        isDead = false;
+        jumpCooldown = 0f;
     }
 
     public void AddKnockback(Vector3 force)
