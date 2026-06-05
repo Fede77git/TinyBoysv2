@@ -5,6 +5,7 @@ public class RotateRound : MonoBehaviour
 {
     public Vector3 rotationSpeed = new Vector3(0, 50f, 0);
     private HashSet<PlayerController> players = new HashSet<PlayerController>();
+    private HashSet<Rigidbody> items = new HashSet<Rigidbody>();
 
     void FixedUpdate()
     {
@@ -29,6 +30,20 @@ public class RotateRound : MonoBehaviour
                 }
             }
         }
+
+        items.RemoveWhere(rb => rb == null);
+        foreach (Rigidbody rb in items)
+        {
+            if (!rb.isKinematic)
+            {
+                Vector3 offset = rb.position - transform.position;
+                Vector3 newOffset = deltaRot * offset;
+                Vector3 movement = newOffset - offset;
+                
+                rb.MovePosition(rb.position + movement);
+                rb.MoveRotation(deltaRot * rb.rotation);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,6 +53,11 @@ public class RotateRound : MonoBehaviour
             PlayerController pc = collision.gameObject.GetComponentInParent<PlayerController>();
             if (pc != null) players.Add(pc);
         }
+        else
+        {
+            Rigidbody rb = collision.collider.attachedRigidbody;
+            if (rb != null && !rb.isKinematic) items.Add(rb);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -46,6 +66,11 @@ public class RotateRound : MonoBehaviour
         {
             PlayerController pc = collision.gameObject.GetComponentInParent<PlayerController>();
             if (pc != null) players.Remove(pc);
+        }
+        else
+        {
+            Rigidbody rb = collision.collider.attachedRigidbody;
+            if (rb != null) items.Remove(rb);
         }
     }
 }

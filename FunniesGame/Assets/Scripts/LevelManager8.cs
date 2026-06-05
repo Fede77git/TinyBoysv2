@@ -12,6 +12,7 @@ public class LevelManager8 : MonoBehaviour
     public Text[] scoreTexts; 
     public GameObject[] playerUI;
     public Text timerText;
+    public Light respawnLight;
 
     private bool gameEnding = false;
 
@@ -31,6 +32,7 @@ public class LevelManager8 : MonoBehaviour
     {
         if (textWin != null) textWin.text = "";
         if (textEsc != null) textEsc.text = "";
+        if (respawnLight != null) respawnLight.enabled = false;
         UpdateScoreUI();
     }
 
@@ -85,6 +87,21 @@ public class LevelManager8 : MonoBehaviour
         if (gameEnding) return;
         gameEnding = true;
         StartCoroutine(EndGameRoutine());
+    }
+
+    public void TriggerRespawnLight()
+    {
+        if (respawnLight != null)
+        {
+            StartCoroutine(RespawnLightRoutine());
+        }
+    }
+
+    private System.Collections.IEnumerator RespawnLightRoutine()
+    {
+        respawnLight.enabled = true;
+        yield return new WaitForSeconds(1f);
+        respawnLight.enabled = false;
     }
 
     private System.Collections.IEnumerator EndGameRoutine()

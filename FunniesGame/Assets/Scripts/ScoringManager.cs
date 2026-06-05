@@ -48,6 +48,11 @@ public class ScoringManager : MonoBehaviour
         Vector3 spawnPosition = new Vector3(transform.position.x + randomX, spawnHeight, transform.position.z + randomZ);
         
         Instantiate(lootPrefabs[randomLootIndex], spawnPosition, Quaternion.identity);
+
+        if (LevelManager8.Instance != null)
+        {
+            LevelManager8.Instance.TriggerRespawnLight();
+        }
     }
 
     public void AddScore(int playerIndex, int points)

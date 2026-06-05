@@ -1777,6 +1777,7 @@ MonoBehaviour:
   - {fileID: 1879148034}
   - {fileID: 1846200711}
   timerText: {fileID: 1478503707}
+  respawnLight: {fileID: 1881057743}
 --- !u!1 &512348460
 GameObject:
   m_ObjectHideFlags: 0
@@ -6883,7 +6884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881057741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.24, z: -0.28}
+  m_LocalPosition: {x: 0, y: 0.2, z: -0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1353648257}
@@ -6901,7 +6902,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 31.1
+  m_Intensity: 25.5
   m_Range: 15.67
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
