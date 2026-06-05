@@ -129,6 +129,7 @@ public class LevelManager8 : MonoBehaviour
 
         if (textEsc != null) textEsc.text = "Press Escape to continue";
 
+        UIHelper.ShowWinBackground(textWin);
         Time.timeScale = 0f;
     }
 }

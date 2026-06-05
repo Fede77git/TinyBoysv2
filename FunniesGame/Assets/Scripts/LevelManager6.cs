@@ -92,6 +92,7 @@ public class LevelManager6 : MonoBehaviour
         if (textWin != null) textWin.text = playerName + " Wins!";
         if (textEsc != null) textEsc.text = "Press Escape to continue";
 
+        UIHelper.ShowWinBackground(textWin);
         Time.timeScale = 0f;
     }
 }

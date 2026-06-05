@@ -93,6 +93,7 @@ public class LevelManager3 : MonoBehaviour
             if (textEsc != null) textEsc.text = "Press Escape to continue";
             if (textCut != null) textCut.text = "All others were cut into pieces";
 
+            UIHelper.ShowWinBackground(textWin);
             Time.timeScale = 0f;
         }
     }
