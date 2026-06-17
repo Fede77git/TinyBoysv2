@@ -114,7 +114,8 @@ public class Pick : MonoBehaviour
             PlayerController otherController = col.collider.GetComponentInParent<PlayerController>();
             if (otherController != null && otherController == myController) return;
 
-            Rigidbody rb = col.collider.GetComponent<Rigidbody>();
+            Rigidbody rb = col.rigidbody;
+            if (rb == null) rb = col.collider.GetComponentInParent<Rigidbody>();
             if (rb != null)
             {
                 FixedJoint fj = gameObject.AddComponent<FixedJoint>();
@@ -137,15 +138,18 @@ public class Pick : MonoBehaviour
                     grabbedPlayer.grabbersCount++;
                 }
 
-                grabbedRenderer = rb.GetComponentInChildren<Renderer>();
-                if (grabbedRenderer != null)
+                if (tube == null)
                 {
-                    grabbedMaterial = grabbedRenderer.material;
-                    if (grabbedMaterial.HasProperty("_EmissionColor"))
+                    grabbedRenderer = rb.GetComponentInChildren<Renderer>();
+                    if (grabbedRenderer != null)
                     {
-                        originalEmission = grabbedMaterial.GetColor("_EmissionColor");
-                        grabbedMaterial.EnableKeyword("_EMISSION");
-                        grabbedMaterial.SetColor("_EmissionColor", Color.white * 0.5f);
+                        grabbedMaterial = grabbedRenderer.material;
+                        if (grabbedMaterial.HasProperty("_EmissionColor"))
+                        {
+                            originalEmission = grabbedMaterial.GetColor("_EmissionColor");
+                            grabbedMaterial.EnableKeyword("_EMISSION");
+                            grabbedMaterial.SetColor("_EmissionColor", Color.white * 0.5f);
+                        }
                     }
                 }
             }

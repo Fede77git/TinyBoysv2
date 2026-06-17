@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PaintableTile : MonoBehaviour
 {
-    private int ownerID = 0;
+    private int ownerID = -1;
     private MeshRenderer meshRenderer;
 
     private void Awake()

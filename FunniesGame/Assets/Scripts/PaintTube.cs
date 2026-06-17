@@ -5,17 +5,20 @@ public class PaintTube : MonoBehaviour
 {
     public float lifetime = 10f;
     public SphereCollider brushCollider;
-    public Image inkBar;
     public GameObject tubeCap;
+    public Renderer tubeRenderer;
 
     private int currentPlayerID = 0;
     private Color currentColor;
     private bool isGrabbed = false;
     private float currentLife;
+    private Vector3 initialScale;
 
     private void Awake()
     {
         currentLife = lifetime;
+        if (tubeRenderer != null) initialScale = tubeRenderer.transform.localScale;
+        else initialScale = transform.localScale;
         if (brushCollider != null)
         {
             brushCollider.enabled = false;
@@ -33,10 +36,12 @@ public class PaintTube : MonoBehaviour
             brushCollider.enabled = true;
         }
 
-        if (inkBar != null)
+        if (tubeRenderer != null)
         {
-            inkBar.color = newColor;
-            inkBar.fillAmount = currentLife / lifetime;
+            foreach (Material mat in tubeRenderer.materials)
+            {
+                mat.color = newColor;
+            }
         }
 
         if (tubeCap != null)
@@ -45,7 +50,7 @@ public class PaintTube : MonoBehaviour
             Rigidbody capRb = tubeCap.GetComponent<Rigidbody>();
             if (capRb == null) capRb = tubeCap.AddComponent<Rigidbody>();
             capRb.AddForce(Vector3.up * 2f + Random.insideUnitSphere * 1f, ForceMode.Impulse);
-            Destroy(tubeCap, 2.5f);
+            Destroy(tubeCap, 3f);
             tubeCap = null;
         }
     }
@@ -59,24 +64,35 @@ public class PaintTube : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        PaintableTile tile = other.GetComponent<PaintableTile>();
-        if (tile != null)
-        {
-            tile.Pintar(currentPlayerID, currentColor);
-        }
-    }
-
     private void Update()
     {
         if (isGrabbed)
         {
             currentLife -= Time.deltaTime;
 
-            if (inkBar != null)
+            if (brushCollider != null && brushCollider.enabled)
             {
-                inkBar.fillAmount = currentLife / lifetime;
+                float radius = brushCollider.radius * Mathf.Max(brushCollider.transform.lossyScale.x, brushCollider.transform.lossyScale.y, brushCollider.transform.lossyScale.z);
+                radius += 0.3f; 
+                Collider[] hitColliders = Physics.OverlapSphere(brushCollider.transform.position, radius);
+                foreach (var hitCollider in hitColliders)
+                {
+                    PaintableTile tile = hitCollider.GetComponent<PaintableTile>();
+                    if (tile != null)
+                    {
+                        tile.Pintar(currentPlayerID, currentColor);
+                    }
+                }
+            }
+
+            float flattenedY = Mathf.Lerp(0.05f, initialScale.y, currentLife / lifetime);
+            if (tubeRenderer != null)
+            {
+                tubeRenderer.transform.localScale = new Vector3(initialScale.x, flattenedY, initialScale.z);
+            }
+            else
+            {
+                transform.localScale = new Vector3(initialScale.x, flattenedY, initialScale.z);
             }
 
             if (currentLife <= 0f)
