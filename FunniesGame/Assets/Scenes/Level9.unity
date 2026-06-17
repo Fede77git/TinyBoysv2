@@ -9160,8 +9160,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331968235953742938, guid: 56c9ab39440761e449479720d5fff245,
         type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331968235953742938, guid: 56c9ab39440761e449479720d5fff245,
+        type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331968235953742939, guid: 56c9ab39440761e449479720d5fff245,
+        type: 3}
+      propertyPath: lifetime
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c9ab39440761e449479720d5fff245, type: 3}

@@ -27,6 +27,8 @@ public class Pick : MonoBehaviour
     }
 
     private bool brokenGrab = false;
+    private float stealProgress = 0f;
+    private Rigidbody targetToSteal;
     private PlayerController grabbedPlayer;
 
     private Renderer grabbedRenderer;
@@ -49,6 +51,43 @@ public class Pick : MonoBehaviour
                 {
                     ReleaseGrab();
                 }
+
+                if (targetToSteal != null && grabbedRb == null)
+                {
+                    if (Vector3.Distance(transform.position, targetToSteal.position) < 5f)
+                    {
+                        Pick owner = null;
+                        Pick[] allPicks = FindObjectsOfType<Pick>();
+                        foreach (Pick p in allPicks)
+                        {
+                            if (p != this && p.grabbedRb == targetToSteal) { owner = p; break; }
+                        }
+
+                        if (owner != null)
+                        {
+                            stealProgress += Time.deltaTime;
+                            targetToSteal.AddForce((transform.position - targetToSteal.position).normalized * 50f, ForceMode.Force);
+
+                            if (stealProgress > 0.6f)
+                            {
+                                owner.ForceDrop();
+                                DoGrab(targetToSteal);
+                                targetToSteal = null;
+                                stealProgress = 0f;
+                            }
+                        }
+                        else
+                        {
+                            targetToSteal = null;
+                            stealProgress = 0f;
+                        }
+                    }
+                    else
+                    {
+                        targetToSteal = null;
+                        stealProgress = 0f;
+                    }
+                }
             }
             else
             {
@@ -60,12 +99,19 @@ public class Pick : MonoBehaviour
                 if (!grabAction.action.IsPressed())
                 {
                     brokenGrab = false;
+                    stealProgress = 0f;
+                    targetToSteal = null;
                 }
             }
         }
     }
 
     void OnJointBreak(float breakForce)
+    {
+        ForceDrop();
+    }
+
+    public void ForceDrop()
     {
         brokenGrab = true;
         if (RightHand) animator.SetBool("isRightHand", false);
@@ -118,42 +164,68 @@ public class Pick : MonoBehaviour
             if (rb == null) rb = col.collider.GetComponentInParent<Rigidbody>();
             if (rb != null)
             {
-                FixedJoint fj = gameObject.AddComponent<FixedJoint>();
-                fj.breakForce = 600f;
-                fj.breakTorque = 600f;
-                fj.connectedBody = rb;
-                grabbedRb = rb;
-
-                PaintTube tube = rb.GetComponent<PaintTube>();
-                if (tube != null)
+                Pick owner = null;
+                Pick[] allPicks = FindObjectsOfType<Pick>();
+                foreach (Pick p in allPicks)
                 {
-                    Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
-                    Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
-                    tube.OnGrabbed(myController.playerIndex, myColor);
-                }
-
-                if (otherController != null)
-                {
-                    grabbedPlayer = otherController;
-                    grabbedPlayer.grabbersCount++;
-                }
-
-                if (tube == null)
-                {
-                    grabbedRenderer = rb.GetComponentInChildren<Renderer>();
-                    if (grabbedRenderer != null)
+                    if (p != this && p.grabbedRb == rb)
                     {
-                        grabbedMaterial = grabbedRenderer.material;
-                        if (grabbedMaterial.HasProperty("_EmissionColor"))
-                        {
-                            originalEmission = grabbedMaterial.GetColor("_EmissionColor");
-                            grabbedMaterial.EnableKeyword("_EMISSION");
-                            grabbedMaterial.SetColor("_EmissionColor", Color.white * 0.5f);
-                        }
+                        owner = p;
+                        break;
                     }
+                }
+
+                if (owner != null)
+                {
+                    if (targetToSteal != rb)
+                    {
+                        targetToSteal = rb;
+                        stealProgress = 0f;
+                    }
+                    return; 
+                }
+
+                DoGrab(rb);
+            }
+        }
+    }
+
+    private void DoGrab(Rigidbody rb)
+    {
+        FixedJoint fj = gameObject.AddComponent<FixedJoint>();
+        fj.breakForce = 600f;
+        fj.breakTorque = 600f;
+        fj.connectedBody = rb;
+        grabbedRb = rb;
+
+        PaintTube tube = rb.GetComponent<PaintTube>();
+        if (tube != null)
+        {
+            Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
+            Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
+            tube.OnGrabbed(myController.playerIndex, myColor);
+        }
+
+        PlayerController otherController = rb.GetComponentInParent<PlayerController>();
+        if (otherController != null)
+        {
+            grabbedPlayer = otherController;
+            grabbedPlayer.grabbersCount++;
+        }
+
+        if (tube == null)
+        {
+            grabbedRenderer = rb.GetComponentInChildren<Renderer>();
+            if (grabbedRenderer != null)
+            {
+                grabbedMaterial = grabbedRenderer.material;
+                if (grabbedMaterial.HasProperty("_EmissionColor"))
+                {
+                    originalEmission = grabbedMaterial.GetColor("_EmissionColor");
+                    grabbedMaterial.EnableKeyword("_EMISSION");
+                    grabbedMaterial.SetColor("_EmissionColor", Color.white * 0.5f);
                 }
             }
         }
     }
 }
-
