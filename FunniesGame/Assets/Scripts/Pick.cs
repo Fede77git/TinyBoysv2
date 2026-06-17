@@ -88,6 +88,12 @@ public class Pick : MonoBehaviour
         }
         grabbedRenderer = null;
 
+        if (grabbedRb != null)
+        {
+            PaintTube tube = grabbedRb.GetComponent<PaintTube>();
+            if (tube != null) tube.OnDropped();
+        }
+
         hold = false;
         grabbedRb = null;
         FixedJoint fj = GetComponent<FixedJoint>();
@@ -116,6 +122,14 @@ public class Pick : MonoBehaviour
                 fj.breakTorque = 600f;
                 fj.connectedBody = rb;
                 grabbedRb = rb;
+
+                PaintTube tube = rb.GetComponent<PaintTube>();
+                if (tube != null)
+                {
+                    Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
+                    Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
+                    tube.OnGrabbed(myController.playerIndex, myColor);
+                }
 
                 if (otherController != null)
                 {

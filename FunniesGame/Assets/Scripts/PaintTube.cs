@@ -6,6 +6,7 @@ public class PaintTube : MonoBehaviour
     public float lifetime = 10f;
     public SphereCollider brushCollider;
     public Image inkBar;
+    public GameObject tubeCap;
 
     private int currentPlayerID = 0;
     private Color currentColor;
@@ -36,6 +37,16 @@ public class PaintTube : MonoBehaviour
         {
             inkBar.color = newColor;
             inkBar.fillAmount = currentLife / lifetime;
+        }
+
+        if (tubeCap != null)
+        {
+            tubeCap.transform.SetParent(null);
+            Rigidbody capRb = tubeCap.GetComponent<Rigidbody>();
+            if (capRb == null) capRb = tubeCap.AddComponent<Rigidbody>();
+            capRb.AddForce(Vector3.up * 2f + Random.insideUnitSphere * 1f, ForceMode.Impulse);
+            Destroy(tubeCap, 2.5f);
+            tubeCap = null;
         }
     }
 
