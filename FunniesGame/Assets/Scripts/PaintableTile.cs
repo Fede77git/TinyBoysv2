@@ -10,11 +10,12 @@ public class PaintableTile : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    public void Pintar(int playerID, Color playerColor)
+    public bool Pintar(int playerID, Color playerColor)
     {
-        if (ownerID == playerID) return;
+        if (ownerID == playerID) return false;
 
         ownerID = playerID;
         meshRenderer.material.color = playerColor;
+        return true;
     }
 }

@@ -7,6 +7,11 @@ public class PaintTube : MonoBehaviour
     public SphereCollider brushCollider;
     public GameObject tubeCap;
     public Renderer tubeRenderer;
+    public AudioClip emptySfx;
+    [Range(0f, 1f)] public float emptySfxVolume = 1f;
+    public AudioClip paintSfx;
+    [Range(0f, 1f)] public float paintSfxVolume = 1f;
+    private AudioSource paintAudioSource;
 
     private int currentPlayerID = 0;
     private Color currentColor;
@@ -16,6 +21,8 @@ public class PaintTube : MonoBehaviour
 
     private void Awake()
     {
+        paintAudioSource = gameObject.AddComponent<AudioSource>();
+        paintAudioSource.spatialBlend = 0f;
         currentLife = lifetime;
         if (tubeRenderer != null) initialScale = tubeRenderer.transform.localScale;
         else initialScale = transform.localScale;
@@ -75,13 +82,23 @@ public class PaintTube : MonoBehaviour
                 float radius = brushCollider.radius * Mathf.Max(brushCollider.transform.lossyScale.x, brushCollider.transform.lossyScale.y, brushCollider.transform.lossyScale.z);
                 radius += 0.3f; 
                 Collider[] hitColliders = Physics.OverlapSphere(brushCollider.transform.position, radius);
+                bool anyPaintedThisFrame = false;
                 foreach (var hitCollider in hitColliders)
                 {
                     PaintableTile tile = hitCollider.GetComponent<PaintableTile>();
                     if (tile != null)
                     {
-                        tile.Pintar(currentPlayerID, currentColor);
+                        if (tile.Pintar(currentPlayerID, currentColor))
+                        {
+                            anyPaintedThisFrame = true;
+                        }
                     }
+                }
+
+                if (anyPaintedThisFrame && paintSfx != null)
+                {
+                    paintAudioSource.pitch = Random.Range(0.8f, 1.2f);
+                    paintAudioSource.PlayOneShot(paintSfx, paintSfxVolume);
                 }
             }
 
@@ -97,6 +114,16 @@ public class PaintTube : MonoBehaviour
 
             if (currentLife <= 0f)
             {
+                if (emptySfx != null)
+                {
+                    GameObject audioObj = new GameObject("TempAudio");
+                    AudioSource audioSource = audioObj.AddComponent<AudioSource>();
+                    audioSource.clip = emptySfx;
+                    audioSource.volume = emptySfxVolume;
+                    audioSource.spatialBlend = 0f;
+                    audioSource.Play();
+                    Destroy(audioObj, emptySfx.length);
+                }
                 Destroy(gameObject);
             }
         }

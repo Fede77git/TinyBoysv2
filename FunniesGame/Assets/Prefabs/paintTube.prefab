@@ -164,6 +164,10 @@ MonoBehaviour:
   brushCollider: {fileID: 3331968237806387077}
   tubeCap: {fileID: 6348609446161417580}
   tubeRenderer: {fileID: 5606450263935799936}
+  emptySfx: {fileID: 8300000, guid: 668acb5a618729349a7b3e2dae7ceb61, type: 3}
+  emptySfxVolume: 0.3
+  paintSfx: {fileID: 8300000, guid: e228ee0599c2aa94587877b7f6da9373, type: 3}
+  paintSfxVolume: 0.3
 --- !u!1 &3331968237806387130
 GameObject:
   m_ObjectHideFlags: 0

@@ -9171,7 +9171,12 @@ PrefabInstance:
     - target: {fileID: 3331968235953742939, guid: 56c9ab39440761e449479720d5fff245,
         type: 3}
       propertyPath: lifetime
-      value: 40
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331968235953742939, guid: 56c9ab39440761e449479720d5fff245,
+        type: 3}
+      propertyPath: paintSfxVolume
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c9ab39440761e449479720d5fff245, type: 3}
