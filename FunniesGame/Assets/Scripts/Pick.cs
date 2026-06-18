@@ -193,17 +193,23 @@ public class Pick : MonoBehaviour
     private void DoGrab(Rigidbody rb)
     {
         FixedJoint fj = gameObject.AddComponent<FixedJoint>();
-        fj.breakForce = 600f;
-        fj.breakTorque = 600f;
         fj.connectedBody = rb;
         grabbedRb = rb;
 
         PaintTube tube = rb.GetComponent<PaintTube>();
         if (tube != null)
         {
+            fj.breakForce = Mathf.Infinity;
+            fj.breakTorque = Mathf.Infinity;
+
             Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
             Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
             tube.OnGrabbed(myController.playerIndex, myColor);
+        }
+        else
+        {
+            fj.breakForce = 600f;
+            fj.breakTorque = 600f;
         }
 
         PlayerController otherController = rb.GetComponentInParent<PlayerController>();
