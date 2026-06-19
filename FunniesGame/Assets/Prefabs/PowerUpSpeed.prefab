@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174300b5e6ef4dc40ac54e0e62278f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoost: 3
-  strafeSpeedBoost: 2
+  speedBoost: 2
+  strafeSpeedBoost: 1
 --- !u!114 &-8017428472437865673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +125,10 @@ MonoBehaviour:
   rotateX: 0
   rotateY: 1
   rotateZ: 0
-  rotationSpeed: 85.67
+  rotationSpeed: 80.5
   isFloating: 1
   useEasingForFloating: 1
-  floatHeight: 1.93
+  floatHeight: 1.42
   floatSpeed: 0.4
   startScale: {x: 1, y: 1, z: 1}
   endScale: {x: 1.2, y: 1.2, z: 1.2}
