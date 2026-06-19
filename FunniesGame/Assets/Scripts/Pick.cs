@@ -222,7 +222,7 @@ public class Pick : MonoBehaviour
         if (tube == null)
         {
             grabbedRenderer = rb.GetComponentInChildren<Renderer>();
-            if (grabbedRenderer != null)
+            if (grabbedRenderer != null && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level8")
             {
                 grabbedMaterial = grabbedRenderer.material;
                 if (grabbedMaterial.HasProperty("_EmissionColor"))
