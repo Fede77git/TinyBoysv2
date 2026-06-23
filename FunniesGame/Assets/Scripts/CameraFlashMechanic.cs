@@ -15,7 +15,7 @@ public class CameraFlashMechanic : MonoBehaviour
     public Material grayMaterial;
 
     private Vector3 currentTargetPosition;
-    private HashSet<GameObject> playersInTrigger = new HashSet<GameObject>();
+    private Dictionary<GameObject, int> playersInTrigger = new Dictionary<GameObject, int>();
     private bool isFlashing = false;
 
     private void Start()
@@ -43,17 +43,26 @@ public class CameraFlashMechanic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        PlayerController pc = other.GetComponentInParent<PlayerController>();
+        if (pc != null)
         {
-            playersInTrigger.Add(other.gameObject);
+            if (playersInTrigger.ContainsKey(pc.gameObject))
+                playersInTrigger[pc.gameObject]++;
+            else
+                playersInTrigger[pc.gameObject] = 1;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        PlayerController pc = other.GetComponentInParent<PlayerController>();
+        if (pc != null && playersInTrigger.ContainsKey(pc.gameObject))
         {
-            playersInTrigger.Remove(other.gameObject);
+            playersInTrigger[pc.gameObject]--;
+            if (playersInTrigger[pc.gameObject] <= 0)
+            {
+                playersInTrigger.Remove(pc.gameObject);
+            }
         }
     }
 
@@ -72,7 +81,7 @@ public class CameraFlashMechanic : MonoBehaviour
 
             isFlashing = true;
 
-            foreach (GameObject player in playersInTrigger)
+            foreach (GameObject player in new List<GameObject>(playersInTrigger.Keys))
             {
                 if (player != null)
                 {
@@ -98,6 +107,15 @@ public class CameraFlashMechanic : MonoBehaviour
 
     private IEnumerator FreezePlayerRoutine(GameObject player)
     {
+        PlayerController pc = player.GetComponent<PlayerController>();
+        if (pc != null) pc.enabled = false;
+
+        Animator[] animators = player.GetComponentsInChildren<Animator>();
+        foreach (Animator anim in animators)
+        {
+            anim.speed = 0;
+        }
+
         Rigidbody[] rigidbodies = player.GetComponentsInChildren<Rigidbody>();
         Renderer[] renderers = player.GetComponentsInChildren<Renderer>();
         
@@ -110,6 +128,8 @@ public class CameraFlashMechanic : MonoBehaviour
 
         foreach (Renderer rend in renderers)
         {
+            if (rend is ParticleSystemRenderer || rend is TrailRenderer) continue;
+
             originalMaterials[rend] = rend.materials;
             Material[] grayMats = new Material[rend.materials.Length];
             for (int i = 0; i < grayMats.Length; i++)
@@ -123,6 +143,13 @@ public class CameraFlashMechanic : MonoBehaviour
 
         if (player != null)
         {
+            if (pc != null) pc.enabled = true;
+
+            foreach (Animator anim in animators)
+            {
+                if (anim != null) anim.speed = 1;
+            }
+
             foreach (Rigidbody rb in rigidbodies)
             {
                 if (rb != null)
