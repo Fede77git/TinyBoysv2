@@ -7,14 +7,14 @@ public class CameraFlashMechanic : MonoBehaviour
     public Light spotlight;
     public Color normalColor = Color.white;
     public Color warningColor = Color.red;
-    public List<Transform> waypoints;
+    public BoxCollider movementArea;
     public float moveSpeed = 2f;
     public float cycleTime = 15f;
     public float warningTime = 3f;
     public float freezeDuration = 3f;
     public Material grayMaterial;
 
-    private int currentWaypointIndex = 0;
+    private Vector3 currentTargetPosition;
     private HashSet<GameObject> playersInTrigger = new HashSet<GameObject>();
     private bool isFlashing = false;
 
@@ -24,19 +24,19 @@ public class CameraFlashMechanic : MonoBehaviour
         {
             spotlight.color = normalColor;
         }
+        PickNewRandomTarget();
         StartCoroutine(FlashCycleRoutine());
     }
 
     private void Update()
     {
-        if (!isFlashing && waypoints.Count > 0)
+        if (!isFlashing && movementArea != null)
         {
-            Transform target = waypoints[currentWaypointIndex];
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, currentTargetPosition, moveSpeed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            if (Vector3.Distance(transform.position, currentTargetPosition) < 0.1f)
             {
-                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+                PickNewRandomTarget();
             }
         }
     }
@@ -80,12 +80,19 @@ public class CameraFlashMechanic : MonoBehaviour
                 }
             }
 
-            if (waypoints.Count > 0)
-            {
-                int randomIndex = Random.Range(0, waypoints.Count);
-                currentWaypointIndex = randomIndex;
-                transform.position = waypoints[randomIndex].position;
-            }
+            PickNewRandomTarget();
+            transform.position = currentTargetPosition;
+        }
+    }
+
+    private void PickNewRandomTarget()
+    {
+        if (movementArea != null)
+        {
+            Bounds bounds = movementArea.bounds;
+            float randomX = Random.Range(bounds.min.x, bounds.max.x);
+            float randomZ = Random.Range(bounds.min.z, bounds.max.z);
+            currentTargetPosition = new Vector3(randomX, transform.position.y, randomZ);
         }
     }
 
