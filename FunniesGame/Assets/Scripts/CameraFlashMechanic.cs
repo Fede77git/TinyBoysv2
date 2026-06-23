@@ -8,10 +8,13 @@ public class CameraFlashMechanic : MonoBehaviour
     public Color normalColor = Color.white;
     public Color warningColor = Color.red;
     public BoxCollider movementArea;
+    public Transform cameraModel;
+    public Light lensFlashLight;
     public float moveSpeed = 2f;
     public float cycleTime = 15f;
     public float warningTime = 3f;
     public float freezeDuration = 3f;
+    public float trackingOffset = 0f;
     public Material grayMaterial;
 
     private Vector3 currentTargetPosition;
@@ -23,6 +26,10 @@ public class CameraFlashMechanic : MonoBehaviour
         if (spotlight != null)
         {
             spotlight.color = normalColor;
+        }
+        if (lensFlashLight != null)
+        {
+            lensFlashLight.enabled = false;
         }
         PickNewRandomTarget();
         StartCoroutine(FlashCycleRoutine());
@@ -38,6 +45,11 @@ public class CameraFlashMechanic : MonoBehaviour
             {
                 PickNewRandomTarget();
             }
+        }
+
+        if (cameraModel != null)
+        {
+            cameraModel.position = new Vector3(cameraModel.position.x, cameraModel.position.y, transform.position.z + trackingOffset);
         }
     }
 
@@ -89,8 +101,13 @@ public class CameraFlashMechanic : MonoBehaviour
                 }
             }
 
+            if (lensFlashLight != null) lensFlashLight.enabled = true;
+            
+            yield return new WaitForSeconds(0.5f);
+            
+            if (lensFlashLight != null) lensFlashLight.enabled = false;
+
             PickNewRandomTarget();
-            transform.position = currentTargetPosition;
         }
     }
 
