@@ -55,13 +55,22 @@ public class CameraFlashMechanic : MonoBehaviour
 
         if (!isFlashing && LevelManager10.Instance != null)
         {
-            foreach (GameObject player in new List<GameObject>(playersInTrigger.Keys))
+            List<PlayerController> alivePlayersInLight = new List<PlayerController>();
+            foreach (GameObject player in playersInTrigger.Keys)
             {
-                PlayerController pc = player.GetComponent<PlayerController>();
-                if (pc != null && !pc.isDead)
+                if (player != null)
                 {
-                    LevelManager10.Instance.AddPlayerCharge(pc.playerIndex, chargeSpeed * Time.deltaTime);
+                    PlayerController pc = player.GetComponent<PlayerController>();
+                    if (pc != null && !pc.isDead)
+                    {
+                        alivePlayersInLight.Add(pc);
+                    }
                 }
+            }
+
+            if (alivePlayersInLight.Count == 1)
+            {
+                LevelManager10.Instance.AddPlayerCharge(alivePlayersInLight[0].playerIndex, chargeSpeed * Time.deltaTime);
             }
         }
     }
