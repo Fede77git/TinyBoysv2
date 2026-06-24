@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
 
-        if (LevelManager8.Instance != null || LevelManager9.Instance != null)
+        if (LevelManager8.Instance != null || LevelManager9.Instance != null || LevelManager10.Instance != null)
         {
             StartCoroutine(RespawnRoutine());
             return;

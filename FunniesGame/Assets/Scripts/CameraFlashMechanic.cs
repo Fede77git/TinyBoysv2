@@ -15,6 +15,7 @@ public class CameraFlashMechanic : MonoBehaviour
     public float warningTime = 3f;
     public float freezeDuration = 3f;
     public float trackingOffset = 0f;
+    public float chargeSpeed = 15f;
     public Material grayMaterial;
 
     private Vector3 currentTargetPosition;
@@ -50,6 +51,18 @@ public class CameraFlashMechanic : MonoBehaviour
         if (cameraModel != null)
         {
             cameraModel.position = new Vector3(cameraModel.position.x, cameraModel.position.y, transform.position.z + trackingOffset);
+        }
+
+        if (!isFlashing && LevelManager10.Instance != null)
+        {
+            foreach (GameObject player in new List<GameObject>(playersInTrigger.Keys))
+            {
+                PlayerController pc = player.GetComponent<PlayerController>();
+                if (pc != null && !pc.isDead)
+                {
+                    LevelManager10.Instance.AddPlayerCharge(pc.playerIndex, chargeSpeed * Time.deltaTime);
+                }
+            }
         }
     }
 
