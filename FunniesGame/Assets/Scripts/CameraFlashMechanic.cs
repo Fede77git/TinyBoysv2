@@ -15,8 +15,15 @@ public class CameraFlashMechanic : MonoBehaviour
     public float warningTime = 3f;
     public float freezeDuration = 3f;
     public float trackingOffset = 0f;
+    public float boundsMargin = 1.5f;
     public float chargeSpeed = 15f;
     public Material grayMaterial;
+    
+    public AudioClip beepSound;
+    [Range(0f, 1f)] public float beepVolume = 1f;
+    public AudioClip flashSound;
+    [Range(0f, 1f)] public float flashVolume = 1f;
+    private AudioSource audioSource;
 
     private Vector3 currentTargetPosition;
     private Dictionary<GameObject, int> playersInTrigger = new Dictionary<GameObject, int>();
@@ -24,6 +31,12 @@ public class CameraFlashMechanic : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         if (spotlight != null)
         {
             spotlight.color = normalColor;
@@ -111,9 +124,28 @@ public class CameraFlashMechanic : MonoBehaviour
 
             if (spotlight != null) spotlight.color = warningColor;
 
-            yield return new WaitForSeconds(warningTime);
+            if (beepSound != null && audioSource != null)
+            {
+                int beeps = Mathf.FloorToInt(warningTime);
+                for (int i = 0; i < beeps; i++)
+                {
+                    audioSource.PlayOneShot(beepSound, beepVolume);
+                    yield return new WaitForSeconds(1f);
+                }
+                float remainder = warningTime - beeps;
+                if (remainder > 0) yield return new WaitForSeconds(remainder);
+            }
+            else
+            {
+                yield return new WaitForSeconds(warningTime);
+            }
 
             isFlashing = true;
+
+            if (flashSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(flashSound, flashVolume);
+            }
 
             foreach (GameObject player in new List<GameObject>(playersInTrigger.Keys))
             {
@@ -138,8 +170,17 @@ public class CameraFlashMechanic : MonoBehaviour
         if (movementArea != null)
         {
             Bounds bounds = movementArea.bounds;
-            float randomX = Random.Range(bounds.min.x, bounds.max.x);
-            float randomZ = Random.Range(bounds.min.z, bounds.max.z);
+            
+            float minX = bounds.min.x + boundsMargin;
+            float maxX = bounds.max.x - boundsMargin;
+            float minZ = bounds.min.z + boundsMargin;
+            float maxZ = bounds.max.z - boundsMargin;
+
+            if (minX > maxX) { minX = bounds.center.x; maxX = bounds.center.x; }
+            if (minZ > maxZ) { minZ = bounds.center.z; maxZ = bounds.center.z; }
+
+            float randomX = Random.Range(minX, maxX);
+            float randomZ = Random.Range(minZ, maxZ);
             currentTargetPosition = new Vector3(randomX, transform.position.y, randomZ);
         }
     }
