@@ -16,6 +16,12 @@ public class StuntPunch : MonoBehaviour
 
     private Dictionary<Rigidbody, RigidbodyConstraints> origConstraints = new Dictionary<Rigidbody, RigidbodyConstraints>();
 
+    public AudioClip punchSound;
+    [Range(0f, 1f)] public float punchVolume = 1f;
+    public AudioClip stunSound;
+    [Range(0f, 1f)] public float stunVolume = 1f;
+    private AudioSource audioSource;
+
     private PlayerController playerController;
 
     void Start()
@@ -24,6 +30,10 @@ public class StuntPunch : MonoBehaviour
         ragdollJoints = GetComponentsInChildren<ConfigurableJoint>();
         copyAnims = GetComponentsInChildren<CopyAnim>();
         playerController = GetComponent<PlayerController>();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
 
         foreach (var joint in ragdollJoints)
         {
@@ -55,7 +65,15 @@ public class StuntPunch : MonoBehaviour
 
         if (shouldStun && !isStunned)
         {
+            if (stunSound != null && audioSource != null)
+                audioSource.PlayOneShot(stunSound, stunVolume);
+            
             StartCoroutine(StunRoutine());
+        }
+        else
+        {
+            if (punchSound != null && audioSource != null)
+                audioSource.PlayOneShot(punchSound, punchVolume);
         }
     }
 

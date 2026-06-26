@@ -7,8 +7,10 @@ public class PunchMechanic : MonoBehaviour
     public Rigidbody[] punchRigidbodies;
     public float punchForce = 15f;
     public Animator animator;
+    public float punchCooldown = 2f;
     
     private bool isPunching;
+    private float lastPunchTime = -10f;
 
     void OnEnable()
     {
@@ -24,7 +26,11 @@ public class PunchMechanic : MonoBehaviour
     {
         if (punchAction != null && punchAction.action.WasPressedThisFrame())
         {
-            Punch();
+            if (Time.time >= lastPunchTime + punchCooldown)
+            {
+                lastPunchTime = Time.time;
+                Punch();
+            }
         }
     }
 
