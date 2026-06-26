@@ -38,13 +38,28 @@ public class StuntPunch : MonoBehaviour
         }
     }
 
-    public void ReceivePunch(Vector3 direction, float force)
+    public void ReceivePunch(Vector3 direction, float force, bool shouldStun)
     {
-        if (isStunned) return;
-        StartCoroutine(StunRoutine(direction, force));
+        float distributedForce = force * 0.20f;
+        foreach (Rigidbody rb in ragdollRigidbodies)
+        {
+            if (rb != null)
+            {
+                if (shouldStun && !isStunned)
+                    rb.constraints = RigidbodyConstraints.None;
+
+                rb.AddForce(direction * distributedForce, ForceMode.Impulse);
+                rb.AddTorque(Random.insideUnitSphere * distributedForce * 0.5f, ForceMode.Impulse);
+            }
+        }
+
+        if (shouldStun && !isStunned)
+        {
+            StartCoroutine(StunRoutine());
+        }
     }
 
-    private IEnumerator StunRoutine(Vector3 direction, float force)
+    private IEnumerator StunRoutine()
     {
         isStunned = true;
 
@@ -69,17 +84,6 @@ public class StuntPunch : MonoBehaviour
             JointDrive driveSlerp = joint.slerpDrive;
             driveSlerp.positionSpring = origSlerpSpring[joint] * multiplier;
             joint.slerpDrive = driveSlerp;
-        }
-
-        float distributedForce = force * 0.3f;
-        foreach (Rigidbody rb in ragdollRigidbodies)
-        {
-            if (rb != null)
-            {
-                rb.constraints = RigidbodyConstraints.None;
-                rb.AddForce(direction * distributedForce, ForceMode.Impulse);
-                rb.AddTorque(Random.insideUnitSphere * distributedForce * 0.5f, ForceMode.Impulse);
-            }
         }
 
         yield return new WaitForSeconds(stunDuration);

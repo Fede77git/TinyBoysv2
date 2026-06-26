@@ -66,7 +66,21 @@ public class PunchMechanic : MonoBehaviour
                 Vector3 hitDir = (stunt.transform.position - transform.position).normalized;
                 hitDir.y = 0f; 
                 hitDir.Normalize();
-                stunt.ReceivePunch(hitDir, punchForce * 0.8f);
+
+                
+                bool shouldStun = false;
+                PlayerController myController = GetComponentInParent<PlayerController>();
+                if (myController != null && myController.pelvis != null)
+                {
+                 
+                    Vector3 horizVel = new Vector3(myController.pelvis.velocity.x, 0, myController.pelvis.velocity.z);
+                    if (horizVel.magnitude > 4f)
+                    {
+                        shouldStun = true;
+                    }
+                }
+
+                stunt.ReceivePunch(hitDir, punchForce * 0.8f, shouldStun);
             }
         }
     }
