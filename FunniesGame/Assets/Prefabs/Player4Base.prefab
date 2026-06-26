@@ -7,6 +7,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 710073167925292873, guid: 9fee6489e9285724b9490dfdd0775f1c,
+        type: 3}
+      propertyPath: punchAction
+      value: 
+      objectReference: {fileID: -4815949812693452197, guid: 28da59d7db41ca14f85d6942af25fa6a,
+        type: 3}
     - target: {fileID: 3789352240524061256, guid: 9fee6489e9285724b9490dfdd0775f1c,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -77,7 +83,7 @@ PrefabInstance:
         type: 3}
       propertyPath: grabAction
       value: 
-      objectReference: {fileID: -4815949812693452197, guid: 28da59d7db41ca14f85d6942af25fa6a,
+      objectReference: {fileID: -6982296570049722330, guid: 28da59d7db41ca14f85d6942af25fa6a,
         type: 3}
     - target: {fileID: 3789352240524061296, guid: 9fee6489e9285724b9490dfdd0775f1c,
         type: 3}

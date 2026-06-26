@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 
 public class CopyAnim : MonoBehaviour
@@ -23,9 +23,7 @@ public class CopyAnim : MonoBehaviour
         }
         else
         {
-
             joint.targetRotation = Quaternion.Inverse(targetAnim.rotation);
         }
-        
     }
 }
