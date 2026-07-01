@@ -50,6 +50,25 @@ public class StuntPunch : MonoBehaviour
 
     public void ReceivePunch(Vector3 direction, float force, bool shouldStun)
     {
+        bool wasHolding = false;
+        Pick[] picks = GetComponentsInChildren<Pick>();
+        if (picks != null)
+        {
+            foreach (Pick p in picks)
+            {
+                if (p.grabbedRb != null)
+                {
+                    wasHolding = true;
+                    p.ForceDrop();
+                }
+            }
+        }
+
+        if (wasHolding)
+        {
+            shouldStun = true;
+        }
+
         float distributedForce = force * 0.20f;
         foreach (Rigidbody rb in ragdollRigidbodies)
         {

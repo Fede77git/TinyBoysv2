@@ -9,7 +9,7 @@ public class Pick : MonoBehaviour
 
 
     private bool hold;
-    private Rigidbody grabbedRb;
+    public Rigidbody grabbedRb { get; private set; }
     public UnityEngine.InputSystem.InputActionReference grabAction;
     public Animator animator;
     public bool RightHand;
