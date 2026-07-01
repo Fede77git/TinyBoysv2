@@ -1,65 +1,69 @@
-﻿
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManagerMenu : MonoBehaviour
 {
-   
-    public void SceneLevel1()
+    
+    public GameObject panelPrincipal;
+    public GameObject panelJugadores;
+    public GameObject panelModos;
+    public GameObject panelLevelSelector;
+
+    private void Start()
     {
-        SceneManager.LoadScene("Level1");
+        ActivarPanel(panelPrincipal);
     }
 
-    public void SceneLevel2()
+    public void AbrirPanelJugadores()
     {
-        SceneManager.LoadScene("Level2");
+        panelPrincipal.SetActive(false);
+        panelJugadores.SetActive(true);
     }
 
-    public void SceneLevel3()
+    public void AbrirPanelModos()
     {
-        SceneManager.LoadScene("Level3");
+        panelJugadores.SetActive(false);
+        panelModos.SetActive(true);
     }
 
-    public void SceneLevel4()
+    public void AbrirPanelLevelSelector()
     {
-        SceneManager.LoadScene("Level4");
+        panelModos.SetActive(false);
+        panelLevelSelector.SetActive(true);
     }
 
-    public void RandomScene()
+    public void VolverAlPrincipal()
     {
-        int index = Random.Range(1, 5);
-        SceneManager.LoadScene(index);
+        ActivarPanel(panelPrincipal);
     }
 
-    public void SceneLevelSelectro()
+    public void VolverAJugadores()
     {
-        SceneManager.LoadScene("LevelSelector");
+        panelModos.SetActive(false);
+        panelJugadores.SetActive(true);
     }
 
-    public void MainMenu()
+    public void VolverAModos()
     {
-        SceneManager.LoadScene("MainMenu");
+        panelLevelSelector.SetActive(false);
+        panelModos.SetActive(true);
     }
-    public void Quit()
+
+    public void SalirDelJuego()
     {
+        Debug.Log("quit salir del juego");
         Application.Quit();
     }
 
-    public void LavaCoinsMenu()
+    private void ActivarPanel(GameObject panelAActivar)
     {
-        SceneManager.LoadScene("LavaCoinsMenu");
-    }
-    public void LaserRingMenu()
-    {
-        SceneManager.LoadScene("LaserRingMenu");
-    }
-    public void CapsuleCollectorMenu()
-    {
-        SceneManager.LoadScene("CapsuleCollectorMenu");
-    }
-    public void BombThreatMenu()
-    {
-        SceneManager.LoadScene("BombThreatMenu");
-    }
+        if (panelPrincipal != null) panelPrincipal.SetActive(false);
+        if (panelJugadores != null) panelJugadores.SetActive(false);
+        if (panelModos != null) panelModos.SetActive(false);
+        if (panelLevelSelector != null) panelLevelSelector.SetActive(false);
 
+        if (panelAActivar != null)
+        {
+            panelAActivar.SetActive(true);
+        }
+    }
 }
