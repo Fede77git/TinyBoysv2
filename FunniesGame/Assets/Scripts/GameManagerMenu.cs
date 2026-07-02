@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GameManagerMenu : MonoBehaviour
 {
-    
     public GameObject panelPrincipal;
     public GameObject panelJugadores;
     public GameObject panelModos;
@@ -11,6 +10,32 @@ public class GameManagerMenu : MonoBehaviour
     private void Start()
     {
         ActivarPanel(panelPrincipal);
+    }
+
+    public void SeleccionarJugadores(int cantidad)
+    {
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.SeteoJugadores(cantidad);
+        }
+        AbrirPanelModos();
+    }
+
+    public void SeleccionarModo(int modoIndex)
+    {
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.SeteoModo((ModoDeJuego)modoIndex);
+        }
+        AbrirPanelLevelSelector();
+    }
+
+    public void JugarNivel(string nombreNivel)
+    {
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.SeteoNivelACargar(nombreNivel);
+        }
     }
 
     public void AbrirPanelJugadores()
@@ -50,7 +75,6 @@ public class GameManagerMenu : MonoBehaviour
 
     public void SalirDelJuego()
     {
-        Debug.Log("quit salir del juego");
         Application.Quit();
     }
 
