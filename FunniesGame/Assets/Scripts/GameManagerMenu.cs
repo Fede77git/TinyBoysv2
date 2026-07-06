@@ -8,6 +8,7 @@ public class GameManagerMenu : MonoBehaviour
     public GameObject panelJugadores;
     public GameObject panelModos;
     public GameObject panelLevelSelector;
+    public GameObject panelSettings;
 
     private void Start()
     {
@@ -65,6 +66,11 @@ public class GameManagerMenu : MonoBehaviour
         panelJugadores.SetActive(true);
     }
 
+    public void AbrirPanelSettings()
+    {
+        ActivarPanel(panelSettings);
+    }
+
     public void AbrirPanelModos()
     {
         panelJugadores.SetActive(false);
@@ -105,6 +111,7 @@ public class GameManagerMenu : MonoBehaviour
         if (panelJugadores != null) panelJugadores.SetActive(false);
         if (panelModos != null) panelModos.SetActive(false);
         if (panelLevelSelector != null) panelLevelSelector.SetActive(false);
+        if (panelSettings != null) panelSettings.SetActive(false);
 
         if (panelAActivar != null)
         {

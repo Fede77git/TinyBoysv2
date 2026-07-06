@@ -442,7 +442,8 @@ AudioSource:
   m_GameObject: {fileID: 3789352240768472967}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8826538244304605678, guid: 0d5207db51ea28548a5ba76b1214c571,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -689,6 +690,7 @@ MonoBehaviour:
   - {fileID: 3789352240524061263}
   punchForce: 15
   animator: {fileID: 7349010790540885540}
+  punchCooldown: 2
 --- !u!114 &3789352240524061283
 MonoBehaviour:
   m_ObjectHideFlags: 0
