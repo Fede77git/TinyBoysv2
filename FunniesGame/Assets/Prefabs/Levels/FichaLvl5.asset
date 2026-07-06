@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9706b744334c4234baba80df46b0d324, type: 3}
-  m_Name: FichaBombThreat
+  m_Name: FichaLvl5
   m_EditorClassIdentifier: 
   nombreNivel: Bomb Threat
-  escenaNombre: Level3
+  escenaNombre: Level5
   fotoNivel: {fileID: 21300000, guid: 61013db969b60e7438acbdea3ff3266f, type: 3}
   fotoControles: {fileID: 21300000, guid: e26eab42eaae7b5419e26ec55649f68e, type: 3}
   descripcionNivel: how toplay jsjsjsdhiwiwiwi wiiwii wiwiwiw

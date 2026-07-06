@@ -9,6 +9,11 @@ public class GestorDeCarga : MonoBehaviour
     public GameObject botonReady;
     public float tiempoDeCarga = 10f;
 
+    public Text txtTitulo;
+    public Text txtDescripcion;
+    public Image imgMapa;
+    public DatosNivel[] baseDeDatosNiveles;
+
     private AsyncOperation operacionCarga;
 
     private void Start()
@@ -26,9 +31,26 @@ public class GestorDeCarga : MonoBehaviour
             {
                 operacionCarga.allowSceneActivation = false;
             }
+            ActualizarPantalla(GlobalGameManager.Instance.nivelACargar);
         }
 
         StartCoroutine(AnimarBarraYEsperar());
+    }
+
+    private void ActualizarPantalla(string nombreEscena)
+    {
+        if (baseDeDatosNiveles == null) return;
+
+        foreach (DatosNivel nivel in baseDeDatosNiveles)
+        {
+            if (nivel != null && nivel.escenaNombre == nombreEscena)
+            {
+                if (txtTitulo != null) txtTitulo.text = nivel.nombreNivel;
+                if (txtDescripcion != null) txtDescripcion.text = nivel.descripcionNivel;
+                if (imgMapa != null) imgMapa.sprite = nivel.fotoNivel;
+                break;
+            }
+        }
     }
 
     private IEnumerator AnimarBarraYEsperar()

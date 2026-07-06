@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerMenu : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class GameManagerMenu : MonoBehaviour
         {
             GlobalGameManager.Instance.SeteoNivelACargar(nombreNivel);
         }
+        SceneManager.LoadScene("Scene_Loading");
     }
 
     public void AbrirPanelJugadores()

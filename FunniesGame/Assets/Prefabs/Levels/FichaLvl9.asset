@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9706b744334c4234baba80df46b0d324, type: 3}
+  m_Name: FichaLvl9
+  m_EditorClassIdentifier: 
+  nombreNivel: Bomb Threat
+  escenaNombre: Level9
+  fotoNivel: {fileID: 21300000, guid: 61013db969b60e7438acbdea3ff3266f, type: 3}
+  fotoControles: {fileID: 21300000, guid: e26eab42eaae7b5419e26ec55649f68e, type: 3}
+  descripcionNivel: how toplay jsjsjsdhiwiwiwi wiiwii wiwiwiw
