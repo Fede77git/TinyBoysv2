@@ -11,6 +11,11 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
+        if (GlobalGameManager.Instance != null)
+        {
+            numberOfPlayers = GlobalGameManager.Instance.cantidadJugadores;
+        }
+
         SpawnPlayers();
 
         if (LevelManager.Instance != null)

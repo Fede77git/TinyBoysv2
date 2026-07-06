@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameManagerMenu : MonoBehaviour
 {
@@ -10,7 +11,15 @@ public class GameManagerMenu : MonoBehaviour
 
     private void Start()
     {
-        ActivarPanel(panelPrincipal);
+        if (GlobalGameManager.Instance != null && GlobalGameManager.Instance.volviendoDeNivel)
+        {
+            GlobalGameManager.Instance.volviendoDeNivel = false;
+            ActivarPanel(panelLevelSelector);
+        }
+        else
+        {
+            ActivarPanel(panelPrincipal);
+        }
     }
 
     public void SeleccionarJugadores(int cantidad)
@@ -38,6 +47,16 @@ public class GameManagerMenu : MonoBehaviour
             GlobalGameManager.Instance.SeteoNivelACargar(nombreNivel);
         }
         SceneManager.LoadScene("Scene_Loading");
+    }
+
+    public List<string> todosLosNivelesJuego;
+
+    public void JugarTorneo()
+    {
+        if (GlobalGameManager.Instance != null && todosLosNivelesJuego != null && todosLosNivelesJuego.Count > 0)
+        {
+            GlobalGameManager.Instance.IniciarTorneo(todosLosNivelesJuego, 10);
+        }
     }
 
     public void AbrirPanelJugadores()

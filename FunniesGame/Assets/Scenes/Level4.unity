@@ -4627,7 +4627,7 @@ MonoBehaviour:
   - {fileID: 1524771254}
   - {fileID: 1037714921}
   - {fileID: 911156142}
-  numberOfPlayers: 3
+  numberOfPlayers: 4
 --- !u!114 &1593810109
 MonoBehaviour:
   m_ObjectHideFlags: 0
