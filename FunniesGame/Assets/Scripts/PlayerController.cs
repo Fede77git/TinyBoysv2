@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private Pick[] myPicks;
+
     void Start()
     {
         if (pelvis != null)
@@ -73,6 +75,8 @@ public class PlayerController : MonoBehaviour
         {
             playerAudioSource = gameObject.AddComponent<AudioSource>();
         }
+        
+        myPicks = GetComponentsInChildren<Pick>(true);
 
         Collider[] myColliders = GetComponentsInChildren<Collider>();
         for (int i = 0; i < myColliders.Length; i++)
@@ -124,7 +128,24 @@ public class PlayerController : MonoBehaviour
         {
             if (hits[i].collider != null && !hits[i].collider.isTrigger && hits[i].transform.root != transform.root)
             {
-                return true;
+                bool isGrabbedObject = false;
+                
+                if (myPicks != null)
+                {
+                    for (int j = 0; j < myPicks.Length; j++)
+                    {
+                        if (myPicks[j].grabbedRb != null && hits[i].transform.root == myPicks[j].grabbedRb.transform.root)
+                        {
+                            isGrabbedObject = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!isGrabbedObject)
+                {
+                    return true;
+                }
             }
         }
         return false;
