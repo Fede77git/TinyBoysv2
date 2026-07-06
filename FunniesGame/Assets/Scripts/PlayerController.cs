@@ -212,6 +212,19 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            bool isGrabbingSomeone = false;
+            if (myPicks != null)
+            {
+                for (int j = 0; j < myPicks.Length; j++)
+                {
+                    if (myPicks[j].grabbedRb != null && myPicks[j].grabbedRb.GetComponentInParent<PlayerController>() != null)
+                    {
+                        isGrabbingSomeone = true;
+                        break;
+                    }
+                }
+            }
+
             Rigidbody[] allBodies = GetComponentsInChildren<Rigidbody>();
             foreach (Rigidbody rb in allBodies)
             {
@@ -220,9 +233,12 @@ public class PlayerController : MonoBehaviour
                     continue;
                 }
 
-                if (grabbersCount > 0)
+                if (grabbersCount > 0 || isGrabbingSomeone)
                 {
-                    rb.AddForce(targetVelocity * 10f, ForceMode.Force);
+ 
+                    Vector3 currentVelFlat = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                    Vector3 force = (targetVelocity - currentVelFlat) * 20f;
+                    rb.AddForce(force, ForceMode.Force);
                 }
                 else
                 {
