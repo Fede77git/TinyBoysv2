@@ -31,19 +31,5 @@ public class GameManager : MonoBehaviour
             }
             Time.timeScale = 0;
         }
-        GetInput();
-    }
-
-    private void GetInput()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Time.timeScale = 1;
-            if (GlobalGameManager.Instance != null)
-            {
-                GlobalGameManager.Instance.volviendoDeNivel = true;
-            }
-            SceneManager.LoadScene("MainMenu");
-        }
     }
 }
