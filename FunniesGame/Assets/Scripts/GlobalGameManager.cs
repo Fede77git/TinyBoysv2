@@ -13,7 +13,7 @@ public class GlobalGameManager : MonoBehaviour
     public static GlobalGameManager Instance;
 
     public int cantidadJugadores = 2;
-    public ModoDeJuego modoSeleccionado;
+    public ModoDeJuego modoSeleccionado = ModoDeJuego.SelectorNivel;
     public string nivelACargar;
 
     public int[] puntajesJugadores = new int[4];
@@ -95,16 +95,24 @@ public class GlobalGameManager : MonoBehaviour
             }
         }
 
-        rondaActual++;
-
-        if (rondaActual < nivelesDelTorneo.Count)
+        if (modoSeleccionado == ModoDeJuego.Torneo)
         {
-            nivelACargar = nivelesDelTorneo[rondaActual];
-            SceneManager.LoadScene("Scene_Loading");
+            rondaActual++;
+
+            if (rondaActual < nivelesDelTorneo.Count)
+            {
+                nivelACargar = nivelesDelTorneo[rondaActual];
+                SceneManager.LoadScene("Scene_Loading");
+            }
+            else
+            {
+                SceneManager.LoadScene("Scene_Victoria");
+            }
         }
         else
         {
-            SceneManager.LoadScene("Scene_Victoria");
+            volviendoDeNivel = true;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

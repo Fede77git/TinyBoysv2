@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.gameOver) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
