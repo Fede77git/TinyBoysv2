@@ -368,7 +368,7 @@ MonoBehaviour:
   movementArea: {fileID: 1217960709}
   cameraModel: {fileID: 4439474931032508108}
   lensFlashLight: {fileID: 680187262}
-  moveSpeed: 5
+  moveSpeed: 6
   cycleTime: 10
   warningTime: 3
   freezeDuration: 3

@@ -66,7 +66,7 @@ public class VictoryManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GlobalGameManager.Instance.volviendoDeNivel = true;
+            GlobalGameManager.Instance.volviendoDeNivel = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
     }

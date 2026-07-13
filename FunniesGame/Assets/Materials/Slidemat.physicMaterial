@@ -7,8 +7,8 @@ PhysicMaterial:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Slidemat
-  dynamicFriction: 0.2
-  staticFriction: 0.2
+  dynamicFriction: 0.05
+  staticFriction: 0.05
   bounciness: 1
   frictionCombine: 1
   bounceCombine: 1

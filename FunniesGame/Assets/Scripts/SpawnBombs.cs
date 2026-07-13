@@ -1,5 +1,5 @@
-﻿
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SpawnBombs : MonoBehaviour
 {
@@ -7,6 +7,9 @@ public class SpawnBombs : MonoBehaviour
     public bool stopSpawn = false;
     public float spawnTime;
     public float spawnDelay;
+    public int maxInstances = 20;
+
+    private List<GameObject> spawnedItems = new List<GameObject>();
 
     void Start()
     {
@@ -15,7 +18,14 @@ public class SpawnBombs : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(spawner, transform.position, transform.rotation);
+        spawnedItems.RemoveAll(item => item == null);
+
+        if (spawnedItems.Count >= maxInstances)
+            return;
+
+        GameObject newBomb = Instantiate(spawner, transform.position, Random.rotation);
+        spawnedItems.Add(newBomb);
+
         if (stopSpawn)
         {
             CancelInvoke("SpawnObject");

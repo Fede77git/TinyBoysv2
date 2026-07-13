@@ -9,7 +9,6 @@ public class LevelManager3 : MonoBehaviour
     public GameObject[] playerUI;
     public Text textWin;
     public Text textEsc;
-    public Text textCut;
 
     private bool[] isPlayerDead = new bool[4];
     private int totalPlayers;
@@ -30,7 +29,6 @@ public class LevelManager3 : MonoBehaviour
     {
         if (textWin != null) textWin.text = "";
         if (textEsc != null) textEsc.text = "";
-        if (textCut != null) textCut.text = "";
     }
 
     public void SetupUI(int activePlayers)
@@ -91,7 +89,6 @@ public class LevelManager3 : MonoBehaviour
 
             if (textWin != null) textWin.text = playerName + " Wins!";
             if (textEsc != null) textEsc.text = "Press Escape to continue";
-            if (textCut != null) textCut.text = "All others were cut into pieces";
 
             UIHelper.ShowWinBackground(textWin);
             Time.timeScale = 0f;

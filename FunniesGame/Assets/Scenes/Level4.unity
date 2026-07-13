@@ -2913,7 +2913,8 @@ MonoBehaviour:
   spawner: {fileID: 6725396834289625181, guid: 8651da91bf7ed1442afcd16f7fe7fea5, type: 3}
   stopSpawn: 0
   spawnTime: 5
-  spawnDelay: 15
+  spawnDelay: 7
+  maxInstances: 1
 --- !u!4 &780988143
 Transform:
   m_ObjectHideFlags: 0
@@ -3388,7 +3389,8 @@ MonoBehaviour:
   spawner: {fileID: 6725396834289625181, guid: 8651da91bf7ed1442afcd16f7fe7fea5, type: 3}
   stopSpawn: 0
   spawnTime: 5
-  spawnDelay: 15
+  spawnDelay: 7
+  maxInstances: 1
 --- !u!4 &902282398
 Transform:
   m_ObjectHideFlags: 0
@@ -5358,7 +5360,8 @@ MonoBehaviour:
   spawner: {fileID: 6725396834289625181, guid: 8651da91bf7ed1442afcd16f7fe7fea5, type: 3}
   stopSpawn: 0
   spawnTime: 5
-  spawnDelay: 15
+  spawnDelay: 7
+  maxInstances: 1
 --- !u!4 &1331126406
 Transform:
   m_ObjectHideFlags: 0
@@ -5591,6 +5594,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 1
   spawnDelay: 10
+  maxInstances: 20
 --- !u!4 &1410814896
 Transform:
   m_ObjectHideFlags: 0
@@ -6445,6 +6449,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 20
   spawnDelay: 10
+  maxInstances: 20
 --- !u!4 &1495505127
 Transform:
   m_ObjectHideFlags: 0
@@ -7200,7 +7205,8 @@ MonoBehaviour:
   spawner: {fileID: 6725396834289625181, guid: 8651da91bf7ed1442afcd16f7fe7fea5, type: 3}
   stopSpawn: 0
   spawnTime: 5
-  spawnDelay: 15
+  spawnDelay: 7
+  maxInstances: 1
 --- !u!4 &1607667784
 Transform:
   m_ObjectHideFlags: 0
@@ -7785,6 +7791,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 15
   spawnDelay: 10
+  maxInstances: 20
 --- !u!4 &1755015303
 Transform:
   m_ObjectHideFlags: 0
