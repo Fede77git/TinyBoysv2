@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreNivel: Bomb Threat
   escenaNombre: Level5
-  fotoNivel: {fileID: 21300000, guid: 61013db969b60e7438acbdea3ff3266f, type: 3}
-  fotoControles: {fileID: 21300000, guid: e26eab42eaae7b5419e26ec55649f68e, type: 3}
+  fotoNivel: {fileID: 21300000, guid: d6ca2b5898e04904ba1e3ff72ba3e538, type: 3}
   descripcionNivel: how toplay jsjsjsdhiwiwiwi wiiwii wiwiwiw

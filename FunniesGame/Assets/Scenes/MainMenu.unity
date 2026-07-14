@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -441,6 +441,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c9b2316d8f05b6b43bc00b4723bfcf20,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: Capsule Collector
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
 --- !u!224 &110140673 stripped
@@ -600,6 +611,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d6ca2b5898e04904ba1e3ff72ba3e538,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -1260,6 +1282,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 634851680f9834e449c769fbfe9de3e6,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
 --- !u!224 &376257990 stripped
@@ -1904,6 +1937,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5b208ee422fd3941823dbd1042f050a,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -2583,6 +2627,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8796956d90eba7408783853de3de49c,
+        type: 3}
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -3284,6 +3334,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a0a78fad0467d64dae9fb8dea17c6ab,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -4233,6 +4294,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 48fb4a136d8782c418d1c0d664d6f03b,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: Laser Ring
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
 --- !u!224 &1403615844 stripped
@@ -4392,6 +4464,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a7963e838f0d5be4b8e98f54c9c3914b,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -5517,6 +5600,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ecd19557d7e8914fba5e782133a5904,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: WIP 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
 --- !u!224 &1741012526 stripped
@@ -6081,7 +6175,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 300, y: 200}
-  m_Spacing: {x: 40, y: 90}
+  m_Spacing: {x: 75, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 5
 --- !u!1 &1925940394
@@ -7643,6 +7737,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 375487089150549170, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 523b36e496ae9c444a0ca93b510a64d8,
+        type: 3}
+    - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
+        type: 3}
+      propertyPath: m_Text
+      value: Lava Coins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
