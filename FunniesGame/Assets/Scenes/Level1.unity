@@ -2046,6 +2046,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 9
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &88608266
 Transform:
   m_ObjectHideFlags: 0
@@ -2934,6 +2935,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 15
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &106695394
 Transform:
   m_ObjectHideFlags: 0
@@ -4180,6 +4182,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 10
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &135010378
 Transform:
   m_ObjectHideFlags: 0
@@ -11911,6 +11914,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 4
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &431466958
 Transform:
   m_ObjectHideFlags: 0
@@ -14287,6 +14291,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 14
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &514933863
 Transform:
   m_ObjectHideFlags: 0
@@ -15310,6 +15315,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 8
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &558031315
 Transform:
   m_ObjectHideFlags: 0
@@ -17502,6 +17508,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 5
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &689528098
 Transform:
   m_ObjectHideFlags: 0
@@ -20784,6 +20791,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 11
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &850750339
 Transform:
   m_ObjectHideFlags: 0
@@ -24776,6 +24784,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 12
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &963202584
 Transform:
   m_ObjectHideFlags: 0
@@ -26192,6 +26201,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 7
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1021632544
 Transform:
   m_ObjectHideFlags: 0
@@ -31113,6 +31123,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 16
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1230129755
 Transform:
   m_ObjectHideFlags: 0
@@ -32734,6 +32745,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 3
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1299665786
 Transform:
   m_ObjectHideFlags: 0
@@ -33442,6 +33454,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 5
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1325350044
 Transform:
   m_ObjectHideFlags: 0
@@ -42023,6 +42036,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 6
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1625771396
 Transform:
   m_ObjectHideFlags: 0
@@ -48580,6 +48594,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 1
   spawnDelay: 20
+  maxInstances: 20
 --- !u!4 &1925444221
 Transform:
   m_ObjectHideFlags: 0
@@ -54337,6 +54352,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130213490}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2132798633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132798635}
+  - component: {fileID: 2132798634}
+  m_Layer: 0
+  m_Name: ScreenShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2132798634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132798633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9bace27fa4400479e3dd4d502c4832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teclaCaptura: 293
+  multiplicadorResolucion: 2
+--- !u!4 &2132798635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132798633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.846915, y: 21.711731, z: 5.61521}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2142223311
 PrefabInstance:
   m_ObjectHideFlags: 0

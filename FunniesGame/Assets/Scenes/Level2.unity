@@ -3715,6 +3715,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145228560}
   m_CullTransparentMesh: 0
+--- !u!1 &146329836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146329838}
+  - component: {fileID: 146329837}
+  m_Layer: 0
+  m_Name: ScreenShot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &146329837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146329836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9bace27fa4400479e3dd4d502c4832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teclaCaptura: 293
+  multiplicadorResolucion: 2
+--- !u!4 &146329838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146329836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.846915, y: 21.711731, z: 5.61521}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &148755329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,6 +4571,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 10
   spawnDelay: 12
+  maxInstances: 20
 --- !u!4 &220208995
 Transform:
   m_ObjectHideFlags: 0
@@ -77572,6 +77618,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 20
   spawnDelay: 6
+  maxInstances: 20
 --- !u!4 &937082674
 Transform:
   m_ObjectHideFlags: 0
@@ -78100,6 +78147,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 5
   spawnDelay: 10
+  maxInstances: 20
 --- !u!4 &960793050
 Transform:
   m_ObjectHideFlags: 0
@@ -93332,6 +93380,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 17
   spawnDelay: 4
+  maxInstances: 20
 --- !u!4 &1113307450
 Transform:
   m_ObjectHideFlags: 0
@@ -126599,6 +126648,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 10
   spawnDelay: 8
+  maxInstances: 20
 --- !u!4 &1582407607
 Transform:
   m_ObjectHideFlags: 0
@@ -132605,6 +132655,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 25
   spawnDelay: 5
+  maxInstances: 20
 --- !u!4 &1666601955
 Transform:
   m_ObjectHideFlags: 0
@@ -142291,6 +142342,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 12
   spawnDelay: 8
+  maxInstances: 20
 --- !u!4 &1767082938
 Transform:
   m_ObjectHideFlags: 0
@@ -150154,6 +150206,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 8
   spawnDelay: 10
+  maxInstances: 20
 --- !u!4 &1908181096
 Transform:
   m_ObjectHideFlags: 0
