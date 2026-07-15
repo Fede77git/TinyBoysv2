@@ -12,7 +12,21 @@ public class PauseMenu : MonoBehaviour
     {
         if (GameManager.gameOver) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        bool pauseInput = Input.GetKeyDown(KeyCode.Escape);
+        
+        if (!pauseInput)
+        {
+            foreach (var gamepad in UnityEngine.InputSystem.Gamepad.all)
+            {
+                if (gamepad.startButton.wasPressedThisFrame)
+                {
+                    pauseInput = true;
+                    break;
+                }
+            }
+        }
+
+        if (pauseInput)
         {
             if (GameIsPaused)
             {
@@ -45,6 +59,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        SetFocus(pauseMenuUI);
     }
 
     public void LoadMainMenu()
@@ -57,11 +72,26 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(true);
+        SetFocus(settingsMenuUI);
     }
 
     public void CloseSettings()
     {
         settingsMenuUI.SetActive(false);
         pauseMenuUI.SetActive(true);
+        SetFocus(pauseMenuUI);
+    }
+
+    private void SetFocus(GameObject panel)
+    {
+        if (panel != null && UnityEngine.EventSystems.EventSystem.current != null)
+        {
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+            UnityEngine.UI.Selectable firstSelectable = panel.GetComponentInChildren<UnityEngine.UI.Selectable>();
+            if (firstSelectable != null)
+            {
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(firstSelectable.gameObject);
+            }
+        }
     }
 }

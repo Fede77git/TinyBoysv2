@@ -76,6 +76,11 @@ public class GestorDeCarga : MonoBehaviour
         }
 
         botonReady.SetActive(true);
+        if (UnityEngine.EventSystems.EventSystem.current != null)
+        {
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(botonReady);
+        }
     }
 
     public void Play()
