@@ -438,8 +438,19 @@
                 },
                 {
                     "name": "",
-                    "id": "99a6b66f-fa8b-48bb-bf47-f88fd001cd2f",
+                    "id": "b1a920dc-200d-4278-83e0-aaf95d11bbda",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabLeft3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99a6b66f-fa8b-48bb-bf47-f88fd001cd2f",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -526,8 +537,19 @@
                 },
                 {
                     "name": "",
-                    "id": "cac81032-97f1-468b-8ea8-56748d95032c",
+                    "id": "ad2f889b-c42f-4ce7-a720-d8b1bf63d7f7",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GrabLeft4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cac81032-97f1-468b-8ea8-56748d95032c",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

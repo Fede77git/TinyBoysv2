@@ -14,7 +14,30 @@ public class PunchMechanic : MonoBehaviour
 
     void OnEnable()
     {
-        if (punchAction != null) punchAction.action.Enable();
+        if (punchAction != null && punchAction.action != null)
+        {
+            punchAction.action.Enable();
+
+            PlayerController myController = GetComponentInParent<PlayerController>();
+            if (myController != null)
+            {
+                int pIndex = myController.playerIndex;
+                if (pIndex >= 2)
+                {
+                    int gamepadIndex = pIndex - 2;
+                    UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
+                    if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
+                    {
+                        deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
+                    }
+                    
+                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
+                    
+                    if (punchAction.action.actionMap != null)
+                        punchAction.action.actionMap.devices = devices;
+                }
+            }
+        }
     }
 
     void OnDisable()

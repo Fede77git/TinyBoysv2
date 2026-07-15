@@ -48,6 +48,29 @@ public class PlayerController : MonoBehaviour
             jumpAction.action.Enable();
             jumpAction.action.performed += Jump;
         }
+
+        AssignGamepadToPlayer();
+    }
+
+    private void AssignGamepadToPlayer()
+    {
+        if (playerIndex >= 2)
+        {
+            int gamepadIndex = playerIndex - 2;
+            UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
+            if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
+            {
+                deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
+            }
+            
+            var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
+            
+            if (moveAction != null && moveAction.action != null && moveAction.action.actionMap != null)
+                moveAction.action.actionMap.devices = devices;
+
+            if (jumpAction != null && jumpAction.action != null && jumpAction.action.actionMap != null)
+                jumpAction.action.actionMap.devices = devices;
+        }
     }
 
     void OnDisable()
