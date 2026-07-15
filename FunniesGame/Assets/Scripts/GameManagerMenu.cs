@@ -62,8 +62,7 @@ public class GameManagerMenu : MonoBehaviour
 
     public void AbrirPanelJugadores()
     {
-        panelPrincipal.SetActive(false);
-        panelJugadores.SetActive(true);
+        ActivarPanel(panelJugadores);
     }
 
     public void AbrirPanelSettings()
@@ -73,14 +72,12 @@ public class GameManagerMenu : MonoBehaviour
 
     public void AbrirPanelModos()
     {
-        panelJugadores.SetActive(false);
-        panelModos.SetActive(true);
+        ActivarPanel(panelModos);
     }
 
     public void AbrirPanelLevelSelector()
     {
-        panelModos.SetActive(false);
-        panelLevelSelector.SetActive(true);
+        ActivarPanel(panelLevelSelector);
     }
 
     public void VolverAlPrincipal()
@@ -90,14 +87,12 @@ public class GameManagerMenu : MonoBehaviour
 
     public void VolverAJugadores()
     {
-        panelModos.SetActive(false);
-        panelJugadores.SetActive(true);
+        ActivarPanel(panelJugadores);
     }
 
     public void VolverAModos()
     {
-        panelLevelSelector.SetActive(false);
-        panelModos.SetActive(true);
+        ActivarPanel(panelModos);
     }
 
     public void SalirDelJuego()
@@ -116,6 +111,16 @@ public class GameManagerMenu : MonoBehaviour
         if (panelAActivar != null)
         {
             panelAActivar.SetActive(true);
+
+            if (UnityEngine.EventSystems.EventSystem.current != null)
+            {
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+                UnityEngine.UI.Selectable firstSelectable = panelAActivar.GetComponentInChildren<UnityEngine.UI.Selectable>();
+                if (firstSelectable != null)
+                {
+                    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(firstSelectable.gameObject);
+                }
+            }
         }
     }
 }

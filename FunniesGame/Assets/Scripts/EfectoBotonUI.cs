@@ -6,7 +6,7 @@ public class EfectoBotonUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private Vector3 escalaOriginal;
     public float multiplicadorTamano = 1.1f;
 
-    void Start()
+    void Awake()
     {
         escalaOriginal = transform.localScale;
     }
