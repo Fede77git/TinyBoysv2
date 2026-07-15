@@ -1572,6 +1572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232453036}
   - component: {fileID: 232453035}
+  - component: {fileID: 232453037}
   m_Layer: 5
   m_Name: SliderMusica
   m_TagString: Untagged
@@ -1662,6 +1663,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: 129.34004}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &232453037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232453034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1001 &257915575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5601,6 +5615,7 @@ GameObject:
   - component: {fileID: 1134937465}
   - component: {fileID: 1134937467}
   - component: {fileID: 1134937466}
+  - component: {fileID: 1134937468}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -5664,6 +5679,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134937464}
   m_CullTransparentMesh: 0
+--- !u!114 &1134937468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134937464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!4 &1139495966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8311136995521416117, guid: 79442a884954497498ade716fb8de5e3,
@@ -10038,6 +10066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859513638}
   - component: {fileID: 1859513637}
+  - component: {fileID: 1859513639}
   m_Layer: 5
   m_Name: SliderSFX
   m_TagString: Untagged
@@ -10128,6 +10157,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: -12.336975}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1859513639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859513636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &1879148034
 GameObject:
   m_ObjectHideFlags: 0

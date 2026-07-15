@@ -2518,6 +2518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106186702}
   - component: {fileID: 106186701}
+  - component: {fileID: 106186703}
   m_Layer: 5
   m_Name: SliderSFX
   m_TagString: Untagged
@@ -2608,6 +2609,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: -12.336975}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &106186703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106186700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1001 &108425190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11775,6 +11789,7 @@ GameObject:
   - component: {fileID: 506637974}
   - component: {fileID: 506637976}
   - component: {fileID: 506637975}
+  - component: {fileID: 506637977}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -11838,6 +11853,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506637973}
   m_CullTransparentMesh: 0
+--- !u!114 &506637977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506637973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &509799437
 GameObject:
   m_ObjectHideFlags: 0
@@ -18530,6 +18558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863306722}
   - component: {fileID: 863306721}
+  - component: {fileID: 863306723}
   m_Layer: 5
   m_Name: SliderMusica
   m_TagString: Untagged
@@ -18620,6 +18649,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: 129.34004}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &863306723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863306720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &864235791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 976587702532597686, guid: fc96e534c1aa9c946bc618b053ae9f05,

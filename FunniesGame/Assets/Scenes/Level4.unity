@@ -328,6 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103966763}
   - component: {fileID: 103966762}
+  - component: {fileID: 103966764}
   m_Layer: 5
   m_Name: SliderSFX
   m_TagString: Untagged
@@ -418,6 +419,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: -12.336975}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &103966764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103966761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1001 &131336117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3200,6 +3214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859166827}
   - component: {fileID: 859166826}
+  - component: {fileID: 859166828}
   m_Layer: 5
   m_Name: SliderMusica
   m_TagString: Untagged
@@ -3290,6 +3305,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: 129.34004}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &859166828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859166825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1001 &899880726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7495,6 +7523,7 @@ GameObject:
   - component: {fileID: 1676802490}
   - component: {fileID: 1676802492}
   - component: {fileID: 1676802491}
+  - component: {fileID: 1676802493}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -7558,6 +7587,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676802489}
   m_CullTransparentMesh: 0
+--- !u!114 &1676802493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676802489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &1713935091
 GameObject:
   m_ObjectHideFlags: 0

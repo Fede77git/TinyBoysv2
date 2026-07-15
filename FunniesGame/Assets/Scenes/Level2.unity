@@ -105283,6 +105283,7 @@ GameObject:
   - component: {fileID: 1253015078}
   - component: {fileID: 1253015080}
   - component: {fileID: 1253015079}
+  - component: {fileID: 1253015081}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -105346,6 +105347,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253015077}
   m_CullTransparentMesh: 0
+--- !u!114 &1253015081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253015077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &1254590674
 GameObject:
   m_ObjectHideFlags: 0
@@ -108778,6 +108792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322795578}
   - component: {fileID: 1322795577}
+  - component: {fileID: 1322795579}
   m_Layer: 5
   m_Name: SliderMusica
   m_TagString: Untagged
@@ -108868,6 +108883,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: 129.34004}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1322795579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322795576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &1334595178
 GameObject:
   m_ObjectHideFlags: 0
@@ -147820,6 +147848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802414098}
   - component: {fileID: 1802414097}
+  - component: {fileID: 1802414099}
   m_Layer: 5
   m_Name: SliderSFX
   m_TagString: Untagged
@@ -147910,6 +147939,19 @@ RectTransform:
   m_AnchoredPosition: {x: 11.000061, y: -12.336975}
   m_SizeDelta: {x: 600, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1802414099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802414096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &1805183382
 GameObject:
   m_ObjectHideFlags: 0
