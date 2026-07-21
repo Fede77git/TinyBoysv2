@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool gameOver = false;
+    public static System.Collections.Generic.List<int> deathOrder = new System.Collections.Generic.List<int>();
     private float tiempoEsperaTorneo = 10f;
     private float tiempoTranscurrido = 0f;
 
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         tiempoTranscurrido = 0f;
+        deathOrder.Clear();
     }
 
     void Update()
@@ -94,12 +96,29 @@ public class GameManager : MonoBehaviour
             else if (txt.Contains("Green") || txt.Contains("Player 3")) winnerIndex = 2;
             else if (txt.Contains("Blue") || txt.Contains("Player 4")) winnerIndex = 3;
 
-            GlobalGameManager.Instance.puntajesJugadores[winnerIndex] += 3;
+            int[] puntosPorPosicion = { 3, 2, 1, 0 };
+            GlobalGameManager.Instance.puntajesJugadores[winnerIndex] += puntosPorPosicion[0];
+
+            int currentPosition = 1;
+            for (int i = deathOrder.Count - 1; i >= 0; i--)
+            {
+                if (currentPosition < puntosPorPosicion.Length)
+                {
+                    int pIndex = deathOrder[i];
+                    if (pIndex != winnerIndex)
+                    {
+                        GlobalGameManager.Instance.puntajesJugadores[pIndex] += puntosPorPosicion[currentPosition];
+                        currentPosition++;
+                    }
+                }
+            }
 
             string scoresText = "\n<size=60>Tournament Scores</size>\n<size=90>";
+            string[] playerColors = { "purple", "orange", "green", "blue" };
             for (int i = 0; i < GlobalGameManager.Instance.cantidadJugadores; i++)
             {
-                string pName = "P" + (i + 1);
+                string colorStr = i < playerColors.Length ? playerColors[i] : "white";
+                string pName = "<color=" + colorStr + ">P" + (i + 1) + "</color>";
                 scoresText += pName + ": " + GlobalGameManager.Instance.puntajesJugadores[i] + "    ";
             }
             scoresText += "</size>";

@@ -57,8 +57,6 @@ public class LaserKill : MonoBehaviour
                     PlayerController pc = FindNearest(hit.point);
                     if (pc != null && !pc.isDead)
                     {
-                        pc.isDead = true;
-
                         if (deathParticle != null)
                         {
                             GameObject fx = Instantiate(deathParticle, hit.point, Quaternion.identity);
@@ -71,7 +69,8 @@ public class LaserKill : MonoBehaviour
                             deathSound.Play();
                         }
 
-                        StartCoroutine(NotifyAfterDelay(pc.playerIndex));
+                        pc.Dead();
+                        pc.gameObject.SetActive(false);
                     }
                 }
             }

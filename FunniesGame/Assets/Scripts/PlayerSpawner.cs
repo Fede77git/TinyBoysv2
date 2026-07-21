@@ -64,7 +64,12 @@ public class PlayerSpawner : MonoBehaviour
         {
             if (playerPrefabs[i] != null && spawnPoints[i] != null)
             {
-                Instantiate(playerPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                GameObject newPlayer = Instantiate(playerPrefabs[i], spawnPoints[i].position, spawnPoints[i].rotation);
+                PlayerController pc = newPlayer.GetComponent<PlayerController>();
+                if (pc != null)
+                {
+                    pc.playerIndex = i;
+                }
             }
         }
     }

@@ -315,6 +315,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (!GameManager.deathOrder.Contains(playerIndex))
+        {
+            GameManager.deathOrder.Add(playerIndex);
+        }
+
         if (LevelManager.Instance != null)
         {
             LevelManager.Instance.PlayerDied(playerIndex);

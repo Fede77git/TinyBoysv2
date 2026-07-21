@@ -8,12 +8,19 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
 
+    void Awake()
+    {
+        if (FindObjectOfType<GameManager>() == null)
+        {
+            GameObject gmObj = new GameObject("GameManager");
+            gmObj.AddComponent<GameManager>();
+        }
+    }
+
     void Update()
     {
         if (GameManager.gameOver || (Time.timeScale == 0f && !GameIsPaused))
         {
-            GameManager.gameOver = true;
-            
             bool goBack = Input.GetKeyDown(KeyCode.Escape);
             if (!goBack)
             {
