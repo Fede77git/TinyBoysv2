@@ -111,6 +111,18 @@ public class PunchMechanic : MonoBehaviour
 
                 stunt.ReceivePunch(hitDir, punchForce * 0.8f, shouldStun);
             }
+
+            if (collision.collider.CompareTag("egg") || collision.gameObject.CompareTag("egg"))
+            {
+                Rigidbody eggRb = collision.collider.attachedRigidbody;
+                if (eggRb != null)
+                {
+                    Vector3 hitDir = (collision.transform.position - transform.position).normalized;
+                    hitDir.y = 0.5f;
+                    hitDir.Normalize();
+                    eggRb.AddForce(hitDir * punchForce * 1.5f, ForceMode.Impulse);
+                }
+            }
         }
     }
 }
