@@ -48,6 +48,17 @@ public class StuntPunch : MonoBehaviour
         }
     }
 
+    private float lastSoundTime = -10f;
+
+    public void PlayPunchSound()
+    {
+        if (punchSound != null && audioSource != null && Time.time >= lastSoundTime + 0.2f)
+        {
+            lastSoundTime = Time.time;
+            audioSource.PlayOneShot(punchSound, punchVolume);
+        }
+    }
+
     public void ReceivePunch(Vector3 direction, float force, bool shouldStun)
     {
         bool wasHolding = false;
@@ -84,15 +95,17 @@ public class StuntPunch : MonoBehaviour
 
         if (shouldStun && !isStunned)
         {
-            if (stunSound != null && audioSource != null)
+            if (stunSound != null && audioSource != null && Time.time >= lastSoundTime + 0.2f)
+            {
+                lastSoundTime = Time.time;
                 audioSource.PlayOneShot(stunSound, stunVolume);
+            }
             
             StartCoroutine(StunRoutine());
         }
         else
         {
-            if (punchSound != null && audioSource != null)
-                audioSource.PlayOneShot(punchSound, punchVolume);
+            PlayPunchSound();
         }
     }
 

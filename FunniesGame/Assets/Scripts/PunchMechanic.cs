@@ -85,6 +85,8 @@ public class PunchMechanic : MonoBehaviour
         isPunching = false;
     }
 
+    private float lastHitSoundTime = -10f;
+
     void OnCollisionEnter(Collision collision)
     {
         if (isPunching)
@@ -111,16 +113,25 @@ public class PunchMechanic : MonoBehaviour
 
                 stunt.ReceivePunch(hitDir, punchForce * 0.8f, shouldStun);
             }
-
-            if (collision.collider.CompareTag("egg") || collision.gameObject.CompareTag("egg"))
+            else
             {
-                Rigidbody eggRb = collision.collider.attachedRigidbody;
-                if (eggRb != null)
+                if (collision.collider.CompareTag("egg") || collision.gameObject.CompareTag("egg"))
                 {
-                    Vector3 hitDir = (collision.transform.position - transform.position).normalized;
-                    hitDir.y = 0.5f;
-                    hitDir.Normalize();
-                    eggRb.AddForce(hitDir * punchForce * 1.5f, ForceMode.Impulse);
+                    Rigidbody eggRb = collision.collider.attachedRigidbody;
+                    if (eggRb != null)
+                    {
+                        Vector3 hitDir = (collision.transform.position - transform.position).normalized;
+                        hitDir.y = 0.5f;
+                        hitDir.Normalize();
+                        eggRb.AddForce(hitDir * punchForce * 1.5f, ForceMode.Impulse);
+
+                        StuntPunch myStunt = GetComponentInParent<StuntPunch>();
+                        if (myStunt != null && Time.time >= lastHitSoundTime + 0.2f)
+                        {
+                            lastHitSoundTime = Time.time;
+                            myStunt.PlayPunchSound();
+                        }
+                    }
                 }
             }
         }
