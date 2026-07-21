@@ -15,4 +15,5 @@ MonoBehaviour:
   nombreNivel: Bomb Threat
   escenaNombre: Level2
   fotoNivel: {fileID: 21300000, guid: f8796956d90eba7408783853de3de49c, type: 3}
-  descripcionNivel: how toplay jsjsjsdhiwiwiwi wiiwii wiwiwiw
+  descripcionNivel: Bombs fall from the sky, throw them at your opponent to get him
+    off the map!

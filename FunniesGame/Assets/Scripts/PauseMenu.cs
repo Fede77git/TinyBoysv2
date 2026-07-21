@@ -10,7 +10,58 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.gameOver) return;
+        if (GameManager.gameOver || (Time.timeScale == 0f && !GameIsPaused))
+        {
+            GameManager.gameOver = true;
+            
+            bool goBack = Input.GetKeyDown(KeyCode.Escape);
+            if (!goBack)
+            {
+                foreach (var gamepad in UnityEngine.InputSystem.Gamepad.all)
+                {
+                    if (gamepad.startButton.wasPressedThisFrame || gamepad.buttonSouth.wasPressedThisFrame)
+                    {
+                        goBack = true;
+                        break;
+                    }
+                }
+            }
+
+            if (goBack)
+            {
+                GameManager gm = FindObjectOfType<GameManager>();
+                if (gm == null)
+                {
+                    Time.timeScale = 1f;
+                    if (GlobalGameManager.Instance != null)
+                    {
+                        if (GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.Torneo && GlobalGameManager.Instance.nivelesDelTorneo.Count > 0)
+                        {
+                            GlobalGameManager.Instance.rondaActual++;
+                            if (GlobalGameManager.Instance.rondaActual < GlobalGameManager.Instance.nivelesDelTorneo.Count)
+                            {
+                                GlobalGameManager.Instance.nivelACargar = GlobalGameManager.Instance.nivelesDelTorneo[GlobalGameManager.Instance.rondaActual];
+                                SceneManager.LoadScene("Scene_Loading");
+                            }
+                            else
+                            {
+                                SceneManager.LoadScene("Scene_Victoria");
+                            }
+                        }
+                        else
+                        {
+                            GlobalGameManager.Instance.volviendoDeNivel = true;
+                            SceneManager.LoadScene("MainMenu");
+                        }
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("MainMenu");
+                    }
+                }
+            }
+            return;
+        }
 
         bool pauseInput = Input.GetKeyDown(KeyCode.Escape);
         
