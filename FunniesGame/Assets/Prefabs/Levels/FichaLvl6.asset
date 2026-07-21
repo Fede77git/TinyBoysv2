@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9706b744334c4234baba80df46b0d324, type: 3}
   m_Name: FichaLvl6
   m_EditorClassIdentifier: 
-  nombreNivel: Bomb Threat
+  nombreNivel: Rush Hour
   escenaNombre: Level6
   fotoNivel: {fileID: 21300000, guid: 2a0a78fad0467d64dae9fb8dea17c6ab, type: 3}
   descripcionNivel: how toplay jsjsjsdhiwiwiwi wiiwii wiwiwiw

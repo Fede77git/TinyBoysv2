@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -450,7 +450,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: Capsule Collector
+      value: Slap Shot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -621,7 +621,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 5
+      value: Big Bonk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -1291,7 +1291,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 10
+      value: Shutter Shock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -1947,7 +1947,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 7
+      value: Mind the Gap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -3344,7 +3344,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 6
+      value: Rush Hour
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -4502,7 +4502,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 8
+      value: Toy Heist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
@@ -5657,7 +5657,7 @@ PrefabInstance:
     - target: {fileID: 375487089911721670, guid: 2ed3d5e782401d645b63335dbc365f73,
         type: 3}
       propertyPath: m_Text
-      value: WIP 9
+      value: Color Clash
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed3d5e782401d645b63335dbc365f73, type: 3}
