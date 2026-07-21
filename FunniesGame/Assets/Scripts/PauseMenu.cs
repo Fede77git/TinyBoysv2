@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 
     void Awake()
     {
+        GameIsPaused = false;
+        
         if (FindObjectOfType<GameManager>() == null)
         {
             GameObject gmObj = new GameObject("GameManager");

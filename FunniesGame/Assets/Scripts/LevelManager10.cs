@@ -113,32 +113,69 @@ public class LevelManager10 : MonoBehaviour
     {
         gameEnding = true;
 
-        int winnerIndex = 0;
-        float maxCharge = -1f;
+        int activePlayersCount = GlobalGameManager.Instance != null ? GlobalGameManager.Instance.cantidadJugadores : FindObjectsOfType<PlayerController>().Length;
+        if (activePlayersCount == 0) activePlayersCount = 2;
 
-        for (int i = 0; i < 4; i++)
+        int maxPercent = -1;
+        int[] percents = new int[4];
+        for (int i = 0; i < activePlayersCount; i++)
         {
-            if (playerCharge[i] > maxCharge)
+            percents[i] = Mathf.FloorToInt(playerCharge[i]);
+            if (percents[i] > maxPercent)
             {
-                maxCharge = playerCharge[i];
-                winnerIndex = i;
+                maxPercent = percents[i];
             }
         }
 
-        StartCoroutine(EndGameRoutine(winnerIndex));
+        System.Collections.Generic.List<int> winners = new System.Collections.Generic.List<int>();
+        System.Collections.Generic.List<int> losers = new System.Collections.Generic.List<int>();
+
+        for (int i = 0; i < activePlayersCount; i++)
+        {
+            if (percents[i] == maxPercent)
+            {
+                winners.Add(i);
+            }
+            else
+            {
+                losers.Add(i);
+            }
+        }
+
+        losers.Sort((a, b) => playerCharge[a].CompareTo(playerCharge[b]));
+
+        foreach (int loser in losers)
+        {
+            if (!GameManager.deathOrder.Contains(loser))
+            {
+                GameManager.deathOrder.Add(loser);
+            }
+        }
+
+        StartCoroutine(EndGameRoutine(winners));
     }
 
-    private System.Collections.IEnumerator EndGameRoutine(int winnerIndex)
+    private System.Collections.IEnumerator EndGameRoutine(System.Collections.Generic.List<int> winners)
     {
         yield return new WaitForSeconds(1f);
 
-        string playerName = "Player " + (winnerIndex + 1);
-        if (winnerIndex == 0) playerName = "Purple Player";
-        else if (winnerIndex == 1) playerName = "Orange Player";
-        else if (winnerIndex == 2) playerName = "Green Player";
-        else if (winnerIndex == 3) playerName = "Blue Player";
+        GameManager.currentWinners = new System.Collections.Generic.List<int>(winners);
 
-        if (textWin != null) textWin.text = playerName + " Wins!";
+        string winText = "";
+        if (winners.Count > 1)
+        {
+            winText = "It's a Tie!";
+        }
+        else
+        {
+            int w = winners[0];
+            if (w == 0) winText = "Purple Player Wins!";
+            else if (w == 1) winText = "Orange Player Wins!";
+            else if (w == 2) winText = "Green Player Wins!";
+            else if (w == 3) winText = "Blue Player Wins!";
+        }
+
+        if (textWin != null) textWin.text = winText;
         if (textEsc != null) textEsc.text = "Press Escape to continue";
 
         UIHelper.ShowWinBackground(textWin);

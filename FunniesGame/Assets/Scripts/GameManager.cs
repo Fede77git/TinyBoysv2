@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour
     private float tiempoEsperaTorneo = 10f;
     private float tiempoTranscurrido = 0f;
 
+    public static System.Collections.Generic.List<int> currentWinners = new System.Collections.Generic.List<int>();
+
     void Start()
     {
         gameOver = false;
         tiempoTranscurrido = 0f;
         deathOrder.Clear();
+        currentWinners.Clear();
     }
 
     void Update()
@@ -80,7 +83,7 @@ public class GameManager : MonoBehaviour
         var allTexts = FindObjectsOfType<UnityEngine.UI.Text>();
         foreach (var t in allTexts)
         {
-            if (t.text.Contains(" Wins!") && t.gameObject.activeInHierarchy)
+            if ((t.text.Contains(" Wins!") || t.text.Contains(" Win!") || t.text.Contains("Tie!") || t.text.Contains("Team")) && t.gameObject.activeInHierarchy)
             {
                 textWin = t;
                 break;
@@ -89,26 +92,62 @@ public class GameManager : MonoBehaviour
 
         if (textWin != null && GlobalGameManager.Instance != null)
         {
-            int winnerIndex = 0;
             string txt = textWin.text;
-            if (txt.Contains("Purple") || txt.Contains("Player 1")) winnerIndex = 0;
-            else if (txt.Contains("Orange") || txt.Contains("Player 2")) winnerIndex = 1;
-            else if (txt.Contains("Green") || txt.Contains("Player 3")) winnerIndex = 2;
-            else if (txt.Contains("Blue") || txt.Contains("Player 4")) winnerIndex = 3;
 
-            int[] puntosPorPosicion = { 3, 2, 1, 0 };
-            GlobalGameManager.Instance.puntajesJugadores[winnerIndex] += puntosPorPosicion[0];
-
-            int currentPosition = 1;
-            for (int i = deathOrder.Count - 1; i >= 0; i--)
+            if (txt.Contains("Team 1") || txt.Contains("Team 2"))
             {
-                if (currentPosition < puntosPorPosicion.Length)
+                int[] team1 = { 0, 2 };
+                int[] team2 = { 1, 3 }; 
+                
+                int[] winningTeam = txt.Contains("Team 1") ? team1 : team2;
+                int[] losingTeam = txt.Contains("Team 1") ? team2 : team1;
+
+                foreach (int pIndex in winningTeam)
                 {
-                    int pIndex = deathOrder[i];
-                    if (pIndex != winnerIndex)
+                    if (pIndex < GlobalGameManager.Instance.cantidadJugadores)
                     {
-                        GlobalGameManager.Instance.puntajesJugadores[pIndex] += puntosPorPosicion[currentPosition];
-                        currentPosition++;
+                        GlobalGameManager.Instance.puntajesJugadores[pIndex] += 3;
+                    }
+                }
+                foreach (int pIndex in losingTeam)
+                {
+                    if (pIndex < GlobalGameManager.Instance.cantidadJugadores)
+                    {
+                        GlobalGameManager.Instance.puntajesJugadores[pIndex] += 1;
+                    }
+                }
+            }
+            else
+            {
+                System.Collections.Generic.List<int> winners = new System.Collections.Generic.List<int>(currentWinners);
+                if (winners.Count == 0)
+                {
+                    if (txt.Contains("Purple") || txt.Contains("Player 1")) winners.Add(0);
+                    if (txt.Contains("Orange") || txt.Contains("Player 2")) winners.Add(1);
+                    if (txt.Contains("Green") || txt.Contains("Player 3")) winners.Add(2);
+                    if (txt.Contains("Blue") || txt.Contains("Player 4")) winners.Add(3);
+                }
+
+                if (winners.Count == 0) winners.Add(0);
+
+                int[] puntosPorPosicion = { 3, 2, 1, 0 };
+                
+                foreach (int w in winners)
+                {
+                    GlobalGameManager.Instance.puntajesJugadores[w] += puntosPorPosicion[0];
+                }
+
+                int currentPosition = 1;
+                for (int i = deathOrder.Count - 1; i >= 0; i--)
+                {
+                    if (currentPosition < puntosPorPosicion.Length)
+                    {
+                        int pIndex = deathOrder[i];
+                        if (!winners.Contains(pIndex))
+                        {
+                            GlobalGameManager.Instance.puntajesJugadores[pIndex] += puntosPorPosicion[currentPosition];
+                            currentPosition++;
+                        }
                     }
                 }
             }
