@@ -45,6 +45,7 @@ public class GameManagerMenu : MonoBehaviour
     {
         if (GlobalGameManager.Instance != null)
         {
+            GlobalGameManager.Instance.SeteoModo(ModoDeJuego.SelectorNivel);
             GlobalGameManager.Instance.SeteoNivelACargar(nombreNivel);
         }
         SceneManager.LoadScene("Scene_Loading");
@@ -56,6 +57,7 @@ public class GameManagerMenu : MonoBehaviour
     {
         if (GlobalGameManager.Instance != null && todosLosNivelesJuego != null && todosLosNivelesJuego.Count > 0)
         {
+            GlobalGameManager.Instance.SeteoModo(ModoDeJuego.Torneo);
             GlobalGameManager.Instance.IniciarTorneo(todosLosNivelesJuego, 10);
         }
     }
