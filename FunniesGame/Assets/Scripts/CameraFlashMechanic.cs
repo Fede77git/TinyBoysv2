@@ -23,7 +23,10 @@ public class CameraFlashMechanic : MonoBehaviour
     [Range(0f, 1f)] public float beepVolume = 1f;
     public AudioClip flashSound;
     [Range(0f, 1f)] public float flashVolume = 1f;
+    public AudioClip chargeSound;
+    [Range(0f, 1f)] public float chargeVolume = 1f;
     private AudioSource audioSource;
+    private AudioSource chargeAudioSource;
 
     private Vector3 currentTargetPosition;
     private Dictionary<GameObject, int> playersInTrigger = new Dictionary<GameObject, int>();
@@ -36,6 +39,10 @@ public class CameraFlashMechanic : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        chargeAudioSource = gameObject.AddComponent<AudioSource>();
+        chargeAudioSource.loop = true;
+        chargeAudioSource.spatialBlend = 0f;
 
         if (spotlight != null)
         {
@@ -83,7 +90,43 @@ public class CameraFlashMechanic : MonoBehaviour
 
             if (alivePlayersInLight.Count == 1)
             {
-                LevelManager10.Instance.AddPlayerCharge(alivePlayersInLight[0].playerIndex, chargeSpeed * Time.deltaTime);
+                int pIndex = alivePlayersInLight[0].playerIndex;
+                LevelManager10.Instance.AddPlayerCharge(pIndex, chargeSpeed * Time.deltaTime);
+                
+                if (chargeSound != null && chargeAudioSource != null)
+                {
+                    if (!chargeAudioSource.isPlaying)
+                    {
+                        chargeAudioSource.clip = chargeSound;
+                        chargeAudioSource.volume = 0f;
+                        chargeAudioSource.Play();
+                    }
+                    chargeAudioSource.volume = Mathf.MoveTowards(chargeAudioSource.volume, chargeVolume, Time.deltaTime * 5f);
+                    float charge = LevelManager10.Instance.GetPlayerCharge(pIndex);
+                    chargeAudioSource.pitch = 1f + (charge / 100f);
+                }
+            }
+            else
+            {
+                if (chargeAudioSource != null && chargeAudioSource.isPlaying)
+                {
+                    chargeAudioSource.volume = Mathf.MoveTowards(chargeAudioSource.volume, 0f, Time.deltaTime * 3f);
+                    if (chargeAudioSource.volume <= 0f)
+                    {
+                        chargeAudioSource.Stop();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (chargeAudioSource != null && chargeAudioSource.isPlaying)
+            {
+                chargeAudioSource.volume = Mathf.MoveTowards(chargeAudioSource.volume, 0f, Time.deltaTime * 5f);
+                if (chargeAudioSource.volume <= 0f)
+                {
+                    chargeAudioSource.Stop();
+                }
             }
         }
     }

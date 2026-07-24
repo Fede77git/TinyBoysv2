@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: f3c481c3959bf0b4db2717f97fc040ed,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -381,6 +381,8 @@ MonoBehaviour:
   beepVolume: 0.5
   flashSound: {fileID: 8300000, guid: 419452bf72aa1ea4993591f02075a386, type: 3}
   flashVolume: 0.6
+  chargeSound: {fileID: 8300000, guid: a4480815489f8024b9d4b53d88713715, type: 3}
+  chargeVolume: 0.3
 --- !u!4 &58593849
 Transform:
   m_ObjectHideFlags: 0

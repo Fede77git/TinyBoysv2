@@ -97,6 +97,12 @@ public class LevelManager10 : MonoBehaviour
         }
     }
 
+    public float GetPlayerCharge(int playerIndex)
+    {
+        if (playerIndex >= 0 && playerIndex < 4) return playerCharge[playerIndex];
+        return 0f;
+    }
+
     private void UpdatePlayerUI(int playerIndex)
     {
         if (playerBars != null && playerBars.Length > playerIndex && playerBars[playerIndex] != null)
