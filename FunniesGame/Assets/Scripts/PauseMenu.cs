@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
                 if (gm == null)
                 {
                     Time.timeScale = 1f;
+                    AudioListener.pause = false;
                     if (GlobalGameManager.Instance != null)
                     {
                         if (GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.Torneo && GlobalGameManager.Instance.nivelesDelTorneo.Count > 0)
@@ -111,6 +112,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         GameIsPaused = false;
     }
 
@@ -118,6 +120,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         GameIsPaused = true;
         SetFocus(pauseMenuUI);
     }
@@ -125,6 +128,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         SceneManager.LoadScene("MainMenu");
     }
 

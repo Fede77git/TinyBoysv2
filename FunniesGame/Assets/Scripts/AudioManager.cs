@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            if (musicSource != null) musicSource.ignoreListenerPause = true;
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }

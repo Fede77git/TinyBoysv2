@@ -48,12 +48,14 @@ public class GameManager : MonoBehaviour
                 }
             }
             Time.timeScale = 0;
+            AudioListener.pause = true;
         }
     }
 
     private void ProceedToNext()
     {
         Time.timeScale = 1;
+        AudioListener.pause = false;
         if (GlobalGameManager.Instance != null)
         {
             if (GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.Torneo && GlobalGameManager.Instance.nivelesDelTorneo.Count > 0)
