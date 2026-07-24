@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1827,19 +1827,19 @@ MonoBehaviour:
   - sceneName: Level3
     musicClip: {fileID: 8300000, guid: fa210c6dc6be5d543940d1059d19a4e3, type: 3}
   - sceneName: Level4
-    musicClip: {fileID: 0}
+    musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
   - sceneName: Level5
     musicClip: {fileID: 8300000, guid: eb58d6c78c6258d428c8a73a266605d0, type: 3}
   - sceneName: Level6
     musicClip: {fileID: 8300000, guid: eb58d6c78c6258d428c8a73a266605d0, type: 3}
   - sceneName: Level7
-    musicClip: {fileID: 0}
+    musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
   - sceneName: Level8
     musicClip: {fileID: 8300000, guid: eb58d6c78c6258d428c8a73a266605d0, type: 3}
   - sceneName: Level9
-    musicClip: {fileID: 0}
+    musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
   - sceneName: Level10
-    musicClip: {fileID: 0}
+    musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
 --- !u!82 &550293727
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
