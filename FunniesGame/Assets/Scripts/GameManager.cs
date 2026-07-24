@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0f && !PauseMenu.GameIsPaused && !gameOver)
+        if (Time.timeScale == 0f && !PauseMenu.GameIsPaused && !gameOver && !LevelCountdown.IsCountingDown)
         {
             gameOver = true;
             if (GlobalGameManager.Instance != null && GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.Torneo && GlobalGameManager.Instance.nivelesDelTorneo.Count > 0)
