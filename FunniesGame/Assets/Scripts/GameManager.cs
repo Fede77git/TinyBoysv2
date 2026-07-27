@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
             {
                 ProceedToNext();
                 return;
