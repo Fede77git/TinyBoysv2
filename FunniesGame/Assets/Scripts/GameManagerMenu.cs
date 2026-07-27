@@ -9,6 +9,7 @@ public class GameManagerMenu : MonoBehaviour
     public GameObject panelModos;
     public GameObject panelLevelSelector;
     public GameObject panelSettings;
+    public GameObject panelCreditos;
 
     private void Start()
     {
@@ -72,6 +73,11 @@ public class GameManagerMenu : MonoBehaviour
         ActivarPanel(panelSettings);
     }
 
+    public void AbrirPanelCreditos()
+    {
+        ActivarPanel(panelCreditos);
+    }
+
     public void AbrirPanelModos()
     {
         ActivarPanel(panelModos);
@@ -109,6 +115,7 @@ public class GameManagerMenu : MonoBehaviour
         if (panelModos != null) panelModos.SetActive(false);
         if (panelLevelSelector != null) panelLevelSelector.SetActive(false);
         if (panelSettings != null) panelSettings.SetActive(false);
+        if (panelCreditos != null) panelCreditos.SetActive(false);
 
         if (panelAActivar != null)
         {
