@@ -6902,97 +6902,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'PARTY BOTS
-
-
-    Game Design & Programming:
-
-    Federico Duran
-
-
-    3D
-    Models:
-
-    "Player Robot" by Gabriel Guerrero
-
-    "Low Poly Weapons" by SICS
-    Games (Unity Asset Store)
-
-    "Low-Poly Simple Nature" by JustCreate (Unity
-    Asset Store)
-
-    "Skybox Extended Shader" by BOXOPHOBIC (Unity Asset Store)
-
-    "Stylized
-    Hammer" by  MASH Virtual (Unity Asset Store)
-
-    "Cartoon Car" by Marco Siino
-    (Unity Asset Store)
-
-    "Cartoon Toyland" by Terresquall (Unity Asset Store)
-
-    "9t5
-    Low Poly Playground" by 9t5 (Unity Asset Store)
-
-    "Pinky UI" by LILA Design
-    (Unity Asset Store)
-
-    "Hyper Casual FX" by Lana Studio (Unity Asset Store)
-
-    "Exercise
-    Book" by Nat (Sketchfab)
-
-    "colgate toothpaste tube" by Starkster (Sketchfab)
-
-    "Small
-    Low-Poly School Set" by KirSolo (Sketchfab)
-
-    "Low Poly Colorful Camera"
-    by maulanafx (Sketchfab)
-
-    "Battery Low Poly" by Ele.G (Sketchfab)
-
-    "SanDisk
-    SD Card" by Kiran Kumar (Sketchfab)
-
-
-
-    Sound Design:
-
-    Audio Editing
-    & Integration by Federico Duran
-
-    Sound Effects via Freesound.org
-
-
-    Music:
-
-    Original
-    Soundtrack generated with Suno AI
-
-
-    User Interface:
-
-    Federico Duran
-
-    Kenney
-    Assets
-
-
-    QA:
-
-    Federico Duran
-
-
-    Powered by:
-
-    Unity Engine
-
-
-    Thank
-    you for playing!
-
-'
+  m_Text: "PARTY BOTS\n\nGame Design & Programming:\nFederico Duran\n\n3D Models:\n\"Player
+    Robot\" by Gabriel Guerrero\n\"Low Poly Weapons\" by SICS Games (Unity Asset
+    Store)\n\"Low-Poly Simple Nature\" by JustCreate (Unity Asset Store)\n\"Skybox
+    Extended Shader\" by BOXOPHOBIC (Unity Asset Store)\n\"Stylized Hammer\" by 
+    MASH Virtual (Unity Asset Store)\n\"Cartoon Car\" by Marco Siino (Unity Asset
+    Store)\n\"Cartoon Toyland\" by Terresquall (Unity Asset Store)\n\"9t5 Low Poly
+    Playground\" by 9t5 (Unity Asset Store)\n\"Pinky UI\" by LILA Design (Unity Asset
+    Store)\n\"Hyper Casual FX\" by Lana Studio (Unity Asset Store)\n\"Exercise Book\"
+    by Nat (Sketchfab)\n\"colgate toothpaste tube\" by Starkster (Sketchfab)\n\"Small
+    Low-Poly School Set\" by KirSolo (Sketchfab)\n\"Low Poly Colorful Camera\" by
+    maulanafx (Sketchfab)\n\"Battery Low Poly\" by Ele.G (Sketchfab)\n\"SanDisk SD
+    Card\" by Kiran Kumar (Sketchfab)\n\n\nSound Design:\nAudio Editing & Integration
+    by Federico Duran\nSound Effects via Freesound.org\n\nMusic:\nOriginal Soundtrack
+    generated with Suno AI\n\nUser Interface:\nFederico Duran\nKenney Assets\n\nQA:\nFederico
+    Duran\n\nSpecial thanks to Jules\u2764\uFE0F\n\nPowered by:\nUnity Engine\n\nThank
+    you for playing!\n"
 --- !u!222 &1889461204
 CanvasRenderer:
   m_ObjectHideFlags: 0

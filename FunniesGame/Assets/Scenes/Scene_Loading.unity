@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraCarga: {fileID: 86727385}
   botonReady: {fileID: 1976900011}
-  tiempoDeCarga: 2
+  tiempoDeCarga: 5
   txtTitulo: {fileID: 732261964}
   txtDescripcion: {fileID: 1330422492}
   imgMapa: {fileID: 1904970611}

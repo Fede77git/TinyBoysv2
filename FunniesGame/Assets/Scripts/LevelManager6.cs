@@ -30,6 +30,7 @@ public class LevelManager6 : MonoBehaviour
         foreach (PlayerController p in players)
         {
             p.jumpForce = 50f;
+            p.minHeightLimit = -2f;
         }
     }
 

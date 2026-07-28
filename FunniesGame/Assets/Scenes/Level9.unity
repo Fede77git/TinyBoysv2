@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 91f6a708f8debef489acc0086898e180,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9032,10 +9032,10 @@ MonoBehaviour:
     type: 3}
   spawnVfxPrefab: {fileID: 8915500580573861359, guid: 9d11447644b0e0842a7edb034fe1ac72,
     type: 3}
-  initialDelay: 3
+  initialDelay: 2
   spawnInterval: 10
   spawnAreaSize: {x: 31.2, y: 0, z: 50.7}
-  maxInstances: 3
+  maxInstances: 5
 --- !u!4 &234680453
 Transform:
   m_ObjectHideFlags: 0
@@ -13617,7 +13617,7 @@ MonoBehaviour:
     type: 3}
   spawnVfxPrefab: {fileID: 6073891735194678028, guid: 064c608c3a271334299e1fa22913842f,
     type: 3}
-  initialDelay: 10
+  initialDelay: 8
   spawnInterval: 10
   spawnAreaSize: {x: 38.9, y: 0, z: 59.95}
   maxInstances: 4

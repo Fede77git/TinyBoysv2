@@ -17,7 +17,7 @@ public class PowerUp : MonoBehaviour
             isCollected = true;
             player.speed += speedBoost;
             player.strafeSpeed += strafeSpeedBoost;
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
