@@ -39,7 +39,8 @@ public class VictoryManager : MonoBehaviour
             players.Add(new PlayerData { id = i, points = puntajes[i] });
         }
 
-        players = players.OrderByDescending(p => p.points).ToList();
+        int[] ultimosPuntos = GlobalGameManager.Instance.puntosUltimoNivel;
+        players = players.OrderByDescending(p => p.points).ThenByDescending(p => ultimosPuntos[p.id]).ToList();
 
         int lugaresAMostrar = Mathf.Min(3, players.Count);
 

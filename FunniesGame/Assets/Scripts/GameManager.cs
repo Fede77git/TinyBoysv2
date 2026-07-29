@@ -21,7 +21,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        int forcedWinnerIndex = -1;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) forcedWinnerIndex = 0;
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) forcedWinnerIndex = 1;
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) forcedWinnerIndex = 2;
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) forcedWinnerIndex = 3;
+
+        if (forcedWinnerIndex != -1)
         {
             UnityEngine.UI.Text winText = null;
             var allMono = FindObjectsOfType<MonoBehaviour>();
@@ -38,13 +44,16 @@ public class GameManager : MonoBehaviour
             if (winText != null)
             {
                 winText.gameObject.SetActive(true);
-                winText.text = "Purple Player Wins!";
+                if (forcedWinnerIndex == 0) winText.text = "Purple Player Wins!";
+                else if (forcedWinnerIndex == 1) winText.text = "Orange Player Wins!";
+                else if (forcedWinnerIndex == 2) winText.text = "Green Player Wins!";
+                else if (forcedWinnerIndex == 3) winText.text = "Blue Player Wins!";
                 UIHelper.ShowWinBackground(winText);
             }
 
             deathOrder.Clear();
             currentWinners.Clear();
-            currentWinners.Add(0);
+            currentWinners.Add(forcedWinnerIndex);
             Time.timeScale = 0f;
             return;
         }
@@ -122,6 +131,11 @@ public class GameManager : MonoBehaviour
 
         if (textWin != null && GlobalGameManager.Instance != null)
         {
+            for (int i = 0; i < GlobalGameManager.Instance.puntosUltimoNivel.Length; i++)
+            {
+                GlobalGameManager.Instance.puntosUltimoNivel[i] = 0;
+            }
+
             string txt = textWin.text;
 
             if (txt.Contains("Team 1") || txt.Contains("Team 2"))
@@ -137,6 +151,7 @@ public class GameManager : MonoBehaviour
                     if (pIndex < GlobalGameManager.Instance.cantidadJugadores)
                     {
                         GlobalGameManager.Instance.puntajesJugadores[pIndex] += 3;
+                        GlobalGameManager.Instance.puntosUltimoNivel[pIndex] = 3;
                     }
                 }
                 foreach (int pIndex in losingTeam)
@@ -144,6 +159,7 @@ public class GameManager : MonoBehaviour
                     if (pIndex < GlobalGameManager.Instance.cantidadJugadores)
                     {
                         GlobalGameManager.Instance.puntajesJugadores[pIndex] += 1;
+                        GlobalGameManager.Instance.puntosUltimoNivel[pIndex] = 1;
                     }
                 }
             }
@@ -165,6 +181,7 @@ public class GameManager : MonoBehaviour
                 foreach (int w in winners)
                 {
                     GlobalGameManager.Instance.puntajesJugadores[w] += puntosPorPosicion[0];
+                    GlobalGameManager.Instance.puntosUltimoNivel[w] = puntosPorPosicion[0];
                 }
 
                 int currentPosition = 1;
@@ -176,6 +193,7 @@ public class GameManager : MonoBehaviour
                         if (!winners.Contains(pIndex))
                         {
                             GlobalGameManager.Instance.puntajesJugadores[pIndex] += puntosPorPosicion[currentPosition];
+                            GlobalGameManager.Instance.puntosUltimoNivel[pIndex] = puntosPorPosicion[currentPosition];
                             currentPosition++;
                         }
                     }

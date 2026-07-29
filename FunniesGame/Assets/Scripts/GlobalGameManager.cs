@@ -17,6 +17,7 @@ public class GlobalGameManager : MonoBehaviour
     public string nivelACargar;
 
     public int[] puntajesJugadores = new int[4];
+    public int[] puntosUltimoNivel = new int[4];
     public List<string> nivelesDelTorneo = new List<string>();
     public int rondaActual = 0;
     public bool volviendoDeNivel = false;
@@ -69,6 +70,7 @@ public class GlobalGameManager : MonoBehaviour
         for (int i = 0; i < puntajesJugadores.Length; i++)
         {
             puntajesJugadores[i] = 0;
+            puntosUltimoNivel[i] = 0;
         }
         rondaActual = 0;
 
