@@ -21,6 +21,34 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            UnityEngine.UI.Text winText = null;
+            var allMono = FindObjectsOfType<MonoBehaviour>();
+            foreach (var mono in allMono)
+            {
+                var field = mono.GetType().GetField("textWin");
+                if (field != null)
+                {
+                    winText = field.GetValue(mono) as UnityEngine.UI.Text;
+                    if (winText != null) break;
+                }
+            }
+
+            if (winText != null)
+            {
+                winText.gameObject.SetActive(true);
+                winText.text = "Purple Player Wins!";
+                UIHelper.ShowWinBackground(winText);
+            }
+
+            deathOrder.Clear();
+            currentWinners.Clear();
+            currentWinners.Add(0);
+            Time.timeScale = 0f;
+            return;
+        }
+
         if (Time.timeScale == 0f && !PauseMenu.GameIsPaused && !gameOver && !LevelCountdown.IsCountingDown)
         {
             gameOver = true;
