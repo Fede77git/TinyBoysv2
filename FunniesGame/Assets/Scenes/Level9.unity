@@ -13613,7 +13613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad144276b2ee384b9c5d1d70d57db99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 6725396834289625181, guid: 8651da91bf7ed1442afcd16f7fe7fea5,
+  prefabToSpawn: {fileID: 5632048613834885607, guid: d7bbe5150fa439c439736bb9eb35d510,
     type: 3}
   spawnVfxPrefab: {fileID: 6073891735194678028, guid: 064c608c3a271334299e1fa22913842f,
     type: 3}
