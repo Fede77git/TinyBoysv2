@@ -164,6 +164,9 @@ public class Pick : MonoBehaviour
         {
             PaintTube tube = grabbedRb.GetComponent<PaintTube>();
             if (tube != null) tube.OnDropped();
+            
+            Eraser eraser = grabbedRb.GetComponent<Eraser>();
+            if (eraser != null) eraser.OnDropped();
         }
 
         hold = false;
@@ -223,6 +226,8 @@ public class Pick : MonoBehaviour
         grabbedRb = rb;
 
         PaintTube tube = rb.GetComponent<PaintTube>();
+        Eraser eraser = rb.GetComponent<Eraser>();
+        
         if (tube != null)
         {
             fj.breakForce = Mathf.Infinity;
@@ -231,6 +236,12 @@ public class Pick : MonoBehaviour
             Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
             Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
             tube.OnGrabbed(myController.playerIndex, myColor);
+        }
+        else if (eraser != null)
+        {
+            fj.breakForce = Mathf.Infinity;
+            fj.breakTorque = Mathf.Infinity;
+            eraser.OnGrabbed();
         }
         else
         {

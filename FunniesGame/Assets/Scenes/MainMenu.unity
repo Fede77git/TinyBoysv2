@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25574273, g: 0.045290537, b: 0.1701349, a: 1}
+  m_IndirectSpecularColor: {r: 0.2556674, g: 0.14982629, b: 0.3341788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7010,7 +7010,7 @@ MonoBehaviour:
     maulanafx (Sketchfab)\n\"Battery Low Poly\" by Ele.G (Sketchfab)\n\"SanDisk SD
     Card\" by Kiran Kumar (Sketchfab)\n\n\nSound Design:\nAudio Editing & Integration
     by Federico Duran\nSound Effects via Freesound.org\n\nMusic:\nOriginal Soundtrack
-    generated with Suno AI\n\nUser Interface:\nFederico Duran\nKenney Assets\n\nQA:\nFederico
+    generated with Suno\n\nUser Interface:\nFederico Duran\nKenney Assets\n\nQA:\nFederico
     Duran\nGabriel Guerrero\nJulieta Cepa\nAgustin Reynoso\n\nSpecial thanks to Jules\u2764\uFE0F\n\nPowered
     by:\nUnity Engine\n\nThank you for playing!\n"
 --- !u!222 &1889461204
