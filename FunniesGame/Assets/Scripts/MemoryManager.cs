@@ -31,7 +31,7 @@ public class MemoryManager : MonoBehaviour
         while (true)
         {
             List<int> activeIds = new List<int>();
-            int currentSpriteCount = Mathf.Min(2 + currentPhase, availableSprites.Length);
+            int currentSpriteCount = Mathf.Min(2 + (currentPhase + 1) / 2, availableSprites.Length);
 
             foreach (MemoryTile tile in tiles)
             {
