@@ -5665,8 +5665,8 @@ MonoBehaviour:
   spawner: {fileID: 6169069216631388358, guid: 593713fb1f805f641a998d210ccf42bf, type: 3}
   stopSpawn: 0
   spawnTime: 1
-  spawnDelay: 10
-  maxInstances: 20
+  spawnDelay: 5
+  maxInstances: 1
 --- !u!4 &1410814896
 Transform:
   m_ObjectHideFlags: 0
@@ -6519,9 +6519,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 6169069216631388358, guid: 593713fb1f805f641a998d210ccf42bf, type: 3}
   stopSpawn: 0
-  spawnTime: 20
-  spawnDelay: 10
-  maxInstances: 20
+  spawnTime: 10
+  spawnDelay: 1
+  maxInstances: 1
 --- !u!4 &1495505127
 Transform:
   m_ObjectHideFlags: 0
@@ -7909,7 +7909,7 @@ MonoBehaviour:
   stopSpawn: 0
   spawnTime: 15
   spawnDelay: 10
-  maxInstances: 20
+  maxInstances: 2
 --- !u!4 &1755015303
 Transform:
   m_ObjectHideFlags: 0
