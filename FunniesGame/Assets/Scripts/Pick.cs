@@ -162,6 +162,15 @@ public class Pick : MonoBehaviour
 
         if (grabbedRb != null)
         {
+            Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in myRenderers)
+            {
+                if (r.material.HasProperty("_OutlineEnabled"))
+                {
+                    r.material.SetFloat("_OutlineEnabled", 0f);
+                    Debug.Log($"[Outline Debug] Desactivado en el renderer: {r.gameObject.name}");
+                }
+            }
             PaintTube tube = grabbedRb.GetComponent<PaintTube>();
             if (tube != null) tube.OnDropped();
             
@@ -225,6 +234,19 @@ public class Pick : MonoBehaviour
         fj.connectedBody = rb;
         grabbedRb = rb;
 
+        Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
+        bool foundOutline = false;
+        foreach (Renderer r in myRenderers)
+        {
+            if (r.material.HasProperty("_OutlineEnabled"))
+            {
+                r.material.SetFloat("_OutlineEnabled", 1f);
+                Debug.Log($"[Outline Debug] Activado en el renderer: {r.gameObject.name}");
+                foundOutline = true;
+            }
+        }
+        if (!foundOutline) Debug.LogWarning("[Outline Debug] No se encontró ningún material con _OutlineEnabled en el personaje.");
+
         PaintTube tube = rb.GetComponent<PaintTube>();
         Eraser eraser = rb.GetComponent<Eraser>();
         
@@ -232,16 +254,21 @@ public class Pick : MonoBehaviour
         {
             fj.breakForce = Mathf.Infinity;
             fj.breakTorque = Mathf.Infinity;
-
-            Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
-            Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
+            
+            Color myColor = myRenderers.Length > 0 ? myRenderers[0].material.color : Color.white;
             tube.OnGrabbed(myController.playerIndex, myColor);
         }
         else if (eraser != null)
         {
             fj.breakForce = Mathf.Infinity;
             fj.breakTorque = Mathf.Infinity;
+            
             eraser.OnGrabbed();
+        }
+        else if (rb.tag == "egg") 
+        {
+            fj.breakForce = Mathf.Infinity;
+            fj.breakTorque = Mathf.Infinity;
         }
         else
         {
@@ -258,7 +285,9 @@ public class Pick : MonoBehaviour
 
         if (tube == null)
         {
-            grabbedRenderer = rb.GetComponentInChildren<Renderer>();
+            Renderer[] renderers = rb.GetComponentsInChildren<Renderer>();
+            if (renderers.Length > 0) grabbedRenderer = renderers[0];
+            
             if (grabbedRenderer != null && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level8")
             {
                 grabbedMaterial = grabbedRenderer.material;
