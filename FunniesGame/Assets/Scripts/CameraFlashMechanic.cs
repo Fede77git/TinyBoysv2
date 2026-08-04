@@ -165,23 +165,35 @@ public class CameraFlashMechanic : MonoBehaviour
 
             yield return new WaitForSeconds(cycleTime - warningTime);
 
-            if (spotlight != null) spotlight.color = warningColor;
+            float timer = 0f;
+            float nextBeepTime = 0f;
 
-            if (beepSound != null && audioSource != null)
+            while (timer < warningTime)
             {
-                int beeps = Mathf.FloorToInt(warningTime);
-                for (int i = 0; i < beeps; i++)
+                timer += Time.deltaTime;
+                
+                if (timer >= nextBeepTime && nextBeepTime < warningTime)
                 {
-                    audioSource.PlayOneShot(beepSound, beepVolume);
-                    yield return new WaitForSeconds(1f);
+                    if (beepSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(beepSound, beepVolume);
+                    }
+                    nextBeepTime += 1f;
                 }
-                float remainder = warningTime - beeps;
-                if (remainder > 0) yield return new WaitForSeconds(remainder);
+
+                if (spotlight != null)
+                {
+                    float progress = timer / warningTime;
+                    float blinkFrequency = Mathf.Lerp(10f, 50f, progress);
+                    float wave = Mathf.Sin(timer * blinkFrequency);
+                    
+                    spotlight.color = wave > 0f ? warningColor : Color.black;
+                }
+
+                yield return null;
             }
-            else
-            {
-                yield return new WaitForSeconds(warningTime);
-            }
+            
+            if (spotlight != null) spotlight.color = warningColor;
 
             isFlashing = true;
 
