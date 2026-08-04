@@ -74,9 +74,13 @@ Shader "Custom/CharacterGrabOutline"
             ZWrite On
 
             HLSLPROGRAM
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile _ _SHADOWS_SOFT
             #pragma vertex vert
             #pragma fragment frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
             struct Attributes
             {
@@ -88,6 +92,7 @@ Shader "Custom/CharacterGrabOutline"
             {
                 float4 positionCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
+                float3 positionWS : TEXCOORD1;
             };
 
             TEXTURE2D(_BaseMap);
@@ -104,7 +109,9 @@ Shader "Custom/CharacterGrabOutline"
             Varyings vert(Attributes input)
             {
                 Varyings output;
-                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
+                output.positionWS = positionWS;
+                output.positionCS = TransformWorldToHClip(positionWS);
                 output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
                 return output;
             }
@@ -112,7 +119,50 @@ Shader "Custom/CharacterGrabOutline"
             half4 frag(Varyings input) : SV_Target
             {
                 half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
-                return texColor * _BaseColor;
+                
+                float4 shadowCoord = TransformWorldToShadowCoord(input.positionWS);
+                Light mainLight = GetMainLight(shadowCoord);
+                
+                half shadow = lerp(0.5, 1.0, mainLight.shadowAttenuation);
+                
+                return texColor * _BaseColor * shadow;
+            }
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags { "LightMode"="ShadowCaster" }
+            ZWrite On
+            ZTest LEqual
+            ColorMask 0
+
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+            struct Attributes
+            {
+                float4 positionOS : POSITION;
+            };
+
+            struct Varyings
+            {
+                float4 positionCS : SV_POSITION;
+            };
+
+            Varyings vert(Attributes input)
+            {
+                Varyings output;
+                output.positionCS = TransformObjectToHClip(input.positionOS.xyz);
+                return output;
+            }
+
+            half4 frag(Varyings input) : SV_Target
+            {
+                return 0;
             }
             ENDHLSL
         }
