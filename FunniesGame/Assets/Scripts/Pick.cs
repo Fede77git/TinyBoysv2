@@ -240,9 +240,8 @@ public class Pick : MonoBehaviour
 
     private void DoGrab(Rigidbody rb)
     {
-        if (rb.GetComponentInParent<PlayerController>() == null)
+        if (rb.GetComponentInParent<PlayerController>() == null && rb.GetComponent<Eraser>() == null)
         {
-           
             float maxGrabDistance = 0.8f; 
             Vector3 offset = rb.transform.position - transform.position;
             if (offset.magnitude > maxGrabDistance)
@@ -280,7 +279,12 @@ public class Pick : MonoBehaviour
             fj.breakForce = Mathf.Infinity;
             fj.breakTorque = Mathf.Infinity;
             
-            Color myColor = myRenderers.Length > 0 ? myRenderers[0].material.color : Color.white;
+            Color myColor = Color.white;
+            if (myRenderers.Length > 0)
+            {
+                if (myRenderers[0].material.HasProperty("_Color")) myColor = myRenderers[0].material.color;
+                else if (myRenderers[0].material.HasProperty("_BaseColor")) myColor = myRenderers[0].material.GetColor("_BaseColor");
+            }
             tube.OnGrabbed(myController.playerIndex, myColor);
         }
         else if (eraser != null)

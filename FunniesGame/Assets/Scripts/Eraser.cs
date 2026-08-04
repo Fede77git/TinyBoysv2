@@ -8,9 +8,11 @@ public class Eraser : MonoBehaviour
     private AudioSource audioSource;
 
     private bool isGrabbed = false;
+    private Vector3 initialPosition;
 
     private void Awake()
     {
+        initialPosition = transform.position;
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.spatialBlend = 0f;
         
@@ -53,7 +55,13 @@ public class Eraser : MonoBehaviour
     {
         if (transform.position.y < -10f)
         {
-            Destroy(gameObject);
+            transform.position = initialPosition;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
             return;
         }
 
