@@ -14,6 +14,13 @@ public class Pick : MonoBehaviour
     public Animator animator;
     public bool RightHand;
 
+    public AudioClip grabSfx;
+    [Range(0f, 1f)] public float grabSfxVolume = 1f;
+    private float minPitch = 0.8f;
+    private float maxPitch = 1.1f;
+    private AudioSource audioSource;
+    private float sfxCooldownTimer = 0f;
+
     void OnEnable()
     {
         if (grabAction != null && grabAction.action != null)
@@ -63,6 +70,8 @@ public class Pick : MonoBehaviour
 
     void Update()
     {
+        if (sfxCooldownTimer > 0f) sfxCooldownTimer -= Time.deltaTime;
+        
         if (grabAction != null && grabAction.action != null)
         {
             if (grabAction.action.IsPressed() && !brokenGrab)
@@ -168,7 +177,7 @@ public class Pick : MonoBehaviour
                 if (r.material.HasProperty("_OutlineEnabled"))
                 {
                     r.material.SetFloat("_OutlineEnabled", 0f);
-                    Debug.Log($"[Outline Debug] Desactivado en el renderer: {r.gameObject.name}");
+                   
                 }
             }
             PaintTube tube = grabbedRb.GetComponent<PaintTube>();
@@ -189,6 +198,7 @@ public class Pick : MonoBehaviour
     void Start()
     {
         myController = GetComponentInParent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionStay(Collision col)
@@ -234,6 +244,13 @@ public class Pick : MonoBehaviour
         fj.connectedBody = rb;
         grabbedRb = rb;
 
+        if (grabSfx != null && audioSource != null && sfxCooldownTimer <= 0f)
+        {
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.PlayOneShot(grabSfx, grabSfxVolume);
+            sfxCooldownTimer = 0.5f;
+        }
+
         Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
         bool foundOutline = false;
         foreach (Renderer r in myRenderers)
@@ -241,11 +258,11 @@ public class Pick : MonoBehaviour
             if (r.material.HasProperty("_OutlineEnabled"))
             {
                 r.material.SetFloat("_OutlineEnabled", 1f);
-                Debug.Log($"[Outline Debug] Activado en el renderer: {r.gameObject.name}");
+                
                 foundOutline = true;
             }
         }
-        if (!foundOutline) Debug.LogWarning("[Outline Debug] No se encontró ningún material con _OutlineEnabled en el personaje.");
+       
 
         PaintTube tube = rb.GetComponent<PaintTube>();
         Eraser eraser = rb.GetComponent<Eraser>();
