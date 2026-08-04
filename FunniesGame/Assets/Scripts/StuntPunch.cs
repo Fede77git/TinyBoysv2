@@ -22,6 +22,10 @@ public class StuntPunch : MonoBehaviour
     [Range(0f, 1f)] public float stunVolume = 1f;
     private AudioSource audioSource;
 
+    public GameObject stunVfxPrefab;
+    public Transform headTransform;
+    private GameObject activeStunVfx;
+
     private PlayerController playerController;
 
     void Start()
@@ -113,6 +117,12 @@ public class StuntPunch : MonoBehaviour
     {
         isStunned = true;
 
+        if (stunVfxPrefab != null)
+        {
+            Transform spawnPoint = headTransform != null ? headTransform : transform;
+            activeStunVfx = Instantiate(stunVfxPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+
         if (playerController != null)
             playerController.enabled = false;
 
@@ -175,7 +185,21 @@ public class StuntPunch : MonoBehaviour
 
         if (playerController != null)
             playerController.enabled = true;
+        
+        if (activeStunVfx != null)
+        {
+            Destroy(activeStunVfx);
+        }
 
         isStunned = false;
+    }
+
+    void Update()
+    {
+        if (isStunned && activeStunVfx != null)
+        {
+            Transform target = headTransform != null ? headTransform : transform;
+            activeStunVfx.transform.position = target.position;
+        }
     }
 }

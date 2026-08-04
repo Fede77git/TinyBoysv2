@@ -4847,7 +4847,7 @@ Transform:
   m_GameObject: {fileID: 2968210021012427345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2875, y: 0.2875, z: 0.2875}
   m_Children: []
   m_Father: {fileID: 4033412786151888122}
   m_RootOrder: 0
@@ -9652,7 +9652,7 @@ GameObject:
   - component: {fileID: 4033412786151888120}
   - component: {fileID: 4033412786151888121}
   m_Layer: 0
-  m_Name: Sparkle_ellow
+  m_Name: sparkle stun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9667,7 +9667,7 @@ Transform:
   m_GameObject: {fileID: 4033412786151888123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9261443, y: 0.9261443, z: 0.9261443}
+  m_LocalScale: {x: 0.28820333, y: 0.28820333, z: 0.28820333}
   m_Children:
   - {fileID: 8851435643961012300}
   - {fileID: 6296985334182644733}
