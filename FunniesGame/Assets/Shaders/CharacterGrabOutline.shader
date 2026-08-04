@@ -65,8 +65,11 @@ Shader "Custom/CharacterGrabOutline"
                 float effectiveEnabled = max(_OutlineEnabled, _GlobalBlackoutOutlineEnabled);
                 if (effectiveEnabled < 0.5) discard;
                 
-                half4 finalColor = lerp(_OutlineColor, _GlobalBlackoutOutlineColor, _GlobalBlackoutOutlineEnabled);
-                return finalColor;
+                if (_OutlineEnabled > 0.5) 
+                {
+                    return _OutlineColor;
+                }
+                return _GlobalBlackoutOutlineColor;
             }
             ENDHLSL
         }
@@ -93,6 +96,7 @@ Shader "Custom/CharacterGrabOutline"
             struct Attributes
             {
                 float4 positionOS : POSITION;
+                float3 normalOS : NORMAL;
                 float2 uv : TEXCOORD0;
             };
 
@@ -101,6 +105,7 @@ Shader "Custom/CharacterGrabOutline"
                 float4 positionCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 positionWS : TEXCOORD1;
+                float3 normalWS : NORMAL;
             };
 
             TEXTURE2D(_BaseMap);
@@ -120,6 +125,7 @@ Shader "Custom/CharacterGrabOutline"
                 float3 positionWS = TransformObjectToWorld(input.positionOS.xyz);
                 output.positionWS = positionWS;
                 output.positionCS = TransformWorldToHClip(positionWS);
+                output.normalWS = TransformObjectToWorldNormal(input.normalOS);
                 output.uv = TRANSFORM_TEX(input.uv, _BaseMap);
                 return output;
             }
@@ -127,20 +133,24 @@ Shader "Custom/CharacterGrabOutline"
             half4 frag(Varyings input) : SV_Target
             {
                 half4 texColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
+                float3 normalWS = normalize(input.normalWS);
                 
                 float4 shadowCoord = TransformWorldToShadowCoord(input.positionWS);
                 Light mainLight = GetMainLight(shadowCoord);
                 
                 half shadow = lerp(0.5, 1.0, mainLight.shadowAttenuation);
+                half NdotL = saturate(dot(normalWS, mainLight.direction));
+                half3 ambientLight = SampleSH(normalWS);
                 
-                half3 totalLight = mainLight.color * mainLight.distanceAttenuation * shadow;
+                half3 totalLight = ambientLight + (mainLight.color * mainLight.distanceAttenuation * shadow * NdotL);
 
 #if defined(_ADDITIONAL_LIGHTS)
                 uint pixelLightCount = GetAdditionalLightsCount();
                 for (uint lightIndex = 0u; lightIndex < pixelLightCount; ++lightIndex)
                 {
                     Light light = GetAdditionalLight(lightIndex, input.positionWS);
-                    totalLight += light.color * light.distanceAttenuation * light.shadowAttenuation;
+                    half addNdotL = saturate(dot(normalWS, light.direction));
+                    totalLight += light.color * light.distanceAttenuation * light.shadowAttenuation * addNdotL;
                 }
 #endif
 

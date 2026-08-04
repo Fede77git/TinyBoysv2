@@ -13,6 +13,10 @@ public class CameraFlashMechanic : MonoBehaviour
     public Light mainLevelLight;
     public float blackoutDuration = 5f;
     public float moveSpeed = 2f;
+    public float minMoveSpeed = 1.5f;
+    public float maxMoveSpeed = 5f;
+    public float minSpotAngle = 25f;
+    public float maxSpotAngle = 55f;
     public float cycleTime = 15f;
     public float warningTime = 3f;
     public float freezeDuration = 3f;
@@ -33,6 +37,9 @@ public class CameraFlashMechanic : MonoBehaviour
     private Vector3 currentTargetPosition;
     private Dictionary<GameObject, int> playersInTrigger = new Dictionary<GameObject, int>();
     private bool isFlashing = false;
+    private float currentMoveSpeed;
+    private float targetSpotAngle;
+    private bool hasFlashedOnce = false;
 
     private void Start()
     {
@@ -46,9 +53,11 @@ public class CameraFlashMechanic : MonoBehaviour
         chargeAudioSource.loop = true;
         chargeAudioSource.spatialBlend = 0f;
 
+        currentMoveSpeed = moveSpeed;
         if (spotlight != null)
         {
             spotlight.color = normalColor;
+            targetSpotAngle = spotlight.spotAngle;
         }
         if (lensFlashLight != null)
         {
@@ -60,9 +69,14 @@ public class CameraFlashMechanic : MonoBehaviour
 
     private void Update()
     {
+        if (spotlight != null)
+        {
+            spotlight.spotAngle = Mathf.MoveTowards(spotlight.spotAngle, targetSpotAngle, Time.deltaTime * 10f);
+        }
+
         if (!isFlashing && movementArea != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, currentTargetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, currentTargetPosition, currentMoveSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, currentTargetPosition) < 0.1f)
             {
@@ -225,6 +239,7 @@ public class CameraFlashMechanic : MonoBehaviour
                 StartCoroutine(BlackoutRoutine());
             }
 
+            hasFlashedOnce = true;
             PickNewRandomTarget();
         }
     }
@@ -246,6 +261,12 @@ public class CameraFlashMechanic : MonoBehaviour
 
     private void PickNewRandomTarget()
     {
+        if (hasFlashedOnce)
+        {
+            currentMoveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
+            targetSpotAngle = Random.Range(minSpotAngle, maxSpotAngle);
+        }
+
         if (movementArea != null)
         {
             Bounds bounds = movementArea.bounds;
