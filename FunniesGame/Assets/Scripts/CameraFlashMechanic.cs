@@ -168,29 +168,31 @@ public class CameraFlashMechanic : MonoBehaviour
             yield return new WaitForSeconds(cycleTime - warningTime);
 
             float timer = 0f;
-            float nextBeepTime = 0f;
+            bool wasLightOn = false;
 
             while (timer < warningTime)
             {
                 timer += Time.deltaTime;
                 
-                if (timer >= nextBeepTime && nextBeepTime < warningTime)
+                float progress = timer / warningTime;
+                float blinkFrequency = Mathf.Lerp(10f, 50f, progress);
+                float wave = Mathf.Sin(timer * blinkFrequency);
+                bool isLightOn = wave > 0f;
+                
+                if (isLightOn && !wasLightOn)
                 {
                     if (beepSound != null && audioSource != null)
                     {
                         audioSource.PlayOneShot(beepSound, beepVolume);
                     }
-                    nextBeepTime += 1f;
                 }
-
+                
                 if (spotlight != null)
                 {
-                    float progress = timer / warningTime;
-                    float blinkFrequency = Mathf.Lerp(10f, 50f, progress);
-                    float wave = Mathf.Sin(timer * blinkFrequency);
-                    
-                    spotlight.color = wave > 0f ? warningColor : Color.black;
+                    spotlight.color = isLightOn ? warningColor : Color.black;
                 }
+                
+                wasLightOn = isLightOn;
 
                 yield return null;
             }
