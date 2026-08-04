@@ -376,7 +376,7 @@ MonoBehaviour:
   maxMoveSpeed: 9
   minSpotAngle: 25
   maxSpotAngle: 55
-  cycleTime: 12
+  cycleTime: 8
   warningTime: 4
   freezeDuration: 3
   trackingOffset: -3

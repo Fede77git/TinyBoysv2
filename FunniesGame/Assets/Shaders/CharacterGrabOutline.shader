@@ -41,6 +41,7 @@ Shader "Custom/CharacterGrabOutline"
             float4 _GlobalBlackoutOutlineColor;
 
             CBUFFER_START(UnityPerMaterial)
+                float4 _BaseColor;
                 float4 _OutlineColor;
                 float _OutlineThickness;
                 float _OutlineEnabled;
@@ -65,11 +66,7 @@ Shader "Custom/CharacterGrabOutline"
                 float effectiveEnabled = max(_OutlineEnabled, _GlobalBlackoutOutlineEnabled);
                 if (effectiveEnabled < 0.5) discard;
                 
-                if (_OutlineEnabled > 0.5) 
-                {
-                    return _OutlineColor;
-                }
-                return _GlobalBlackoutOutlineColor;
+                return lerp(_GlobalBlackoutOutlineColor, _OutlineColor, _OutlineEnabled);
             }
             ENDHLSL
         }
@@ -112,11 +109,11 @@ Shader "Custom/CharacterGrabOutline"
             SAMPLER(sampler_BaseMap);
             
             CBUFFER_START(UnityPerMaterial)
+                float4 _BaseColor;
                 float4 _OutlineColor;
                 float _OutlineThickness;
                 float _OutlineEnabled;
                 float4 _BaseMap_ST;
-                float4 _BaseColor;
             CBUFFER_END
 
             Varyings vert(Attributes input)

@@ -2,8 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class LightTriggerForwarder : MonoBehaviour
+{
+    public CameraFlashMechanic mainScript;
+    public int lightIndex;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (mainScript != null) mainScript.HandleTriggerEnter(other, lightIndex);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (mainScript != null) mainScript.HandleTriggerExit(other, lightIndex);
+    }
+}
+
 public class CameraFlashMechanic : MonoBehaviour
 {
+    public enum RandomEvent { Normal, Blackout, CrazyLight, TripleLight, Earthquake }
+
     public Light spotlight;
     public Color normalColor = Color.white;
     public Color warningColor = Color.red;
@@ -35,11 +53,24 @@ public class CameraFlashMechanic : MonoBehaviour
     private AudioSource chargeAudioSource;
 
     private Vector3 currentTargetPosition;
-    private Dictionary<GameObject, int> playersInTrigger = new Dictionary<GameObject, int>();
+    private Dictionary<int, HashSet<GameObject>> playersPerLight = new Dictionary<int, HashSet<GameObject>>();
     private bool isFlashing = false;
     private float currentMoveSpeed;
     private float targetSpotAngle;
     private bool hasFlashedOnce = false;
+
+    private RandomEvent currentEvent = RandomEvent.Normal;
+    private RandomEvent previousEvent = RandomEvent.Normal;
+    private float defaultSpotAngle;
+    private Vector3 originalCameraLocalPos;
+
+    // Triple light event variables
+    private Light[] extraLights = new Light[2];
+    private Transform[] extraTransforms = new Transform[2];
+    private Vector3[] extraTargets = new Vector3[2];
+    private float[] extraSpeeds = new float[2];
+    private float[] extraTargetAngles = new float[2];
+    private Vector3 lastCameraShakeOffset = Vector3.zero;
 
     private void Start()
     {
@@ -58,12 +89,51 @@ public class CameraFlashMechanic : MonoBehaviour
         {
             spotlight.color = normalColor;
             targetSpotAngle = spotlight.spotAngle;
+            defaultSpotAngle = spotlight.spotAngle;
+            
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject clone = Instantiate(this.gameObject, transform.parent);
+                
+                CameraFlashMechanic cloneScript = clone.GetComponent<CameraFlashMechanic>();
+                if (cloneScript != null) Destroy(cloneScript);
+                
+                foreach (AudioSource a in clone.GetComponentsInChildren<AudioSource>()) Destroy(a);
+
+                LightTriggerForwarder forwarder = clone.AddComponent<LightTriggerForwarder>();
+                forwarder.mainScript = this;
+                forwarder.lightIndex = i + 1;
+
+                Light[] cloneLights = clone.GetComponentsInChildren<Light>();
+                Light foundLight = null;
+                foreach (Light l in cloneLights)
+                {
+                    if (l.type == LightType.Spot) 
+                    {
+                        foundLight = l;
+                        break;
+                    }
+                }
+                if (foundLight == null && cloneLights.Length > 0) foundLight = cloneLights[0];
+
+                extraLights[i] = foundLight;
+                
+                extraTransforms[i] = clone.transform;
+                extraTransforms[i].position = new Vector3(0, -1000, 0);
+                extraTransforms[i].gameObject.SetActive(false);
+            }
         }
+        
+        if (cameraModel != null)
+        {
+            originalCameraLocalPos = cameraModel.localPosition;
+        }
+
         if (lensFlashLight != null)
         {
             lensFlashLight.enabled = false;
         }
-        PickNewRandomTarget();
+        PickNewRandomTarget(0);
         StartCoroutine(FlashCycleRoutine());
     }
 
@@ -73,42 +143,91 @@ public class CameraFlashMechanic : MonoBehaviour
         {
             spotlight.spotAngle = Mathf.MoveTowards(spotlight.spotAngle, targetSpotAngle, Time.deltaTime * 10f);
         }
+        
+        if (currentEvent == RandomEvent.TripleLight)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (extraLights[i] != null && extraLights[i].enabled)
+                {
+                    extraLights[i].spotAngle = Mathf.MoveTowards(extraLights[i].spotAngle, extraTargetAngles[i], Time.deltaTime * 10f);
+                }
+            }
+        }
 
         if (!isFlashing && movementArea != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, currentTargetPosition, currentMoveSpeed * Time.deltaTime);
-
             if (Vector3.Distance(transform.position, currentTargetPosition) < 0.1f)
             {
-                PickNewRandomTarget();
+                PickNewRandomTarget(0);
+            }
+
+            if (currentEvent == RandomEvent.TripleLight)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (extraLights[i] != null && extraLights[i].enabled && extraTransforms[i] != null)
+                    {
+                        extraTransforms[i].position = Vector3.MoveTowards(extraTransforms[i].position, extraTargets[i], extraSpeeds[i] * Time.deltaTime);
+                        if (Vector3.Distance(extraTransforms[i].position, extraTargets[i]) < 0.1f)
+                        {
+                            PickNewRandomTarget(i + 1);
+                        }
+                    }
+                }
             }
         }
 
         if (cameraModel != null)
         {
-            cameraModel.position = new Vector3(cameraModel.position.x, cameraModel.position.y, transform.position.z + trackingOffset);
+            Vector3 targetCamPos = new Vector3(originalCameraLocalPos.x, originalCameraLocalPos.y, transform.localPosition.z + trackingOffset);
+            cameraModel.localPosition = targetCamPos;
         }
 
         if (!isFlashing && LevelManager10.Instance != null)
         {
-            List<PlayerController> alivePlayersInLight = new List<PlayerController>();
-            foreach (GameObject player in playersInTrigger.Keys)
+            bool anyPlayerScored = false;
+            float maxChargeThisFrame = 0f;
+            int maxChargePlayer = -1;
+
+            for (int i = 0; i < 3; i++)
             {
-                if (player != null)
+                if (i > 0 && currentEvent != RandomEvent.TripleLight) continue;
+                
+                if (playersPerLight.ContainsKey(i))
                 {
-                    PlayerController pc = player.GetComponent<PlayerController>();
-                    if (pc != null && !pc.isDead)
+                    List<PlayerController> aliveInThisLight = new List<PlayerController>();
+                    foreach (GameObject player in playersPerLight[i])
                     {
-                        alivePlayersInLight.Add(pc);
+                        if (player != null)
+                        {
+                            PlayerController pc = player.GetComponent<PlayerController>();
+                            if (pc != null && !pc.isDead)
+                            {
+                                aliveInThisLight.Add(pc);
+                            }
+                        }
+                    }
+
+                    if (aliveInThisLight.Count == 1)
+                    {
+                        int pIndex = aliveInThisLight[0].playerIndex;
+                        LevelManager10.Instance.AddPlayerCharge(pIndex, chargeSpeed * Time.deltaTime);
+                        
+                        anyPlayerScored = true;
+                        float charge = LevelManager10.Instance.GetPlayerCharge(pIndex);
+                        if (charge > maxChargeThisFrame)
+                        {
+                            maxChargeThisFrame = charge;
+                            maxChargePlayer = pIndex;
+                        }
                     }
                 }
             }
 
-            if (alivePlayersInLight.Count == 1)
+            if (anyPlayerScored)
             {
-                int pIndex = alivePlayersInLight[0].playerIndex;
-                LevelManager10.Instance.AddPlayerCharge(pIndex, chargeSpeed * Time.deltaTime);
-                
                 if (chargeSound != null && chargeAudioSource != null)
                 {
                     if (!chargeAudioSource.isPlaying)
@@ -118,8 +237,7 @@ public class CameraFlashMechanic : MonoBehaviour
                         chargeAudioSource.Play();
                     }
                     chargeAudioSource.volume = Mathf.MoveTowards(chargeAudioSource.volume, chargeVolume, Time.deltaTime * 5f);
-                    float charge = LevelManager10.Instance.GetPlayerCharge(pIndex);
-                    chargeAudioSource.pitch = 1f + (charge / 100f);
+                    chargeAudioSource.pitch = 1f + (maxChargeThisFrame / 100f);
                 }
             }
             else
@@ -147,28 +265,128 @@ public class CameraFlashMechanic : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void LateUpdate()
+    {
+        if (Camera.main != null)
+        {
+            Camera.main.transform.position -= lastCameraShakeOffset;
+
+            if (currentEvent == RandomEvent.Earthquake && !isFlashing)
+            {
+                float shakeForce = 0.5f;
+                lastCameraShakeOffset = new Vector3(
+                    (Mathf.PerlinNoise(Time.time * 30f, 0f) - 0.5f) * shakeForce,
+                    (Mathf.PerlinNoise(0f, Time.time * 30f) - 0.5f) * shakeForce,
+                    0f
+                );
+                Camera.main.transform.position += lastCameraShakeOffset;
+            }
+            else
+            {
+                lastCameraShakeOffset = Vector3.zero;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) { HandleTriggerEnter(other, 0); }
+    private void OnTriggerExit(Collider other) { HandleTriggerExit(other, 0); }
+
+    public void HandleTriggerEnter(Collider other, int lightIndex)
     {
         PlayerController pc = other.GetComponentInParent<PlayerController>();
         if (pc != null)
         {
-            if (playersInTrigger.ContainsKey(pc.gameObject))
-                playersInTrigger[pc.gameObject]++;
-            else
-                playersInTrigger[pc.gameObject] = 1;
+            if (!playersPerLight.ContainsKey(lightIndex)) playersPerLight[lightIndex] = new HashSet<GameObject>();
+            playersPerLight[lightIndex].Add(pc.gameObject);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void HandleTriggerExit(Collider other, int lightIndex)
     {
         PlayerController pc = other.GetComponentInParent<PlayerController>();
-        if (pc != null && playersInTrigger.ContainsKey(pc.gameObject))
+        if (pc != null && playersPerLight.ContainsKey(lightIndex))
         {
-            playersInTrigger[pc.gameObject]--;
-            if (playersInTrigger[pc.gameObject] <= 0)
+            playersPerLight[lightIndex].Remove(pc.gameObject);
+        }
+    }
+
+    private void EndCurrentEvent()
+    {
+        if (currentEvent == RandomEvent.Blackout && mainLevelLight != null)
+        {
+            Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 0f);
+            mainLevelLight.enabled = true;
+        }
+
+        if (currentEvent == RandomEvent.TripleLight)
+        {
+            for (int i = 0; i < 2; i++)
             {
-                playersInTrigger.Remove(pc.gameObject);
+                if (extraTransforms[i] != null)
+                {
+                    extraTransforms[i].position = new Vector3(0, -1000, 0);
+                    StartCoroutine(DisableNextFrame(extraTransforms[i].gameObject));
+                }
             }
+        }
+
+        currentEvent = RandomEvent.Normal;
+        currentMoveSpeed = moveSpeed;
+        targetSpotAngle = defaultSpotAngle;
+    }
+
+    private IEnumerator DisableNextFrame(GameObject obj)
+    {
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+        if (obj != null) obj.SetActive(false);
+    }
+
+    private void PickRandomEvent()
+    {
+        int randomEv;
+        do
+        {
+            randomEv = Random.Range(0, 5); 
+        } 
+        while (hasFlashedOnce && (RandomEvent)randomEv == previousEvent);
+
+        previousEvent = (RandomEvent)randomEv;
+
+        switch (randomEv)
+        {
+            case 0:
+                currentEvent = RandomEvent.Normal;
+                break;
+            case 1:
+                currentEvent = RandomEvent.Blackout;
+                if (mainLevelLight != null)
+                {
+                    mainLevelLight.enabled = false;
+                    Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 1f);
+                    Shader.SetGlobalColor("_GlobalBlackoutOutlineColor", Color.cyan);
+                }
+                break;
+            case 2:
+                currentEvent = RandomEvent.CrazyLight;
+                PickNewRandomTarget(0);
+                break;
+            case 3:
+                currentEvent = RandomEvent.TripleLight;
+                for (int i = 0; i < 2; i++)
+                {
+                    if (extraTransforms[i] != null)
+                    {
+                        extraTransforms[i].gameObject.SetActive(true);
+                        extraTransforms[i].position = transform.position;
+                        if (extraLights[i] != null) extraLights[i].color = normalColor;
+                        PickNewRandomTarget(i + 1);
+                    }
+                }
+                break;
+            case 4:
+                currentEvent = RandomEvent.Earthquake;
+                break;
         }
     }
 
@@ -178,8 +396,16 @@ public class CameraFlashMechanic : MonoBehaviour
         {
             isFlashing = false;
             if (spotlight != null) spotlight.color = normalColor;
+            
+            if (currentEvent == RandomEvent.TripleLight)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (extraLights[i] != null) extraLights[i].color = normalColor;
+                }
+            }
 
-            yield return new WaitForSeconds(cycleTime - warningTime);
+            yield return new WaitForSeconds(cycleTime);
 
             float timer = 0f;
             bool wasLightOn = false;
@@ -206,12 +432,34 @@ public class CameraFlashMechanic : MonoBehaviour
                     spotlight.color = isLightOn ? warningColor : Color.black;
                 }
                 
+                if (currentEvent == RandomEvent.TripleLight)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        if (extraLights[i] != null && extraTransforms[i].gameObject.activeSelf)
+                        {
+                            extraLights[i].color = isLightOn ? warningColor : Color.black;
+                        }
+                    }
+                }
+                
                 wasLightOn = isLightOn;
 
                 yield return null;
             }
             
             if (spotlight != null) spotlight.color = warningColor;
+
+            if (currentEvent == RandomEvent.TripleLight)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (extraLights[i] != null && extraTransforms[i].gameObject.activeSelf)
+                    {
+                        extraLights[i].color = warningColor;
+                    }
+                }
+            }
 
             isFlashing = true;
 
@@ -220,12 +468,19 @@ public class CameraFlashMechanic : MonoBehaviour
                 audioSource.PlayOneShot(flashSound, flashVolume);
             }
 
-            foreach (GameObject player in new List<GameObject>(playersInTrigger.Keys))
+            HashSet<GameObject> allPlayersToFreeze = new HashSet<GameObject>();
+            foreach (var kvp in playersPerLight)
             {
-                if (player != null)
+                if (kvp.Key > 0 && currentEvent != RandomEvent.TripleLight) continue;
+                foreach (GameObject player in kvp.Value)
                 {
-                    StartCoroutine(FreezePlayerRoutine(player));
+                    if (player != null) allPlayersToFreeze.Add(player);
                 }
+            }
+
+            foreach (GameObject player in allPlayersToFreeze)
+            {
+                StartCoroutine(FreezePlayerRoutine(player));
             }
 
             if (lensFlashLight != null) lensFlashLight.enabled = true;
@@ -234,37 +489,36 @@ public class CameraFlashMechanic : MonoBehaviour
             
             if (lensFlashLight != null) lensFlashLight.enabled = false;
 
-            if (mainLevelLight != null)
+            if (hasFlashedOnce)
             {
-                StartCoroutine(BlackoutRoutine());
+                EndCurrentEvent();
             }
 
             hasFlashedOnce = true;
-            PickNewRandomTarget();
+            PickRandomEvent();
+            PickNewRandomTarget(0);
         }
     }
 
-    private IEnumerator BlackoutRoutine()
+    private void PickNewRandomTarget(int lightIndex)
     {
-        if (mainLevelLight != null)
+        if (hasFlashedOnce && lightIndex == 0)
         {
-            mainLevelLight.enabled = false;
-            Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 1f);
-            Shader.SetGlobalColor("_GlobalBlackoutOutlineColor", Color.cyan);
-            
-            yield return new WaitForSeconds(blackoutDuration);
-            
-            Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 0f);
-            mainLevelLight.enabled = true;
+            if (currentEvent == RandomEvent.CrazyLight)
+            {
+                currentMoveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
+                targetSpotAngle = Random.Range(minSpotAngle, maxSpotAngle);
+            }
+            else
+            {
+                currentMoveSpeed = moveSpeed;
+                targetSpotAngle = defaultSpotAngle;
+            }
         }
-    }
-
-    private void PickNewRandomTarget()
-    {
-        if (hasFlashedOnce)
+        else if (hasFlashedOnce && lightIndex > 0)
         {
-            currentMoveSpeed = Random.Range(minMoveSpeed, maxMoveSpeed);
-            targetSpotAngle = Random.Range(minSpotAngle, maxSpotAngle);
+            extraSpeeds[lightIndex - 1] = moveSpeed;
+            extraTargetAngles[lightIndex - 1] = defaultSpotAngle;
         }
 
         if (movementArea != null)
@@ -281,7 +535,10 @@ public class CameraFlashMechanic : MonoBehaviour
 
             float randomX = Random.Range(minX, maxX);
             float randomZ = Random.Range(minZ, maxZ);
-            currentTargetPosition = new Vector3(randomX, transform.position.y, randomZ);
+            Vector3 pos = new Vector3(randomX, transform.position.y, randomZ);
+
+            if (lightIndex == 0) currentTargetPosition = pos;
+            else extraTargets[lightIndex - 1] = pos;
         }
     }
 
