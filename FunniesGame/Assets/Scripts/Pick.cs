@@ -240,6 +240,17 @@ public class Pick : MonoBehaviour
 
     private void DoGrab(Rigidbody rb)
     {
+        if (rb.GetComponentInParent<PlayerController>() == null)
+        {
+           
+            float maxGrabDistance = 0.8f; 
+            Vector3 offset = rb.transform.position - transform.position;
+            if (offset.magnitude > maxGrabDistance)
+            {
+                rb.transform.position = transform.position + offset.normalized * maxGrabDistance;
+            }
+        }
+        
         FixedJoint fj = gameObject.AddComponent<FixedJoint>();
         fj.connectedBody = rb;
         grabbedRb = rb;
@@ -252,14 +263,11 @@ public class Pick : MonoBehaviour
         }
 
         Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
-        bool foundOutline = false;
         foreach (Renderer r in myRenderers)
         {
             if (r.material.HasProperty("_OutlineEnabled"))
             {
                 r.material.SetFloat("_OutlineEnabled", 1f);
-                
-                foundOutline = true;
             }
         }
        
