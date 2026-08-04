@@ -369,9 +369,11 @@ MonoBehaviour:
   movementArea: {fileID: 1217960709}
   cameraModel: {fileID: 4439474931032508108}
   lensFlashLight: {fileID: 680187262}
+  mainLevelLight: {fileID: 2024547668}
+  blackoutDuration: 5
   moveSpeed: 6
-  cycleTime: 10
-  warningTime: 3
+  cycleTime: 15
+  warningTime: 4
   freezeDuration: 3
   trackingOffset: -3
   boundsMargin: 2.5
@@ -2442,8 +2444,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9759549, b: 0.9103774, a: 1}
-  m_Intensity: 164.22
-  m_Range: 40.3
+  m_Intensity: 915.3
+  m_Range: 58.4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

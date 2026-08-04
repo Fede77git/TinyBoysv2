@@ -10,6 +10,8 @@ public class CameraFlashMechanic : MonoBehaviour
     public BoxCollider movementArea;
     public Transform cameraModel;
     public Light lensFlashLight;
+    public Light mainLevelLight;
+    public float blackoutDuration = 5f;
     public float moveSpeed = 2f;
     public float cycleTime = 15f;
     public float warningTime = 3f;
@@ -216,7 +218,27 @@ public class CameraFlashMechanic : MonoBehaviour
             
             if (lensFlashLight != null) lensFlashLight.enabled = false;
 
+            if (mainLevelLight != null)
+            {
+                StartCoroutine(BlackoutRoutine());
+            }
+
             PickNewRandomTarget();
+        }
+    }
+
+    private IEnumerator BlackoutRoutine()
+    {
+        if (mainLevelLight != null)
+        {
+            mainLevelLight.enabled = false;
+            Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 1f);
+            Shader.SetGlobalColor("_GlobalBlackoutOutlineColor", Color.cyan);
+            
+            yield return new WaitForSeconds(blackoutDuration);
+            
+            Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 0f);
+            mainLevelLight.enabled = true;
         }
     }
 
@@ -301,5 +323,10 @@ public class CameraFlashMechanic : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 0f);
     }
 }

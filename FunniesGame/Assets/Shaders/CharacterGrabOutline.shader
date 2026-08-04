@@ -37,6 +37,9 @@ Shader "Custom/CharacterGrabOutline"
                 float4 positionCS : SV_POSITION;
             };
 
+            float _GlobalBlackoutOutlineEnabled;
+            float4 _GlobalBlackoutOutlineColor;
+
             CBUFFER_START(UnityPerMaterial)
                 float4 _OutlineColor;
                 float _OutlineThickness;
@@ -48,8 +51,8 @@ Shader "Custom/CharacterGrabOutline"
             {
                 Varyings output;
                 
-               
-                float thickness = _OutlineThickness * _OutlineEnabled;
+                float effectiveEnabled = max(_OutlineEnabled, _GlobalBlackoutOutlineEnabled);
+                float thickness = _OutlineThickness * effectiveEnabled;
                 
                 float3 positionOS = input.positionOS.xyz + input.normalOS * thickness;
                 output.positionCS = TransformObjectToHClip(positionOS);
@@ -59,8 +62,11 @@ Shader "Custom/CharacterGrabOutline"
 
             half4 frag(Varyings input) : SV_Target
             {
-                if (_OutlineEnabled < 0.5) discard;
-                return _OutlineColor;
+                float effectiveEnabled = max(_OutlineEnabled, _GlobalBlackoutOutlineEnabled);
+                if (effectiveEnabled < 0.5) discard;
+                
+                half4 finalColor = lerp(_OutlineColor, _GlobalBlackoutOutlineColor, _GlobalBlackoutOutlineEnabled);
+                return finalColor;
             }
             ENDHLSL
         }
@@ -77,6 +83,8 @@ Shader "Custom/CharacterGrabOutline"
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
             #pragma multi_compile _ _SHADOWS_SOFT
+            #pragma multi_compile _ _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
             #pragma vertex vert
             #pragma fragment frag
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
@@ -125,7 +133,19 @@ Shader "Custom/CharacterGrabOutline"
                 
                 half shadow = lerp(0.5, 1.0, mainLight.shadowAttenuation);
                 
-                return texColor * _BaseColor * shadow;
+                half3 totalLight = mainLight.color * mainLight.distanceAttenuation * shadow;
+
+#if defined(_ADDITIONAL_LIGHTS)
+                uint pixelLightCount = GetAdditionalLightsCount();
+                for (uint lightIndex = 0u; lightIndex < pixelLightCount; ++lightIndex)
+                {
+                    Light light = GetAdditionalLight(lightIndex, input.positionWS);
+                    totalLight += light.color * light.distanceAttenuation * light.shadowAttenuation;
+                }
+#endif
+
+                totalLight = saturate(totalLight);
+                return texColor * _BaseColor * half4(totalLight, 1.0);
             }
             ENDHLSL
         }
