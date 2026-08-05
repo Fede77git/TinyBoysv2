@@ -3524,6 +3524,7 @@ MonoBehaviour:
   - joinPrompt: {fileID: 1721033076}
     joinedState: {fileID: 227051641}
   nextButton: {fileID: 931788997}
+  backButton: {fileID: 1516943421}
 --- !u!114 &829484592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6252,7 +6253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
