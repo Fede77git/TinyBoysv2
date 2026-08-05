@@ -35,17 +35,10 @@ public class Pick : MonoBehaviour
             if (myController != null)
             {
                 int pIndex = myController.playerIndex;
-                if (pIndex >= 2)
+                UnityEngine.InputSystem.InputDevice assignedDevice = DeviceAssigner.GetDeviceForPlayer(pIndex);
+                if (assignedDevice != null)
                 {
-                    int gamepadIndex = pIndex - 2;
-                    UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
-                    if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
-                    {
-                        deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
-                    }
-                    
-                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
-                    
+                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(new UnityEngine.InputSystem.InputDevice[] { assignedDevice });
                     if (grabAction.action.actionMap != null)
                         grabAction.action.actionMap.devices = devices;
                 }

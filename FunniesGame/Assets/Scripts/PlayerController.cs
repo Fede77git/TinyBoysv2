@@ -54,16 +54,11 @@ public class PlayerController : MonoBehaviour
 
     private void AssignGamepadToPlayer()
     {
-        if (playerIndex >= 2)
+        UnityEngine.InputSystem.InputDevice assignedDevice = DeviceAssigner.GetDeviceForPlayer(playerIndex);
+        
+        if (assignedDevice != null)
         {
-            int gamepadIndex = playerIndex - 2;
-            UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
-            if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
-            {
-                deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
-            }
-            
-            var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
+            var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(new UnityEngine.InputSystem.InputDevice[] { assignedDevice });
             
             if (moveAction != null && moveAction.action != null && moveAction.action.actionMap != null)
                 moveAction.action.actionMap.devices = devices;
