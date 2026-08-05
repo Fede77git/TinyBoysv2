@@ -360,7 +360,7 @@ public class CameraFlashMechanic : MonoBehaviour
                 break;
             case 2:
                 currentEvent = RandomEvent.CrazyLight;
-                eventName = "Crazy Lights!";
+                eventName = "Crazy Light!";
                 PickNewRandomTarget(0);
                 break;
             case 3:
