@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
+    
+    private float lastSliderNavTime = 0f;
 
     void Awake()
     {
@@ -103,6 +105,39 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Pause();
+            }
+        }
+
+        if (GameIsPaused && settingsMenuUI != null && settingsMenuUI.activeSelf)
+        {
+            if (UnityEngine.EventSystems.EventSystem.current != null)
+            {
+                GameObject selected = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+                if (selected != null)
+                {
+                    UnityEngine.UI.Slider slider = selected.GetComponent<UnityEngine.UI.Slider>();
+                    if (slider != null)
+                    {
+                        float horiz = 0f;
+                        foreach (var gamepad in UnityEngine.InputSystem.Gamepad.all)
+                        {
+                            if (gamepad.dpad.left.wasPressedThisFrame) horiz = -1f;
+                            if (gamepad.dpad.right.wasPressedThisFrame) horiz = 1f;
+                            
+                            float lx = gamepad.leftStick.x.ReadValue();
+                            if (lx < -0.5f) horiz = -1f;
+                            else if (lx > 0.5f) horiz = 1f;
+                        }
+
+                        if (horiz != 0f && Time.realtimeSinceStartup > lastSliderNavTime + 0.15f)
+                        {
+                            lastSliderNavTime = Time.realtimeSinceStartup;
+                            float step = (slider.maxValue - slider.minValue) * 0.1f;
+                            if (step <= 0f) step = 0.1f;
+                            slider.value += horiz * step;
+                        }
+                    }
+                }
             }
         }
     }

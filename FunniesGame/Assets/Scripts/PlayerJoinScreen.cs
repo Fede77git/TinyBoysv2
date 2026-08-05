@@ -32,7 +32,12 @@ public class PlayerJoinScreen : MonoBehaviour
         // Resetear UI
         for (int i = 0; i < playerPanels.Length; i++)
         {
-            if (playerPanels[i].joinPrompt != null) playerPanels[i].joinPrompt.SetActive(true);
+            if (playerPanels[i].joinPrompt != null)
+            {
+                playerPanels[i].joinPrompt.SetActive(true);
+                UnityEngine.UI.Text promptText = playerPanels[i].joinPrompt.GetComponent<UnityEngine.UI.Text>();
+                if (promptText != null) promptText.text = "Press Any Button to Join";
+            }
             if (playerPanels[i].joinedState != null) playerPanels[i].joinedState.SetActive(false);
         }
         
@@ -47,9 +52,6 @@ public class PlayerJoinScreen : MonoBehaviour
 
     void Update()
     {
-        if (currentPlayerIndex >= maxPlayers) return;
-
-        
         if (UnityEngine.EventSystems.EventSystem.current != null && backButton != null && 
             UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject == backButton.gameObject)
         {
@@ -131,6 +133,8 @@ public class PlayerJoinScreen : MonoBehaviour
 
     private void AssignDevice(InputDevice device, bool isSharedKeyboard = false, string scheme = "Gamepad")
     {
+        if (currentPlayerIndex >= maxPlayers) return;
+
         if (!isSharedKeyboard && DeviceAssigner.PlayerDevices.ContainsValue(device))
         {
             return;
@@ -142,14 +146,37 @@ public class PlayerJoinScreen : MonoBehaviour
 
         if (currentPlayerIndex < playerPanels.Length)
         {
-            if (playerPanels[currentPlayerIndex].joinPrompt != null) 
-                playerPanels[currentPlayerIndex].joinPrompt.SetActive(false);
+            if (playerPanels[currentPlayerIndex].joinPrompt != null)
+            {
+                UnityEngine.UI.Text promptText = playerPanels[currentPlayerIndex].joinPrompt.GetComponent<UnityEngine.UI.Text>();
+                if (promptText != null)
+                {
+                    string deviceName = "";
+                    if (scheme == "Keyboard1") deviceName = "Keyboard 1";
+                    else if (scheme == "Keyboard2") deviceName = "Keyboard 2";
+                    else
+                    {
+                        int joystickNum = 1;
+                        for (int i = 0; i < currentPlayerIndex; i++)
+                        {
+                            if (DeviceAssigner.PlayerSchemes.ContainsKey(i) && DeviceAssigner.PlayerSchemes[i] == "Gamepad") joystickNum++;
+                        }
+                        deviceName = "Joystick " + joystickNum;
+                    }
+                    promptText.text = deviceName;
+                }
+            }
                 
             if (playerPanels[currentPlayerIndex].joinedState != null) 
                 playerPanels[currentPlayerIndex].joinedState.SetActive(true);
         }
 
         currentPlayerIndex++;
+        
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.SeteoJugadores(currentPlayerIndex);
+        }
         
         // Desbloquear el botón de Siguiente si hay 2 o más jugadores
         if (nextButton != null && currentPlayerIndex >= 2)
