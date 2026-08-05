@@ -7,6 +7,7 @@ public class GestorDeCarga : MonoBehaviour
 {
     public Slider barraCarga;
     public GameObject botonReady;
+    public GameObject botonBack;
     public float tiempoDeCarga = 10f;
 
     public Text txtTitulo;
@@ -19,6 +20,18 @@ public class GestorDeCarga : MonoBehaviour
     private void Start()
     {
         botonReady.SetActive(false);
+        if (botonBack != null)
+        {
+            if (GlobalGameManager.Instance != null && GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.SelectorNivel)
+            {
+                botonBack.SetActive(true);
+            }
+            else
+            {
+                botonBack.SetActive(false);
+            }
+        }
+
         if (barraCarga != null)
         {
             barraCarga.value = 0;
@@ -89,5 +102,14 @@ public class GestorDeCarga : MonoBehaviour
         {
             operacionCarga.allowSceneActivation = true;
         }
+    }
+
+    public void BackToMenu()
+    {
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.volviendoDeNivel = true;
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 }
