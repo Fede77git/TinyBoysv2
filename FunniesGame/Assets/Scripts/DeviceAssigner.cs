@@ -6,6 +6,7 @@ public class DeviceAssigner : MonoBehaviour
 {
     private static DeviceAssigner instance;
     public static Dictionary<int, InputDevice> PlayerDevices = new Dictionary<int, InputDevice>();
+    public static Dictionary<int, string> PlayerSchemes = new Dictionary<int, string>();
 
     void Awake()
     {
@@ -20,7 +21,6 @@ public class DeviceAssigner : MonoBehaviour
 
     public static InputDevice GetDeviceForPlayer(int playerIndex)
     {
-       
         if (PlayerDevices.ContainsKey(playerIndex))
         {
             return PlayerDevices[playerIndex];
@@ -43,5 +43,15 @@ public class DeviceAssigner : MonoBehaviour
         }
 
         return null;
+    }
+
+    public static string GetSchemeForPlayer(int playerIndex)
+    {
+        if (PlayerSchemes.ContainsKey(playerIndex))
+        {
+            return PlayerSchemes[playerIndex];
+        }
+
+        return playerIndex >= 2 ? "Gamepad" : (playerIndex == 0 ? "Keyboard1" : "Keyboard2");
     }
 }

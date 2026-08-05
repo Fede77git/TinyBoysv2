@@ -72,14 +72,14 @@ public class PlayerJoinScreen : MonoBehaviour
             if (!keyboard1Joined && p1JoinPress)
             {
                 keyboard1Joined = true;
-                AssignDevice(Keyboard.current, true);
+                AssignDevice(Keyboard.current, true, "Keyboard1");
             }
 
             // Unirse con Teclado P2
             if (!keyboard2Joined && p2JoinPress)
             {
                 keyboard2Joined = true;
-                AssignDevice(Keyboard.current, true);
+                AssignDevice(Keyboard.current, true, "Keyboard2");
             }
         }
 
@@ -123,13 +123,13 @@ public class PlayerJoinScreen : MonoBehaviour
 
                 if (pressed)
                 {
-                    AssignDevice(gamepad, false);
+                    AssignDevice(gamepad, false, "Gamepad");
                 }
             }
         }
     }
 
-    private void AssignDevice(InputDevice device, bool isSharedKeyboard = false)
+    private void AssignDevice(InputDevice device, bool isSharedKeyboard = false, string scheme = "Gamepad")
     {
         if (!isSharedKeyboard && DeviceAssigner.PlayerDevices.ContainsValue(device))
         {
@@ -137,7 +137,8 @@ public class PlayerJoinScreen : MonoBehaviour
         }
 
         DeviceAssigner.PlayerDevices[currentPlayerIndex] = device;
-        Debug.Log("Jugador " + currentPlayerIndex + " se unió usando: " + device.displayName);
+        DeviceAssigner.PlayerSchemes[currentPlayerIndex] = scheme;
+        Debug.Log("Jugador " + currentPlayerIndex + " se unió usando: " + device.displayName + " con esquema " + scheme);
 
         if (currentPlayerIndex < playerPanels.Length)
         {

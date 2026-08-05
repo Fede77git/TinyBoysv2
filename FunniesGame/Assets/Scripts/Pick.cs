@@ -11,6 +11,7 @@ public class Pick : MonoBehaviour
     private bool hold;
     public Rigidbody grabbedRb { get; private set; }
     public UnityEngine.InputSystem.InputActionReference grabAction;
+    private UnityEngine.InputSystem.InputAction runtimeGrabAction;
     public Animator animator;
     public bool RightHand;
 
@@ -23,33 +24,35 @@ public class Pick : MonoBehaviour
 
     void OnEnable()
     {
-        if (grabAction != null && grabAction.action != null)
+        RefreshInputs();
+    }
+
+    public void RefreshInputs()
+    {
+        if (myController == null)
         {
-            grabAction.action.Enable();
+            myController = GetComponentInParent<PlayerController>();
+        }
 
-            if (myController == null)
+        if (myController != null && myController.runtimeActionMap != null && grabAction != null && grabAction.action != null)
+        {
+            if (runtimeGrabAction != null) runtimeGrabAction.Disable();
+            
+            string originalName = grabAction.action.name;
+            string baseName = originalName.Substring(0, originalName.Length - 1);
+            runtimeGrabAction = myController.runtimeActionMap.FindAction(baseName + myController.actionSuffix);
+            
+            if (runtimeGrabAction != null)
             {
-                myController = GetComponentInParent<PlayerController>();
-            }
-
-            if (myController != null)
-            {
-                int pIndex = myController.playerIndex;
-                UnityEngine.InputSystem.InputDevice assignedDevice = DeviceAssigner.GetDeviceForPlayer(pIndex);
-                if (assignedDevice != null)
-                {
-                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(new UnityEngine.InputSystem.InputDevice[] { assignedDevice });
-                    if (grabAction.action.actionMap != null)
-                        grabAction.action.actionMap.devices = devices;
-                }
+                runtimeGrabAction.Enable();
             }
         }
     }
 
     void OnDisable()
     {
-        if (grabAction != null && grabAction.action != null)
-            grabAction.action.Disable();
+        if (runtimeGrabAction != null)
+            runtimeGrabAction.Disable();
     }
 
     private bool brokenGrab = false;
@@ -65,9 +68,9 @@ public class Pick : MonoBehaviour
     {
         if (sfxCooldownTimer > 0f) sfxCooldownTimer -= Time.deltaTime;
         
-        if (grabAction != null && grabAction.action != null)
+        if (runtimeGrabAction != null)
         {
-            if (grabAction.action.IsPressed() && !brokenGrab)
+            if (runtimeGrabAction.IsPressed() && !brokenGrab)
             {
                 if (RightHand) animator.SetBool("isRightHand", true);
                 else animator.SetBool("isLeftHand", true);
@@ -124,7 +127,7 @@ public class Pick : MonoBehaviour
 
                 ReleaseGrab();
 
-                if (!grabAction.action.IsPressed())
+                if (!runtimeGrabAction.IsPressed())
                 {
                     brokenGrab = false;
                     stealProgress = 0f;

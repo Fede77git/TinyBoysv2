@@ -28,6 +28,12 @@ public class PlayerController : MonoBehaviour
     
     public InputActionReference moveAction;
     public InputActionReference jumpAction;
+    
+    [HideInInspector] public InputActionMap runtimeActionMap;
+    [HideInInspector] public string actionSuffix;
+    
+    [HideInInspector] public InputAction runtimeMoveAction;
+    [HideInInspector] public InputAction runtimeJumpAction;
 
     public float minHeightLimit = -10f;
     public float maxHeightLimit = 50f;
@@ -41,42 +47,59 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        if (moveAction != null) moveAction.action.Enable();
-        
-        if (jumpAction != null)
-        {
-            jumpAction.action.Enable();
-            jumpAction.action.performed += Jump;
-        }
-
-        AssignGamepadToPlayer();
+        RefreshInputs();
     }
 
-    private void AssignGamepadToPlayer()
+    public void RefreshInputs()
     {
         UnityEngine.InputSystem.InputDevice assignedDevice = DeviceAssigner.GetDeviceForPlayer(playerIndex);
+        string scheme = DeviceAssigner.GetSchemeForPlayer(playerIndex);
         
-        if (assignedDevice != null)
+        if (assignedDevice != null && moveAction != null && moveAction.asset != null)
         {
-            var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(new UnityEngine.InputSystem.InputDevice[] { assignedDevice });
+            string mapName = scheme == "Keyboard1" ? "Player1" : (scheme == "Keyboard2" ? "Player2" : "Player3xsx");
+            actionSuffix = scheme == "Keyboard1" ? "1" : (scheme == "Keyboard2" ? "2" : "3");
             
-            if (moveAction != null && moveAction.action != null && moveAction.action.actionMap != null)
-                moveAction.action.actionMap.devices = devices;
-
-            if (jumpAction != null && jumpAction.action != null && jumpAction.action.actionMap != null)
-                jumpAction.action.actionMap.devices = devices;
+            InputActionMap originalMap = moveAction.asset.FindActionMap(mapName);
+            if (originalMap != null)
+            {
+                if (runtimeActionMap != null) runtimeActionMap.Disable();
+                if (runtimeJumpAction != null) runtimeJumpAction.performed -= Jump;
+                
+                runtimeActionMap = originalMap.Clone();
+                runtimeActionMap.devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(new UnityEngine.InputSystem.InputDevice[] { assignedDevice });
+                runtimeActionMap.Enable();
+                
+                runtimeMoveAction = runtimeActionMap.FindAction("Move" + actionSuffix);
+                runtimeJumpAction = runtimeActionMap.FindAction("Jump" + actionSuffix);
+                
+                if (runtimeMoveAction != null) runtimeMoveAction.Enable();
+                if (runtimeJumpAction != null)
+                {
+                    runtimeJumpAction.Enable();
+                    runtimeJumpAction.performed += Jump;
+                }
+            }
         }
+        
+        Pick[] picks = GetComponentsInChildren<Pick>(true);
+        foreach (var p in picks) p.RefreshInputs();
+        
+        PunchMechanic[] punches = GetComponentsInChildren<PunchMechanic>(true);
+        foreach (var p in punches) p.RefreshInputs();
     }
 
     void OnDisable()
     {
-        if (moveAction != null) moveAction.action.Disable();
+        if (runtimeMoveAction != null) runtimeMoveAction.Disable();
         
-        if (jumpAction != null)
+        if (runtimeJumpAction != null)
         {
-            jumpAction.action.Disable();
-            jumpAction.action.performed -= Jump;
+            runtimeJumpAction.Disable();
+            runtimeJumpAction.performed -= Jump;
         }
+        
+        if (runtimeActionMap != null) runtimeActionMap.Disable();
     }
 
     private Pick[] myPicks;
@@ -119,9 +142,9 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpCooldown > 0f) jumpCooldown -= Time.deltaTime;
 
-        if (moveAction != null && moveAction.action != null)
+        if (runtimeMoveAction != null)
         {
-            moveDirection = moveAction.action.ReadValue<Vector2>();
+            moveDirection = runtimeMoveAction.ReadValue<Vector2>();
         }
 
         if (animator != null)
