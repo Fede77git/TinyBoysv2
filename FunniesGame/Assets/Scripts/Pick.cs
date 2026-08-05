@@ -174,10 +174,12 @@ public class Pick : MonoBehaviour
             Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
             foreach (Renderer r in myRenderers)
             {
-                if (r.material.HasProperty("_OutlineEnabled"))
+                foreach (Material m in r.materials)
                 {
-                    r.material.SetFloat("_OutlineEnabled", 0f);
-                   
+                    if (m.HasProperty("_OutlineEnabled"))
+                    {
+                        m.SetFloat("_OutlineEnabled", 0f);
+                    }
                 }
             }
             PaintTube tube = grabbedRb.GetComponent<PaintTube>();
@@ -264,9 +266,12 @@ public class Pick : MonoBehaviour
         Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in myRenderers)
         {
-            if (r.material.HasProperty("_OutlineEnabled"))
+            foreach (Material m in r.materials)
             {
-                r.material.SetFloat("_OutlineEnabled", 1f);
+                if (m.HasProperty("_OutlineEnabled"))
+                {
+                    m.SetFloat("_OutlineEnabled", 1f);
+                }
             }
         }
        

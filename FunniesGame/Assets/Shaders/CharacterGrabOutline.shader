@@ -55,6 +55,9 @@ Shader "Custom/CharacterGrabOutline"
                 float effectiveEnabled = max(_OutlineEnabled, _GlobalBlackoutOutlineEnabled);
                 float thickness = _OutlineThickness * effectiveEnabled;
                 
+                // Boost thickness by 40% if grabbing, so it covers the cyan blackout outline
+                thickness += _OutlineEnabled * (_OutlineThickness * 0.4);
+                
                 float3 positionOS = input.positionOS.xyz + input.normalOS * thickness;
                 output.positionCS = TransformObjectToHClip(positionOS);
                 

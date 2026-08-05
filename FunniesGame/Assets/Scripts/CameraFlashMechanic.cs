@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LightTriggerForwarder : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class LightTriggerForwarder : MonoBehaviour
 
 public class CameraFlashMechanic : MonoBehaviour
 {
-    public enum RandomEvent { Normal, Blackout, CrazyLight, TripleLight, Earthquake }
+    public enum RandomEvent { Normal, Blackout, CrazyLight, TripleLight, ZeroGravity }
 
     public Light spotlight;
     public Color normalColor = Color.white;
@@ -52,6 +54,9 @@ public class CameraFlashMechanic : MonoBehaviour
     private AudioSource audioSource;
     private AudioSource chargeAudioSource;
 
+    public TextMeshProUGUI eventAnnouncementText;
+    public float announcementDuration = 2f;
+
     private Vector3 currentTargetPosition;
     private Dictionary<int, HashSet<GameObject>> playersPerLight = new Dictionary<int, HashSet<GameObject>>();
     private bool isFlashing = false;
@@ -64,7 +69,7 @@ public class CameraFlashMechanic : MonoBehaviour
     private float defaultSpotAngle;
     private Vector3 originalCameraLocalPos;
 
-    // Triple light event variables
+    
     private Light[] extraLights = new Light[2];
     private Transform[] extraTransforms = new Transform[2];
     private Vector3[] extraTargets = new Vector3[2];
@@ -265,28 +270,7 @@ public class CameraFlashMechanic : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        if (Camera.main != null)
-        {
-            Camera.main.transform.position -= lastCameraShakeOffset;
 
-            if (currentEvent == RandomEvent.Earthquake && !isFlashing)
-            {
-                float shakeForce = 0.5f;
-                lastCameraShakeOffset = new Vector3(
-                    (Mathf.PerlinNoise(Time.time * 30f, 0f) - 0.5f) * shakeForce,
-                    (Mathf.PerlinNoise(0f, Time.time * 30f) - 0.5f) * shakeForce,
-                    0f
-                );
-                Camera.main.transform.position += lastCameraShakeOffset;
-            }
-            else
-            {
-                lastCameraShakeOffset = Vector3.zero;
-            }
-        }
-    }
 
     private void OnTriggerEnter(Collider other) { HandleTriggerEnter(other, 0); }
     private void OnTriggerExit(Collider other) { HandleTriggerExit(other, 0); }
@@ -330,6 +314,11 @@ public class CameraFlashMechanic : MonoBehaviour
             }
         }
 
+        if (currentEvent == RandomEvent.ZeroGravity)
+        {
+            Physics.gravity = new Vector3(0, -25f, 0);
+        }
+
         currentEvent = RandomEvent.Normal;
         currentMoveSpeed = moveSpeed;
         targetSpotAngle = defaultSpotAngle;
@@ -347,11 +336,12 @@ public class CameraFlashMechanic : MonoBehaviour
         int randomEv;
         do
         {
-            randomEv = Random.Range(0, 5); 
+            randomEv = Random.Range(1, 5); 
         } 
         while (hasFlashedOnce && (RandomEvent)randomEv == previousEvent);
 
         previousEvent = (RandomEvent)randomEv;
+        string eventName = "";
 
         switch (randomEv)
         {
@@ -360,6 +350,7 @@ public class CameraFlashMechanic : MonoBehaviour
                 break;
             case 1:
                 currentEvent = RandomEvent.Blackout;
+                eventName = "Blackout!";
                 if (mainLevelLight != null)
                 {
                     mainLevelLight.enabled = false;
@@ -369,10 +360,12 @@ public class CameraFlashMechanic : MonoBehaviour
                 break;
             case 2:
                 currentEvent = RandomEvent.CrazyLight;
+                eventName = "Crazy Lights!";
                 PickNewRandomTarget(0);
                 break;
             case 3:
                 currentEvent = RandomEvent.TripleLight;
+                eventName = "Triple Light!";
                 for (int i = 0; i < 2; i++)
                 {
                     if (extraTransforms[i] != null)
@@ -385,9 +378,24 @@ public class CameraFlashMechanic : MonoBehaviour
                 }
                 break;
             case 4:
-                currentEvent = RandomEvent.Earthquake;
+                currentEvent = RandomEvent.ZeroGravity;
+                eventName = "Zero Gravity!";
+                Physics.gravity = new Vector3(0, -1.5f, 0);
                 break;
         }
+
+        if (eventAnnouncementText != null && !string.IsNullOrEmpty(eventName))
+        {
+            StartCoroutine(ShowEventAnnouncement(eventName));
+        }
+    }
+
+    private IEnumerator ShowEventAnnouncement(string text)
+    {
+        eventAnnouncementText.text = text;
+        eventAnnouncementText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(announcementDuration);
+        eventAnnouncementText.gameObject.SetActive(false);
     }
 
     private IEnumerator FlashCycleRoutine()
@@ -595,11 +603,22 @@ public class CameraFlashMechanic : MonoBehaviour
                 }
             }
 
+            Pick pick = player.GetComponentInChildren<Pick>();
+            bool isGrabbing = (pick != null && pick.grabbedRb != null);
+
             foreach (Renderer rend in renderers)
             {
                 if (rend != null && originalMaterials.ContainsKey(rend))
                 {
-                    rend.materials = originalMaterials[rend];
+                    Material[] restoredMats = originalMaterials[rend];
+                    foreach (Material m in restoredMats)
+                    {
+                        if (m.HasProperty("_OutlineEnabled"))
+                        {
+                            m.SetFloat("_OutlineEnabled", isGrabbing ? 1f : 0f);
+                        }
+                    }
+                    rend.materials = restoredMats;
                 }
             }
         }
