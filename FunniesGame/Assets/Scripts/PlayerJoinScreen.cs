@@ -23,6 +23,10 @@ public class PlayerJoinScreen : MonoBehaviour
 
     void OnEnable()
     {
+        if (GlobalGameManager.Instance != null && GlobalGameManager.Instance.volviendoDeNivel)
+        {
+            return;
+        }
        
         DeviceAssigner.PlayerDevices.Clear();
         currentPlayerIndex = 0;

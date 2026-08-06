@@ -108,12 +108,33 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        if (GameIsPaused && settingsMenuUI != null && settingsMenuUI.activeSelf)
+        if (GameIsPaused)
         {
             if (UnityEngine.EventSystems.EventSystem.current != null)
             {
                 GameObject selected = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-                if (selected != null)
+                
+                bool southPressed = false;
+                bool eastPressed = false;
+
+                foreach (var gamepad in UnityEngine.InputSystem.Gamepad.all)
+                {
+                    if (gamepad.buttonSouth.wasPressedThisFrame) southPressed = true;
+                    if (gamepad.buttonEast.wasPressedThisFrame) eastPressed = true;
+                }
+
+                if (eastPressed)
+                {
+                    if (settingsMenuUI != null && settingsMenuUI.activeSelf) CloseSettings();
+                    else Resume();
+                }
+                else if (southPressed && selected != null)
+                {
+                    UnityEngine.UI.Button btn = selected.GetComponent<UnityEngine.UI.Button>();
+                    if (btn != null) btn.onClick.Invoke();
+                }
+
+                if (settingsMenuUI != null && settingsMenuUI.activeSelf && selected != null)
                 {
                     UnityEngine.UI.Slider slider = selected.GetComponent<UnityEngine.UI.Slider>();
                     if (slider != null)

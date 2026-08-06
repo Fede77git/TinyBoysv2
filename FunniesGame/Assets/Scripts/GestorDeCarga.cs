@@ -89,11 +89,6 @@ public class GestorDeCarga : MonoBehaviour
         }
 
         botonReady.SetActive(true);
-        if (UnityEngine.EventSystems.EventSystem.current != null)
-        {
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(botonReady);
-        }
     }
 
     public void Play()
@@ -111,5 +106,32 @@ public class GestorDeCarga : MonoBehaviour
             GlobalGameManager.Instance.volviendoDeNivel = true;
         }
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void Update()
+    {
+        bool readyPressed = Input.GetKeyDown(KeyCode.Return);
+        bool backPressed = Input.GetKeyDown(KeyCode.Escape);
+
+        if (UnityEngine.InputSystem.Gamepad.current != null)
+        {
+            if (UnityEngine.InputSystem.Gamepad.current.buttonSouth.wasPressedThisFrame) readyPressed = true;
+            if (UnityEngine.InputSystem.Gamepad.current.buttonEast.wasPressedThisFrame) backPressed = true;
+        }
+        else
+        {
+            if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1")) readyPressed = true;
+            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2")) backPressed = true;
+        }
+
+        if (botonReady != null && botonReady.activeInHierarchy)
+        {
+            if (readyPressed) Play();
+        }
+
+        if (botonBack != null && botonBack.activeInHierarchy)
+        {
+            if (backPressed) BackToMenu();
+        }
     }
 }
