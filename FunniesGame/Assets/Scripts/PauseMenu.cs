@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenuUI;
     
     private float lastSliderNavTime = 0f;
+    private float lastTransitionTime = 0f;
 
     void Awake()
     {
@@ -190,6 +191,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        if (Time.unscaledTime - lastTransitionTime < 0.2f) return;
+        lastTransitionTime = Time.unscaledTime;
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(true);
         SetFocus(settingsMenuUI);
@@ -197,6 +200,8 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseSettings()
     {
+        if (Time.unscaledTime - lastTransitionTime < 0.2f) return;
+        lastTransitionTime = Time.unscaledTime;
         settingsMenuUI.SetActive(false);
         pauseMenuUI.SetActive(true);
         SetFocus(pauseMenuUI);

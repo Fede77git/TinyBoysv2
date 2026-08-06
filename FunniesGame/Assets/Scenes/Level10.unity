@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: f3c481c3959bf0b4db2717f97fc040ed,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1862,7 +1862,6 @@ GameObject:
   - component: {fileID: 422046421}
   - component: {fileID: 422046423}
   - component: {fileID: 422046422}
-  - component: {fileID: 422046424}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -1926,19 +1925,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422046420}
   m_CullTransparentMesh: 0
---- !u!114 &422046424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422046420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplicadorTamano: 1.1
 --- !u!1 &440312631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493254971}
   - component: {fileID: 493254972}
+  - component: {fileID: 493254973}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -2175,6 +2162,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &493254973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493254970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &511044999
 GameObject:
   m_ObjectHideFlags: 0

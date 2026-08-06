@@ -2083,6 +2083,8 @@ MonoBehaviour:
     musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
   - sceneName: Level10
     musicClip: {fileID: 8300000, guid: 55a1cc7f436529843b083b22f6ed0c6c, type: 3}
+  - sceneName: Scene_Loading
+    musicClip: {fileID: 8300000, guid: 01f24061940d7a74e9c375668f4e7263, type: 3}
 --- !u!82 &550293727
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3887,6 +3889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904556634}
   - component: {fileID: 904556635}
+  - component: {fileID: 904556636}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -3973,6 +3976,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &904556636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904556633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &931788994
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,7 +4881,6 @@ GameObject:
   - component: {fileID: 1160234049}
   - component: {fileID: 1160234051}
   - component: {fileID: 1160234050}
-  - component: {fileID: 1160234052}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -4929,19 +4944,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160234048}
   m_CullTransparentMesh: 0
---- !u!114 &1160234052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160234048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplicadorTamano: 1.1
 --- !u!1 &1171322212
 GameObject:
   m_ObjectHideFlags: 0
