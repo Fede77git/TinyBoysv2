@@ -9033,9 +9033,9 @@ MonoBehaviour:
   spawnVfxPrefab: {fileID: 8915500580573861359, guid: 9d11447644b0e0842a7edb034fe1ac72,
     type: 3}
   initialDelay: 2
-  spawnInterval: 10
+  spawnInterval: 5
   spawnAreaSize: {x: 31.2, y: 0, z: 50.7}
-  maxInstances: 5
+  maxInstances: 4
 --- !u!4 &234680453
 Transform:
   m_ObjectHideFlags: 0

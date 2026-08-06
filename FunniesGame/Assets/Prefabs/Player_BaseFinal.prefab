@@ -380,6 +380,31 @@ MonoBehaviour:
     type: 3}
   jumpAction: {fileID: 4727420486054344021, guid: 28da59d7db41ca14f85d6942af25fa6a,
     type: 3}
+  runtimeActionMap:
+    m_Name: 
+    m_Id: 
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  actionSuffix: 
+  runtimeMoveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  runtimeJumpAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   minHeightLimit: -1
   maxHeightLimit: 50
   maxFallSpeed: -10
@@ -542,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763c40d3dfb879140a9088f4ea12f2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 2
+  stunDuration: 2.5
   punchSound: {fileID: 8300000, guid: 016a1ea561d0d5046900d1d044c22e5a, type: 3}
   punchVolume: 0.8
   stunSound: {fileID: 8300000, guid: 93d6972005456d74a9eae27a218db082, type: 3}
