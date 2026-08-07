@@ -7,6 +7,7 @@ public class GestorDeCarga : MonoBehaviour
 {
     public Slider barraCarga;
     public GameObject botonReady;
+    public GameObject botonBack;
     public float tiempoDeCarga = 10f;
 
     public Text txtTitulo;
@@ -19,6 +20,18 @@ public class GestorDeCarga : MonoBehaviour
     private void Start()
     {
         botonReady.SetActive(false);
+        if (botonBack != null)
+        {
+            if (GlobalGameManager.Instance != null && GlobalGameManager.Instance.modoSeleccionado == ModoDeJuego.SelectorNivel)
+            {
+                botonBack.SetActive(true);
+            }
+            else
+            {
+                botonBack.SetActive(false);
+            }
+        }
+
         if (barraCarga != null)
         {
             barraCarga.value = 0;
@@ -76,11 +89,6 @@ public class GestorDeCarga : MonoBehaviour
         }
 
         botonReady.SetActive(true);
-        if (UnityEngine.EventSystems.EventSystem.current != null)
-        {
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(botonReady);
-        }
     }
 
     public void Play()
@@ -88,6 +96,42 @@ public class GestorDeCarga : MonoBehaviour
         if (operacionCarga != null)
         {
             operacionCarga.allowSceneActivation = true;
+        }
+    }
+
+    public void BackToMenu()
+    {
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.volviendoDeNivel = true;
+        }
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private void Update()
+    {
+        bool readyPressed = Input.GetKeyDown(KeyCode.Return);
+        bool backPressed = Input.GetKeyDown(KeyCode.Escape);
+
+        if (UnityEngine.InputSystem.Gamepad.current != null)
+        {
+            if (UnityEngine.InputSystem.Gamepad.current.buttonSouth.wasPressedThisFrame) readyPressed = true;
+            if (UnityEngine.InputSystem.Gamepad.current.buttonEast.wasPressedThisFrame) backPressed = true;
+        }
+        else
+        {
+            if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1")) readyPressed = true;
+            if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2")) backPressed = true;
+        }
+
+        if (botonReady != null && botonReady.activeInHierarchy)
+        {
+            if (readyPressed) Play();
+        }
+
+        if (botonBack != null && botonBack.activeInHierarchy)
+        {
+            if (backPressed) BackToMenu();
         }
     }
 }

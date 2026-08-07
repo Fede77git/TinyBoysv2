@@ -18,7 +18,7 @@ public class CapsuleGoal : MonoBehaviour
             if (goalSound != null) goalSound.Play();
             if (goalVFX != null) goalVFX.Play();
 
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class DeviceAssigner : MonoBehaviour
+{
+    private static DeviceAssigner instance;
+    public static Dictionary<int, InputDevice> PlayerDevices = new Dictionary<int, InputDevice>();
+    public static Dictionary<int, string> PlayerSchemes = new Dictionary<int, string>();
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public static InputDevice GetDeviceForPlayer(int playerIndex)
+    {
+        if (PlayerDevices.ContainsKey(playerIndex))
+        {
+            return PlayerDevices[playerIndex];
+        }
+
+        if (playerIndex >= 2)
+        {
+            int gamepadIndex = playerIndex - 2;
+            if (Gamepad.all.Count > gamepadIndex)
+            {
+                return Gamepad.all[gamepadIndex];
+            }
+        }
+        else
+        {
+            if (Keyboard.current != null)
+            {
+                return Keyboard.current;
+            }
+        }
+
+        return null;
+    }
+
+    public static string GetSchemeForPlayer(int playerIndex)
+    {
+        if (PlayerSchemes.ContainsKey(playerIndex))
+        {
+            return PlayerSchemes[playerIndex];
+        }
+
+        return playerIndex >= 2 ? "Gamepad" : (playerIndex == 0 ? "Keyboard1" : "Keyboard2");
+    }
+}

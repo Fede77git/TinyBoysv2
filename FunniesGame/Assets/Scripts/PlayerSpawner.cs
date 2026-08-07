@@ -69,6 +69,7 @@ public class PlayerSpawner : MonoBehaviour
                 if (pc != null)
                 {
                     pc.playerIndex = i;
+                    pc.RefreshInputs();
                 }
             }
         }

@@ -30,6 +30,8 @@ public class PaintTube : MonoBehaviour
         {
             brushCollider.enabled = false;
         }
+        
+        transform.rotation = Quaternion.Euler(45f, Random.Range(0f, 360f), 0f);
     }
 
     public void OnGrabbed(int newPlayerID, Color newColor)

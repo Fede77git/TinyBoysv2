@@ -16,4 +16,5 @@ MonoBehaviour:
   escenaNombre: Level10
   fotoNivel: {fileID: 21300000, guid: 634851680f9834e449c769fbfe9de3e6, type: 3}
   descripcionNivel: Fight to stand alone under the spotlight to charge your meter,
-    but run away when it turns red or the flash will freeze you!
+    but run away when it turns red or the flash will freeze you! Watch out for random
+    chaotic events after every flash!

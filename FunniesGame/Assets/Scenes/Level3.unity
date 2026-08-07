@@ -19492,6 +19492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 628823387}
   - component: {fileID: 628823388}
+  - component: {fileID: 628823389}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -19578,6 +19579,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &628823389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628823386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplicadorTamano: 1.1
 --- !u!1 &660697202
 GameObject:
   m_ObjectHideFlags: 0
@@ -22387,7 +22401,6 @@ GameObject:
   - component: {fileID: 1664356463}
   - component: {fileID: 1664356465}
   - component: {fileID: 1664356464}
-  - component: {fileID: 1664356466}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -22451,19 +22464,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664356462}
   m_CullTransparentMesh: 0
---- !u!114 &1664356466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664356462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75dbbd1c29f52f6478fca28afdea8646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplicadorTamano: 1.1
 --- !u!1 &1666671981
 GameObject:
   m_ObjectHideFlags: 0

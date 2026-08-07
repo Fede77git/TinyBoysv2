@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PunchMechanic : MonoBehaviour
 {
     public InputActionReference punchAction;
+    private UnityEngine.InputSystem.InputAction runtimePunchAction;
     public Rigidbody[] punchRigidbodies;
     public float punchForce = 15f;
     public Animator animator;
@@ -14,40 +15,35 @@ public class PunchMechanic : MonoBehaviour
 
     void OnEnable()
     {
-        if (punchAction != null && punchAction.action != null)
-        {
-            punchAction.action.Enable();
+        RefreshInputs();
+    }
 
-            PlayerController myController = GetComponentInParent<PlayerController>();
-            if (myController != null)
+    public void RefreshInputs()
+    {
+        PlayerController myController = GetComponentInParent<PlayerController>();
+        if (myController != null && myController.runtimeActionMap != null && punchAction != null && punchAction.action != null)
+        {
+            if (runtimePunchAction != null) runtimePunchAction.Disable();
+            
+            string originalName = punchAction.action.name;
+            string baseName = originalName.Substring(0, originalName.Length - 1);
+            runtimePunchAction = myController.runtimeActionMap.FindAction(baseName + myController.actionSuffix);
+            
+            if (runtimePunchAction != null)
             {
-                int pIndex = myController.playerIndex;
-                if (pIndex >= 2)
-                {
-                    int gamepadIndex = pIndex - 2;
-                    UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
-                    if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
-                    {
-                        deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
-                    }
-                    
-                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
-                    
-                    if (punchAction.action.actionMap != null)
-                        punchAction.action.actionMap.devices = devices;
-                }
+                runtimePunchAction.Enable();
             }
         }
     }
 
     void OnDisable()
     {
-        if (punchAction != null) punchAction.action.Disable();
+        if (runtimePunchAction != null) runtimePunchAction.Disable();
     }
 
     void Update()
     {
-        if (punchAction != null && punchAction.action.WasPressedThisFrame())
+        if (runtimePunchAction != null && runtimePunchAction.WasPressedThisFrame())
         {
             if (Time.time >= lastPunchTime + punchCooldown)
             {

@@ -69,7 +69,17 @@ public class GameManager : MonoBehaviour
 
         if (gameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
+            bool skipPressed = Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7") || Input.GetKeyDown("joystick button 9");
+            if (UnityEngine.InputSystem.Gamepad.current != null)
+            {
+                if (UnityEngine.InputSystem.Gamepad.current.startButton.wasPressedThisFrame ||
+                    UnityEngine.InputSystem.Gamepad.current.selectButton.wasPressedThisFrame)
+                {
+                    skipPressed = true;
+                }
+            }
+
+            if (skipPressed)
             {
                 ProceedToNext();
                 return;

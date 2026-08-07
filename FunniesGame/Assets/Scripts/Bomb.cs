@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -34,8 +34,8 @@ public class Bomb : MonoBehaviour
             {
                 rb.AddExplosionForce(power, explosionP, radius, force, ForceMode.Impulse);
             }
-            
-
         }
+        
+        Destroy(gameObject);
     }
 }

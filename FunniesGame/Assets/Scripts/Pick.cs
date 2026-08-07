@@ -11,45 +11,48 @@ public class Pick : MonoBehaviour
     private bool hold;
     public Rigidbody grabbedRb { get; private set; }
     public UnityEngine.InputSystem.InputActionReference grabAction;
+    private UnityEngine.InputSystem.InputAction runtimeGrabAction;
     public Animator animator;
     public bool RightHand;
 
+    public AudioClip grabSfx;
+    [Range(0f, 1f)] public float grabSfxVolume = 1f;
+    private float minPitch = 0.8f;
+    private float maxPitch = 1.1f;
+    private AudioSource audioSource;
+    private float sfxCooldownTimer = 0f;
+
     void OnEnable()
     {
-        if (grabAction != null && grabAction.action != null)
+        RefreshInputs();
+    }
+
+    public void RefreshInputs()
+    {
+        if (myController == null)
         {
-            grabAction.action.Enable();
+            myController = GetComponentInParent<PlayerController>();
+        }
 
-            if (myController == null)
+        if (myController != null && myController.runtimeActionMap != null && grabAction != null && grabAction.action != null)
+        {
+            if (runtimeGrabAction != null) runtimeGrabAction.Disable();
+            
+            string originalName = grabAction.action.name;
+            string baseName = originalName.Substring(0, originalName.Length - 1);
+            runtimeGrabAction = myController.runtimeActionMap.FindAction(baseName + myController.actionSuffix);
+            
+            if (runtimeGrabAction != null)
             {
-                myController = GetComponentInParent<PlayerController>();
-            }
-
-            if (myController != null)
-            {
-                int pIndex = myController.playerIndex;
-                if (pIndex >= 2)
-                {
-                    int gamepadIndex = pIndex - 2;
-                    UnityEngine.InputSystem.InputDevice[] deviceArray = new UnityEngine.InputSystem.InputDevice[0];
-                    if (UnityEngine.InputSystem.Gamepad.all.Count > gamepadIndex)
-                    {
-                        deviceArray = new UnityEngine.InputSystem.InputDevice[] { UnityEngine.InputSystem.Gamepad.all[gamepadIndex] };
-                    }
-                    
-                    var devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<UnityEngine.InputSystem.InputDevice>(deviceArray);
-                    
-                    if (grabAction.action.actionMap != null)
-                        grabAction.action.actionMap.devices = devices;
-                }
+                runtimeGrabAction.Enable();
             }
         }
     }
 
     void OnDisable()
     {
-        if (grabAction != null && grabAction.action != null)
-            grabAction.action.Disable();
+        if (runtimeGrabAction != null)
+            runtimeGrabAction.Disable();
     }
 
     private bool brokenGrab = false;
@@ -63,9 +66,11 @@ public class Pick : MonoBehaviour
 
     void Update()
     {
-        if (grabAction != null && grabAction.action != null)
+        if (sfxCooldownTimer > 0f) sfxCooldownTimer -= Time.deltaTime;
+        
+        if (runtimeGrabAction != null)
         {
-            if (grabAction.action.IsPressed() && !brokenGrab)
+            if (runtimeGrabAction.IsPressed() && !brokenGrab)
             {
                 if (RightHand) animator.SetBool("isRightHand", true);
                 else animator.SetBool("isLeftHand", true);
@@ -122,7 +127,7 @@ public class Pick : MonoBehaviour
 
                 ReleaseGrab();
 
-                if (!grabAction.action.IsPressed())
+                if (!runtimeGrabAction.IsPressed())
                 {
                     brokenGrab = false;
                     stealProgress = 0f;
@@ -162,8 +167,22 @@ public class Pick : MonoBehaviour
 
         if (grabbedRb != null)
         {
+            Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in myRenderers)
+            {
+                foreach (Material m in r.materials)
+                {
+                    if (m.HasProperty("_OutlineEnabled"))
+                    {
+                        m.SetFloat("_OutlineEnabled", 0f);
+                    }
+                }
+            }
             PaintTube tube = grabbedRb.GetComponent<PaintTube>();
             if (tube != null) tube.OnDropped();
+            
+            Eraser eraser = grabbedRb.GetComponent<Eraser>();
+            if (eraser != null) eraser.OnDropped();
         }
 
         hold = false;
@@ -177,6 +196,7 @@ public class Pick : MonoBehaviour
     void Start()
     {
         myController = GetComponentInParent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionStay(Collision col)
@@ -218,19 +238,67 @@ public class Pick : MonoBehaviour
 
     private void DoGrab(Rigidbody rb)
     {
+        if (rb.GetComponentInParent<PlayerController>() == null && rb.GetComponent<Eraser>() == null)
+        {
+            float maxGrabDistance = 0.8f; 
+            Vector3 offset = rb.transform.position - transform.position;
+            if (offset.magnitude > maxGrabDistance)
+            {
+                rb.transform.position = transform.position + offset.normalized * maxGrabDistance;
+            }
+        }
+        
         FixedJoint fj = gameObject.AddComponent<FixedJoint>();
         fj.connectedBody = rb;
         grabbedRb = rb;
 
+        if (grabSfx != null && audioSource != null && sfxCooldownTimer <= 0f)
+        {
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.PlayOneShot(grabSfx, grabSfxVolume);
+            sfxCooldownTimer = 0.5f;
+        }
+
+        Renderer[] myRenderers = myController.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in myRenderers)
+        {
+            foreach (Material m in r.materials)
+            {
+                if (m.HasProperty("_OutlineEnabled"))
+                {
+                    m.SetFloat("_OutlineEnabled", 1f);
+                }
+            }
+        }
+       
+
         PaintTube tube = rb.GetComponent<PaintTube>();
+        Eraser eraser = rb.GetComponent<Eraser>();
+        
         if (tube != null)
         {
             fj.breakForce = Mathf.Infinity;
             fj.breakTorque = Mathf.Infinity;
-
-            Renderer myRenderer = myController.GetComponentInChildren<Renderer>();
-            Color myColor = myRenderer != null ? myRenderer.material.color : Color.white;
+            
+            Color myColor = Color.white;
+            if (myRenderers.Length > 0)
+            {
+                if (myRenderers[0].material.HasProperty("_Color")) myColor = myRenderers[0].material.color;
+                else if (myRenderers[0].material.HasProperty("_BaseColor")) myColor = myRenderers[0].material.GetColor("_BaseColor");
+            }
             tube.OnGrabbed(myController.playerIndex, myColor);
+        }
+        else if (eraser != null)
+        {
+            fj.breakForce = Mathf.Infinity;
+            fj.breakTorque = Mathf.Infinity;
+            
+            eraser.OnGrabbed();
+        }
+        else if (rb.tag == "egg") 
+        {
+            fj.breakForce = Mathf.Infinity;
+            fj.breakTorque = Mathf.Infinity;
         }
         else
         {
@@ -247,7 +315,9 @@ public class Pick : MonoBehaviour
 
         if (tube == null)
         {
-            grabbedRenderer = rb.GetComponentInChildren<Renderer>();
+            Renderer[] renderers = rb.GetComponentsInChildren<Renderer>();
+            if (renderers.Length > 0) grabbedRenderer = renderers[0];
+            
             if (grabbedRenderer != null && UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level8")
             {
                 grabbedMaterial = grabbedRenderer.material;
