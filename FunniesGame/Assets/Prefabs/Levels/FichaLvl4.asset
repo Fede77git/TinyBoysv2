@@ -15,5 +15,4 @@ MonoBehaviour:
   nombreNivel: Slap Shot
   escenaNombre: Level4
   fotoNivel: {fileID: 21300000, guid: c9b2316d8f05b6b43bc00b4723bfcf20, type: 3}
-  descripcionNivel: Score 5 capsules in the enemy goal on a slippery ice floor by
-    carrying them or punching them at high speed!
+  descripcionNivel: Ice hockey. Score 5 capsules by punching or carrying them!

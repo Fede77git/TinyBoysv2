@@ -15,5 +15,4 @@ MonoBehaviour:
   nombreNivel: Rush Hour
   escenaNombre: Level6
   fotoNivel: {fileID: 21300000, guid: 2a0a78fad0467d64dae9fb8dea17c6ab, type: 3}
-  descripcionNivel: Fast cars speed out of the garages randomly, dodge them or push
-    your rivals into the traffic to send them flying!
+  descripcionNivel: Traffic hazard. Dodge fast cars or push rivals into them!

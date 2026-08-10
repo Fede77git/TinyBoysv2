@@ -627,5 +627,6 @@ public class CameraFlashMechanic : MonoBehaviour
     private void OnDestroy()
     {
         Shader.SetGlobalFloat("_GlobalBlackoutOutlineEnabled", 0f);
+        Physics.gravity = new Vector3(0, -25f, 0);
     }
 }

@@ -15,5 +15,4 @@ MonoBehaviour:
   nombreNivel: Color Clash
   escenaNombre: Level9
   fotoNivel: {fileID: 21300000, guid: 1ecd19557d7e8914fba5e782133a5904, type: 3}
-  descripcionNivel: Paint the most tiles with your color using limited paint tubes,
-    and punch your rivals to steal theirs!
+  descripcionNivel: Paint the floor. Punch rivals to steal their paint tubes!

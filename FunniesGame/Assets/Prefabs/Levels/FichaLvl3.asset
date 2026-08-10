@@ -15,5 +15,4 @@ MonoBehaviour:
   nombreNivel: Laser Ring
   escenaNombre: Level3
   fotoNivel: {fileID: 21300000, guid: 48fb4a136d8782c418d1c0d664d6f03b, type: 3}
-  descripcionNivel: Jump over the rotating lasers to survive, and grab your rivals
-    right when they jump to ruin their day!
+  descripcionNivel: Jump over the lasers. Grab rivals mid-air to ruin their jump!
